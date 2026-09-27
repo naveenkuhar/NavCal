@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Download — Navcal</title>
+  <meta name="description" content="Download Navcal 0.6.0 for Linux as a Flatpak, build it yourself, and see what’s new.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fafafb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#222226" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Download Navcal">
+  <meta property="og:description" content="A calendar for GNOME. Free, for any Linux with Flatpak.">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Before anything is drawn: the style picked on this site, and a flag for the scripted parts.
+    (() => {
+      const root = document.documentElement;
+      root.classList.add("js");
+      let theme = null;
+      try { theme = localStorage.getItem("theme"); } catch {}
+      if (theme === "light" || theme === "dark") root.dataset.theme = theme;
+      root.dataset.shownTheme = root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    })();
+  </script>
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <svg class="sprite" aria-hidden="true">
+    <!-- icons, used as <svg><use href="#name"/></svg> -->
+    <symbol id="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+    </symbol>
+    <symbol id="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+      <path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a7 7 0 0 0 10.7 10.7z"/>
+    </symbol>
+    <symbol id="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M4 6h16M4 12h16M4 18h16"/>
+    </symbol>
+    <symbol id="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6L6 18"/>
+    </symbol>
+    <symbol id="copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+      <rect x="8" y="8" width="12" height="12" rx="2"/>
+      <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>
+    </symbol>
+    <symbol id="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12.5l4.5 4.5L19 7.5"/>
+    </symbol>
+    <symbol id="clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 7v5l3 2"/>
+    </symbol>
+    <symbol id="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+      <path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/>
+      <circle cx="12" cy="9.5" r="2.5"/>
+    </symbol>
+    <symbol id="repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 2l3 3-3 3"/>
+      <path d="M4 11V9a4 4 0 0 1 4-4h12"/>
+      <path d="M7 22l-3-3 3-3"/>
+      <path d="M20 13v2a4 4 0 0 1-4 4H4"/>
+    </symbol>
+    <symbol id="download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>
+    </symbol>
+    <symbol id="book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+      <path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/>
+      <path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/>
+    </symbol>
+    <symbol id="code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/>
+    </symbol>
+    <symbol id="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M13 6l6 6-6 6"/>
+    </symbol>
+    <symbol id="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 9l6 6 6-6"/>
+    </symbol>
+    <symbol id="info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 11v6M12 7.5v.5"/>
+    </symbol>
+    <symbol id="warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10.3 4.2L2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 4.2a2 2 0 0 0-3.4 0z"/>
+      <path d="M12 10v4M12 17.5v.5"/>
+    </symbol>
+    <symbol id="search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="10.5" cy="10.5" r="6.5"/>
+      <path d="M15.5 15.5L20 20"/>
+    </symbol>
+  </svg>
+
+  <header class="topbar">
+    <nav class="wrap nav" aria-label="Main">
+      <a class="brand" href="./"><img src="icon.svg" alt="" width="28" height="28"> Navcal</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="./#features">Features</a></li>
+        <li><a href="guide.html">Guide</a></li>
+        <li><a href="download.html" aria-current="page">Download</a></li>
+        <li hidden data-repo-only><a data-repo-link href="#">Source Code</a></li>
+      </ul>
+      <button class="icon-button theme-toggle" type="button" aria-label="Use dark style" title="Use dark style">
+        <svg class="icon sun" aria-hidden="true"><use href="#sun"/></svg>
+        <svg class="icon moon" aria-hidden="true"><use href="#moon"/></svg>
+      </button>
+      <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu" hidden>
+        <svg class="icon" aria-hidden="true"><use href="#menu"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <header class="page-head">
+      <div class="wrap narrow">
+        <span class="eyebrow">Version 0.6.0</span>
+        <h1>Download Navcal</h1>
+        <p>For any Linux distribution with Flatpak. Navcal is free, and always will be.</p>
+        <div class="actions left" hidden data-repo-only>
+          <a class="button primary" data-repo-link data-repo-path="/releases/latest" href="#"><svg class="icon" aria-hidden="true"><use href="#download"/></svg> Download the Flatpak</a>
+          <a class="button" data-repo-link href="#"><svg class="icon" aria-hidden="true"><use href="#code"/></svg> Source Code</a>
+        </div>
+        <ul class="requirements">
+          <li><b>Linux with Flatpak</b><span>Included with most distributions that come with GNOME.</span></li>
+          <li><b>GNOME’s calendar service</b><span>Comes with GNOME; it keeps your calendars in sync.</span></li>
+          <li><b>About 2 MB</b><span>Plus GNOME’s runtime, which comes from Flathub by itself.</span></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="wrap narrow dl-main">
+      <section class="dl-section" id="install" aria-labelledby="install-title">
+        <h2 id="install-title">Install</h2>
+        <p class="intro">It takes a minute. The first time, Flatpak also downloads GNOME’s runtime, which other GNOME apps share.</p>
+        <ol class="steps">
+          <li>
+            <div>
+              <h3>Download the file</h3>
+              <p>Get <code>navcal-0.6.0.flatpak</code><span hidden data-repo-only> from the <a data-repo-link data-repo-path="/releases/latest" href="#">latest release</a></span>.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Install it</h3>
+              <p>Open the file with Software, or run this in a terminal from the folder you saved it to:</p>
+              <pre><code>flatpak install --user navcal-0.6.0.flatpak</code></pre>
+              <p>If Flatpak asks to add Flathub for the runtime, say yes.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Open Navcal</h3>
+              <p>Find Navcal among your apps, or run:</p>
+              <pre><code>flatpak run io.github.navcal.Navcal</code></pre>
+              <p>New here? The <a href="guide.html#getting-started">User Guide</a> shows you around.</p>
+            </div>
+          </li>
+        </ol>
+        <div class="callout">
+          <svg class="icon" aria-hidden="true"><use href="#info"/></svg>
+          <p>No Flatpak yet? Flathub has <a href="https://flathub.org/setup">instructions for every distribution</a>.</p>
+        </div>
+
+        <h3 id="update">Update</h3>
+        <p>Download the new file and install it the same way. Your events and settings stay as they are.</p>
+
+        <h3 id="uninstall">Uninstall</h3>
+        <pre><code>flatpak uninstall io.github.navcal.Navcal</code></pre>
+        <p>Add <code>--delete-data</code> to remove Navcal’s settings too. Your events stay in your calendars either way.</p>
+      </section>
+
+      <section class="dl-section" id="build" aria-labelledby="build-title">
+        <h2 id="build-title">Build It Yourself</h2>
+        <p class="intro">Navcal is free software: you can read, change and share its code under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL</a>, version 3 or later.</p>
+        <h3 id="build-flatpak">As a Flatpak</h3>
+        <p>You’ll need the Flatpak builder and the GNOME SDK, a one-time download of about 1 GB. The build script installs Navcal for you and makes a <code>.flatpak</code> file to share.</p>
+        <pre><code><span hidden data-repo-only>git clone <span data-repo-url></span>.git navcal
+cd navcal
+</span>flatpak install --user flathub org.flatpak.Builder org.gnome.Sdk//50
+tools/build-flatpak.sh</code></pre>
+
+        <h3 id="run-from-source">From the source folder</h3>
+        <p>To work on Navcal, run it straight from the source with <a href="https://docs.astral.sh/uv/">uv</a>. It uses your system’s GTK, so install that first (these are the Fedora names; all of them come with Fedora Workstation):</p>
+        <pre><code>sudo dnf install python3-gobject gtk4 libadwaita evolution-data-server
+uv venv --python /usr/bin/python3 --system-site-packages .venv
+uv sync
+uv run navcal</code></pre>
+        <p>The tests run with <code>uv run pytest</code>. The <code>CONTRIBUTING.md</code> file in the source explains how to test and change Navcal, and the design rules it follows.</p>
+
+        <h3 id="packagers">For distributions</h3>
+        <p>Navcal builds and installs with Meson:</p>
+        <pre><code>meson setup build
+meson install -C build</code></pre>
+      </section>
+
+      <section class="dl-section" id="troubleshooting" aria-labelledby="trouble-title">
+        <h2 id="trouble-title">If Something’s Not Right</h2>
+        <div class="faq">
+          <details>
+            <summary>Flatpak says the runtime wasn’t found <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+            <div>
+              <p>Add Flathub, where GNOME’s runtime comes from, then install Navcal again:</p>
+              <pre><code>flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo</code></pre>
+            </div>
+          </details>
+          <details>
+            <summary>My calendars don’t show up <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+            <div><p>Navcal shows the calendars of GNOME’s calendar service (evolution-data-server), which comes with GNOME. Add your accounts in <b>Settings → Online Accounts</b>, and check that the calendars are switched on in <b>Preferences → Calendars</b>.</p></div>
+          </details>
+          <details>
+            <summary>Reminders don’t come when Navcal is closed <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+            <div><p>Turn on <b>Run in background</b> and <b>Start at login</b> in Preferences. Closing the window then keeps Navcal running, hidden, and it starts by itself when you log in.</p></div>
+          </details>
+          <details>
+            <summary>There’s no weather under the dates <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+            <div><p>In <b>Preferences → Weather and Places</b>, set your place, and check that <b>Look up places and weather online</b> and <b>Show weather</b> are on. The forecast covers about the next two weeks.</p></div>
+          </details>
+          <details>
+            <summary>My events don’t appear in the Activities search <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+            <div><p>GNOME Shell looks for search providers when you log in, so log out and back in once after installing Navcal.</p></div>
+          </details>
+        </div>
+      </section>
+
+      <section class="dl-section" id="release-notes" aria-labelledby="notes-title">
+        <h2 id="notes-title">What’s New</h2>
+        <article class="release">
+          <header>
+            <h3>Navcal 0.6.0</h3>
+            <time datetime="2026-09-27">September 27, 2026</time>
+          </header>
+          <ul>
+            <li><b>Weather:</b> the forecast under each date with the day’s high and low, in °C or °F, and the weather now in the bottom bar.</li>
+            <li><b>Places:</b> address suggestions while typing, the forecast for when an event starts, and opening hours, with a warning when a place is closed or closes before the event ends.</li>
+            <li><b>Printing:</b> a live preview, with a calendar, an agenda or both side by side, to print or to save as an image.</li>
+            <li><b>Bottom bar:</b> choose what it shows and in what order.</li>
+            <li><b>Drag and drop:</b> hold <kbd>Ctrl</kbd> to duplicate, with a faded copy under the pointer; moved events no longer jump back for a moment.</li>
+            <li><b>Zoom:</b> pinch, or scroll with <kbd>Ctrl</kbd> held, to zoom the hours.</li>
+            <li><b>Travel time:</b> <b>Custom…</b> takes any number of minutes.</li>
+            <li><b>Sidebar:</b> dots under the days with events, and long lists fold after five items.</li>
+            <li><b>Speed:</b> much faster with large calendars — moving around takes milliseconds, and imports are dozens of times faster.</li>
+            <li><b>Install:</b> Navcal now comes as a Flatpak.</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="byline"><img src="icon.svg" alt="" width="24" height="24"> Navcal</p>
+          <p>A calendar for GNOME, by Nave Kuhar.</p>
+          <p>Free software under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL</a>, version 3 or later.</p>
+        </div>
+        <nav aria-labelledby="f-learn">
+          <h2 id="f-learn">Learn</h2>
+          <ul>
+            <li><a href="./#features">Features</a></li>
+            <li><a href="guide.html">User Guide</a></li>
+            <li><a href="guide.html#shortcuts">Keyboard Shortcuts</a></li>
+            <li><a href="./#faq">Questions</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="f-get">
+          <h2 id="f-get">Get Navcal</h2>
+          <ul>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="download.html#build">Build It Yourself</a></li>
+            <li><a href="download.html#release-notes">What’s New</a></li>
+            <li hidden data-repo-only><a data-repo-link href="#">Source Code</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Thanks to</h2>
+          <ul>
+            <li><a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a></li>
+            <li><a href="https://open-meteo.com">Open-Meteo.com</a></li>
+            <li><a href="https://www.gnome.org">The GNOME project</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Nave Kuhar</p>
+        <div class="appearance" role="radiogroup" aria-labelledby="style-label">
+          <span id="style-label">Style</span>
+          <span class="segmented">
+            <label><input type="radio" name="theme" value="system" checked> System</label>
+            <label><input type="radio" name="theme" value="light"> Light</label>
+            <label><input type="radio" name="theme" value="dark"> Dark</label>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

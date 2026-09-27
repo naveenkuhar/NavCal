@@ -8,6 +8,9 @@ sep 30, 30 september, 9/30, in 3 days), times (1pm, 13:00, noon, 1-2pm,
 from 9 to 11am, morning), lengths (for 2 hours), "all day", repeats (every
 day, every monday and thursday, weekly, every other week) and places
 (@ Room 4, or "at" followed by a capitalized name).
+
+The website's demo, docs/quickadd.js, follows the same rules in JavaScript; a test checks
+that the two agree.
 """
 
 from __future__ import annotations

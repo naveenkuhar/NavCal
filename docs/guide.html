@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>User Guide — Navcal</title>
+  <meta name="description" content="How to use Navcal: views, quick add, repeating events, reminders, places and weather, tasks, printing, the bottom bar and every keyboard shortcut.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fafafb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#222226" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Navcal User Guide">
+  <meta property="og:description" content="Everything Navcal can do, and how to do it.">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Before anything is drawn: the style picked on this site, and a flag for the scripted parts.
+    (() => {
+      const root = document.documentElement;
+      root.classList.add("js");
+      let theme = null;
+      try { theme = localStorage.getItem("theme"); } catch {}
+      if (theme === "light" || theme === "dark") root.dataset.theme = theme;
+      root.dataset.shownTheme = root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    })();
+  </script>
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <svg class="sprite" aria-hidden="true">
+    <!-- icons, used as <svg><use href="#name"/></svg> -->
+    <symbol id="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+    </symbol>
+    <symbol id="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+      <path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a7 7 0 0 0 10.7 10.7z"/>
+    </symbol>
+    <symbol id="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M4 6h16M4 12h16M4 18h16"/>
+    </symbol>
+    <symbol id="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6L6 18"/>
+    </symbol>
+    <symbol id="copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+      <rect x="8" y="8" width="12" height="12" rx="2"/>
+      <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>
+    </symbol>
+    <symbol id="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12.5l4.5 4.5L19 7.5"/>
+    </symbol>
+    <symbol id="clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 7v5l3 2"/>
+    </symbol>
+    <symbol id="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+      <path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/>
+      <circle cx="12" cy="9.5" r="2.5"/>
+    </symbol>
+    <symbol id="repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 2l3 3-3 3"/>
+      <path d="M4 11V9a4 4 0 0 1 4-4h12"/>
+      <path d="M7 22l-3-3 3-3"/>
+      <path d="M20 13v2a4 4 0 0 1-4 4H4"/>
+    </symbol>
+    <symbol id="download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>
+    </symbol>
+    <symbol id="book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+      <path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/>
+      <path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/>
+    </symbol>
+    <symbol id="code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/>
+    </symbol>
+    <symbol id="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M13 6l6 6-6 6"/>
+    </symbol>
+    <symbol id="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 9l6 6 6-6"/>
+    </symbol>
+    <symbol id="info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 11v6M12 7.5v.5"/>
+    </symbol>
+    <symbol id="warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10.3 4.2L2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 4.2a2 2 0 0 0-3.4 0z"/>
+      <path d="M12 10v4M12 17.5v.5"/>
+    </symbol>
+    <symbol id="search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="10.5" cy="10.5" r="6.5"/>
+      <path d="M15.5 15.5L20 20"/>
+    </symbol>
+  </svg>
+
+  <header class="topbar">
+    <nav class="wrap nav" aria-label="Main">
+      <a class="brand" href="./"><img src="icon.svg" alt="" width="28" height="28"> Navcal</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="./#features">Features</a></li>
+        <li><a href="guide.html" aria-current="page">Guide</a></li>
+        <li><a href="download.html">Download</a></li>
+        <li hidden data-repo-only><a data-repo-link href="#">Source Code</a></li>
+      </ul>
+      <button class="icon-button theme-toggle" type="button" aria-label="Use dark style" title="Use dark style">
+        <svg class="icon sun" aria-hidden="true"><use href="#sun"/></svg>
+        <svg class="icon moon" aria-hidden="true"><use href="#moon"/></svg>
+      </button>
+      <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu" hidden>
+        <svg class="icon" aria-hidden="true"><use href="#menu"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <header class="page-head">
+      <div class="wrap">
+        <span class="eyebrow">User Guide</span>
+        <h1>Using Navcal</h1>
+        <p>Everything Navcal can do, and how to do it — from your first event to the last keyboard shortcut.</p>
+      </div>
+    </header>
+
+    <div class="wrap doc">
+      <details class="toc" open>
+        <summary>On this page <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+        <nav aria-label="On this page">
+          <span class="toc-title">On this page</span>
+          <ol>
+            <li><a href="#getting-started">Getting Started</a></li>
+            <li><a href="#views">Views</a></li>
+            <li><a href="#new-events">New Events</a></li>
+            <li><a href="#changing-events">Changing Events</a></li>
+            <li><a href="#repeating">Repeating Events</a></li>
+            <li><a href="#reminders">Reminders</a></li>
+            <li><a href="#places">Places and Weather</a></li>
+            <li><a href="#tasks">Tasks</a></li>
+            <li><a href="#time-zones">World Clocks and Time Zones</a></li>
+            <li><a href="#search">Search</a></li>
+            <li><a href="#bottom-bar">Bottom Bar</a></li>
+            <li><a href="#printing">Printing</a></li>
+            <li><a href="#calendars">Managing Calendars</a></li>
+            <li><a href="#preferences">Preferences</a></li>
+            <li><a href="#shortcuts">Keyboard Shortcuts</a></li>
+            <li><a href="#accessibility">Accessibility</a></li>
+          </ol>
+        </nav>
+      </details>
+
+      <article class="doc-body">
+        <section id="getting-started">
+          <h2>Getting Started</h2>
+          <p>Navcal shows the calendars GNOME already knows about. If you use Google, Microsoft 365, Nextcloud or iCloud, add the account in <b>Settings → Online Accounts</b> (Navcal has a button for it in <b>Preferences → Calendars</b>) and its calendars appear on their own. Without an account, you can start right away with the calendar on your computer.</p>
+          <p>The window has three parts:</p>
+          <ul>
+            <li><b>The header bar</b>, with the sidebar button, <b>+</b> for a new event, the arrows to go back and forward, the button for today, the views, search, and the main menu.</li>
+            <li><b>The sidebar</b>, with a small month calendar (days with events have a dot), <b>Upcoming</b> events for the next two weeks, your <b>Tasks</b> and <b>World Clocks</b>. Long lists show five items and a <b>Show More</b> button. In a narrow window the sidebar slides over the calendar instead of sitting beside it.</li>
+            <li><b>The bottom bar</b>, with a button per calendar to show or hide it, the next event and the weather now. You choose what it holds — see <a href="#bottom-bar">Bottom Bar</a>.</li>
+          </ul>
+          <div class="callout">
+            <svg class="icon" aria-hidden="true"><use href="#info"/></svg>
+            <p>Right-click anything, or long-press on a touch screen, for a menu of what you can do with it.</p>
+          </div>
+        </section>
+
+        <section id="views">
+          <h2>Views</h2>
+          <p>Switch views from the header bar, or with <kbd>Ctrl</kbd> <kbd>1</kbd> to <kbd>5</kbd>:</p>
+          <ul>
+            <li><b>Day</b> and <b>Week</b> show the hours, with all-day events in a row at the top. The week can show 7, 4 or 3 days, and can leave out weekends.</li>
+            <li><b>Month</b> shows the whole month; events spanning several days stretch across them.</li>
+            <li><b>Year</b> shows twelve months, with a dot in each event’s color under the busy days. Double-click a day to open it.</li>
+            <li><b>Agenda</b> lists the coming days’ events and the tasks due each day.</li>
+          </ul>
+          <figure>
+            <picture>
+              <source srcset="images/day-dark.webp" media="(prefers-color-scheme: dark)">
+              <img src="images/day-light.webp" width="1280" height="800" loading="lazy"
+                   alt="The day view for Monday: a standup, a design review, and lunch at Café Luna with fifteen minutes of travel time shaded before it.">
+            </picture>
+            <figcaption>The day view, with the sidebar open.</figcaption>
+          </figure>
+          <h3 id="moving-around">Moving around</h3>
+          <ul>
+            <li><kbd>Alt</kbd> <kbd>←</kbd> and <kbd>Alt</kbd> <kbd>→</kbd> go to the previous or next day, week, month or year. <kbd>Ctrl</kbd> <kbd>T</kbd> goes back to today, and <kbd>Ctrl</kbd> <kbd>G</kbd> to any date.</li>
+            <li>Click a day in the sidebar’s month calendar to go there.</li>
+            <li>In the day and week views, zoom the hours in and out by pinching, by scrolling with <kbd>Ctrl</kbd> held, or with <kbd>Ctrl</kbd> <kbd>+</kbd> and <kbd>Ctrl</kbd> <kbd>−</kbd>. <kbd>Ctrl</kbd> <kbd>0</kbd> resets the zoom.</li>
+          </ul>
+        </section>
+
+        <section id="new-events">
+          <h2>New Events</h2>
+          <p>Press <kbd>Ctrl</kbd> <kbd>N</kbd> or the <b>+</b> button and type the event the way you’d say it. The line under the text shows what Navcal understood; press <kbd>Enter</kbd> to add it, or <b>Edit Details…</b> to open the full editor first.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th scope="col">You type</th><th scope="col">You get</th></tr></thead>
+              <tbody>
+                <tr><td>Lunch with Sam tomorrow 1pm at Café Luna</td><td>Tomorrow, 1:00–2:00 PM, at Café Luna</td></tr>
+                <tr><td>Dentist sep 30 8:30am for 45 min</td><td>September 30, 8:30–9:15 AM</td></tr>
+                <tr><td>Workshop 14:00-16:30 tomorrow at Main Office</td><td>Tomorrow, 2:00–4:30 PM, at Main Office</td></tr>
+                <tr><td>Night shift friday 10pm-6am</td><td>This Friday at 10 PM until 6 AM on Saturday</td></tr>
+                <tr><td>Book club next friday 7:30pm</td><td>The Friday of next week, 7:30–8:30 PM</td></tr>
+                <tr><td>Call Mom in 3 days evening</td><td>Three days from now, 6:00–7:00 PM</td></tr>
+                <tr><td>Conference oct 12 all day</td><td>October 12, all day</td></tr>
+                <tr><td>Standup every weekday 9am for 15 min</td><td>9:00–9:15 AM, Monday to Friday</td></tr>
+                <tr><td>Yoga every monday and thursday 6pm</td><td>6:00–7:00 PM every Monday and Thursday</td></tr>
+                <tr><td>Team retro every other week friday 3pm</td><td>3:00–4:00 PM on Fridays, every two weeks</td></tr>
+                <tr><td>Mia’s birthday dec 3 every year</td><td>December 3, all day, every year</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Quick add understands English phrasing:</p>
+          <ul>
+            <li><b>Dates:</b> today, tomorrow, a weekday (“friday” is the coming one, “next friday” the one after), sep 30, 30 september, 9/30, in 3 days.</li>
+            <li><b>Times:</b> 1pm, 13:00, noon, midnight, 1-2pm, from 9 to 11am, and morning, afternoon, evening or tonight.</li>
+            <li><b>Lengths:</b> for 2 hours, for 45 min, all day. Without one, events last an hour (or the length set in Preferences).</li>
+            <li><b>Repeats:</b> every day, every weekday, every monday and thursday, weekly, monthly, yearly, every other week.</li>
+            <li><b>Places:</b> “@ Room 4”, or “at” followed by a name that starts with a capital letter.</li>
+          </ul>
+          <p>You can also double-click a day or a time, or drag across the hours in the day and week views, to make an event right there.</p>
+          <h3 id="editor">The event editor</h3>
+          <p>Double-click an event, or select it and press <kbd>Enter</kbd>, to open the editor. Besides the title, time and calendar, it has:</p>
+          <ul>
+            <li><b>Location</b>, with address suggestions as you type, a button to show it on a map, the forecast there and opening hours — see <a href="#places">Places and Weather</a>.</li>
+            <li><b>Repeat</b> rules — see <a href="#repeating">Repeating Events</a>.</li>
+            <li><b>Reminders</b>, as many as you like.</li>
+            <li><b>Travel time</b>: pick a length, or <b>Custom…</b> for any number of minutes.</li>
+            <li><b>Time zone</b>, when the event happens somewhere else. The editor shows the time there and your own time.</li>
+            <li><b>Links and files</b> attached to the event, and notes.</li>
+            <li>A warning when the event overlaps another one.</li>
+          </ul>
+        </section>
+
+        <section id="changing-events">
+          <h2>Changing Events</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th scope="col">To</th><th scope="col">Do this</th></tr></thead>
+              <tbody>
+                <tr><td>Move</td><td>Drag the event to another time or day, in any view.</td></tr>
+                <tr><td>Change the length</td><td>Drag the bottom edge of the event in the day or week view.</td></tr>
+                <tr><td>Make all-day, or give it a time</td><td>Drag it between the all-day row and the hours.</td></tr>
+                <tr><td>Duplicate</td><td>Hold <kbd>Ctrl</kbd> while dragging, or press <kbd>Ctrl</kbd> <kbd>D</kbd>.</td></tr>
+                <tr><td>Select several</td><td><kbd>Ctrl</kbd> or <kbd>Shift</kbd> and click. <kbd>Ctrl</kbd> <kbd>A</kbd> selects all you can see; <kbd>Esc</kbd> clears.</td></tr>
+                <tr><td>Copy, cut and paste</td><td><kbd>Ctrl</kbd> <kbd>C</kbd> or <kbd>Ctrl</kbd> <kbd>X</kbd>, click a day or a time, then <kbd>Ctrl</kbd> <kbd>V</kbd>. Several events keep their spacing.</td></tr>
+                <tr><td>Delete</td><td><kbd>Delete</kbd>. A message offers <b>Undo</b>.</td></tr>
+                <tr><td>Undo and redo</td><td><kbd>Ctrl</kbd> <kbd>Z</kbd> and <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>Z</kbd>: your last 50 changes, even after restarting.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figure>
+            <picture>
+              <source srcset="images/copydrag-dark.webp" media="(prefers-color-scheme: dark)">
+              <img src="images/copydrag-light.webp" width="800" height="360" loading="lazy"
+                   alt="Copying the design review to Tuesday with Ctrl held: the original stays on Monday, a faded copy follows the pointer and a dashed outline shows where it will land.">
+            </picture>
+            <figcaption>Duplicating with <kbd>Ctrl</kbd> held: a faded copy follows the pointer, and the outline shows where it will land.</figcaption>
+          </figure>
+          <p>While dragging, press or let go of <kbd>Ctrl</kbd> to switch between moving and copying.</p>
+        </section>
+
+        <section id="repeating">
+          <h2>Repeating Events</h2>
+          <p>In the editor, <b>Repeat</b> can be:</p>
+          <ul>
+            <li>every so many days, weeks, months or years;</li>
+            <li>on chosen weekdays, like Monday, Wednesday and Friday;</li>
+            <li>monthly on a day number, on “the second Tuesday”, or on “the last Friday”;</li>
+            <li>forever, until a date, or a number of times.</li>
+          </ul>
+          <p>When you change or delete one occurrence, Navcal asks whether it’s for <b>only this event</b>, <b>this and the following</b>, or <b>all</b> of them. Rules made in other apps that the editor can’t show are kept as they are.</p>
+        </section>
+
+        <section id="reminders">
+          <h2>Reminders</h2>
+          <p>Reminders are desktop notifications with a <b>Snooze 5 Minutes</b> button. They include reminders set in other apps, such as a calendar on your phone. Reminders that came due while Navcal wasn’t running are shown as missed the next time it starts, up to two days back.</p>
+          <p>With <b>travel time</b> set, the time before the event is shaded in the day and week views, and a “Time to Leave” notification tells you when to go. It’s saved the same way Apple Calendar saves it, so it also shows on iPhones and Macs.</p>
+          <h3 id="background">Running in the background</h3>
+          <p>Closing the window (<kbd>Ctrl</kbd> <kbd>W</kbd>) keeps Navcal running, hidden, so reminders still arrive; opening it again brings the window back. <kbd>Ctrl</kbd> <kbd>Q</kbd> quits. In Preferences:</p>
+          <ul>
+            <li><b>Run in background</b>: turn off to make closing the window quit Navcal.</li>
+            <li><b>Start at login</b>: starts Navcal hidden when you log in, so reminders come from the start.</li>
+          </ul>
+          <p>If GNOME’s own reminder service is running, Navcal leaves reminders to it, so you don’t get each one twice.</p>
+        </section>
+
+        <section id="places">
+          <h2>Places and Weather</h2>
+          <p>Set your place in <b>Preferences → Weather and Places</b>. The forecast for about the next two weeks then shows under each date in the day, week and month views, with the day’s high and low, in °C or °F as you prefer.</p>
+          <p>Events with a location get the forecast for when they start. When the location is a business — a café, a shop, a museum, a pharmacy — the editor says what it found and whether it’s open then. If it’s closed, or closes before the event ends, a warning sign shows on the event.</p>
+          <figure>
+            <picture>
+              <source srcset="images/editor-dark.webp" media="(prefers-color-scheme: dark)">
+              <img src="images/editor-light.webp" width="620" height="690" loading="lazy"
+                   alt="Editing an event at the Art Gallery of Ontario: the evening’s forecast, and a warning that the gallery closes at 9 PM, before the event ends, with its opening hours.">
+            </picture>
+            <figcaption>The gallery closes at 9 PM, before the event ends: Navcal says so in the editor and on the event.</figcaption>
+          </figure>
+          <ul>
+            <li>Pick a place from the suggestions while typing to be sure it’s the right one. It’s then saved with the event, so the next lookup doesn’t have to guess.</li>
+            <li>A location typed by hand is matched to the nearest place with that name — near your weather place, or else your time zone’s city.</li>
+            <li>Locations such as “Office”, “Zoom” or “Online”, web links and phone numbers are never looked up.</li>
+            <li>Opening hours come from OpenStreetMap, and not every place lists them yet.</li>
+          </ul>
+          <div class="callout">
+            <svg class="icon" aria-hidden="true"><use href="#info"/></svg>
+            <p>These lookups need the internet: suggestions and opening hours come from OpenStreetMap, forecasts from Open-Meteo, and the locations you type are sent to them. Turn off <b>Look up places and weather online</b> to keep everything on your computer.</p>
+          </div>
+        </section>
+
+        <section id="tasks">
+          <h2>Tasks</h2>
+          <p>The sidebar lists your tasks with a check box each, from the same task lists GNOME’s task apps and Nextcloud or Google Tasks use. Type in <b>New task</b> to add one — it understands due dates too, like “Buy milk tomorrow” or “Call Sam 5pm”. Click a task to change its due date, list or notes. Tasks due on a day also show in the Agenda view, next to that day’s events.</p>
+        </section>
+
+        <section id="time-zones">
+          <h2>World Clocks and Time Zones</h2>
+          <p>Add cities under <b>World Clocks</b> in the sidebar to see their time and how far ahead or behind they are. In Preferences, you can also show a <b>second time zone</b> next to the hours in the day and week views.</p>
+          <p>Each event can have its own time zone. It shows at the right time wherever you are, daylight saving included.</p>
+        </section>
+
+        <section id="search">
+          <h2>Search</h2>
+          <p>Press <kbd>Ctrl</kbd> <kbd>F</kbd>, or just start typing, to find events by title, location or notes. Upcoming events come first, then past ones. Click a result to go to it.</p>
+          <figure>
+            <picture>
+              <source srcset="images/search-dark.webp" media="(prefers-color-scheme: dark)">
+              <img src="images/search-light.webp" width="980" height="250" loading="lazy"
+                   alt="Searching for “lunch”: two results, Lunch with Sam at Café Luna and a team lunch, each with its date, time and calendar.">
+            </picture>
+            <figcaption>Each result shows when, where and in which calendar.</figcaption>
+          </figure>
+          <p>Your events also show up when you search in GNOME’s Activities overview. With the Flatpak this works right away.</p>
+        </section>
+
+        <section id="bottom-bar">
+          <h2>Bottom Bar</h2>
+          <p>The bar at the bottom of the window works like a dock. In <b>Preferences → Bottom Bar</b>, or with <b>Customize Bottom Bar…</b> in its menu, choose what it shows and in what order:</p>
+          <ul>
+            <li>a button per calendar to show or hide it;</li>
+            <li>the next event, how many tasks are due today, the weather now and your world clocks;</li>
+            <li>New Event, Today, Search, Go to Date and Print buttons.</li>
+          </ul>
+          <figure>
+            <picture>
+              <source srcset="images/prefs-dark.webp" media="(prefers-color-scheme: dark)">
+              <img src="images/prefs-light.webp" width="656" height="754" loading="lazy"
+                   alt="The Bottom Bar page in Preferences: a switch to show the bar, and each item with arrows to move it and a switch to turn it on.">
+            </picture>
+            <figcaption>Move items with the arrows; switch them on or off.</figcaption>
+          </figure>
+          <p>When the bar is full, it scrolls sideways.</p>
+        </section>
+
+        <section id="printing">
+          <h2>Printing</h2>
+          <p><kbd>Ctrl</kbd> <kbd>P</kbd> opens a preview of the page as it will print. Choose:</p>
+          <ul>
+            <li>what to show: a calendar, an agenda, or both;</li>
+            <li>where the calendar goes next to the agenda: left, right, above or below;</li>
+            <li>the period: a day, a week or a month (it starts with the view you’re in);</li>
+            <li>portrait or landscape, check boxes to tick off in the agenda, and event colors.</li>
+          </ul>
+          <figure>
+            <picture>
+              <source srcset="images/print-dark.webp" media="(prefers-color-scheme: dark)">
+              <img src="images/print-light.webp" width="720" height="720" loading="lazy"
+                   alt="The print dialog: a preview of a week planner next to a checklist of the week’s events, and the layout options below.">
+            </picture>
+            <figcaption>A week planner beside a checklist of the week.</figcaption>
+          </figure>
+          <p>The calendar is a timeline for a day, a planner for a week and a grid for a month. A long agenda carries on over more pages. <b>Print…</b> opens the system’s print dialog, where you can also save a PDF; <b>Save as Image…</b> saves a PNG, as tall as it needs to be.</p>
+        </section>
+
+        <section id="calendars">
+          <h2>Managing Calendars</h2>
+          <p><b>Preferences → Calendars</b> (<kbd>Ctrl</kbd> <kbd>,</kbd>) lists every calendar by account. There you can:</p>
+          <ul>
+            <li>change a calendar’s color, and show or hide it — this also applies to GNOME Calendar and the top bar;</li>
+            <li>create a calendar on this computer, or remove one;</li>
+            <li>subscribe to a calendar link (webcal or https .ics);</li>
+            <li><b>Add Public Holidays…</b> for your country, with no account needed;</li>
+            <li>open Online Accounts to add Google, Microsoft 365, Nextcloud or iCloud.</li>
+          </ul>
+          <p>Events take their calendar’s color, unless you pick one for an event. Birthdays from your contacts, holidays and subscriptions are read-only.</p>
+          <h3 id="import-export">Import, export and backups</h3>
+          <p><b>Import Events…</b> and <b>Export Events…</b> read and write standard .ics files, which other calendar apps understand. Exporting “All calendars” is a full backup, and importing it brings everything back. Importing takes seconds even for thousands of events, and importing the same file again updates the events it added the first time instead of adding them twice.</p>
+        </section>
+
+        <section id="preferences">
+          <h2>Preferences</h2>
+          <p>Preferences (<kbd>Ctrl</kbd> <kbd>,</kbd>) apply right away:</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th scope="col">Section</th><th scope="col">Settings</th></tr></thead>
+              <tbody>
+                <tr><td>New Events</td><td>Default reminder and default length.</td></tr>
+                <tr><td>Calendar View</td><td>First day of the week; 7, 4 or 3 days in the week view; hiding weekends; week numbers; a second time zone.</td></tr>
+                <tr><td>Weather and Places</td><td>Looking things up online, showing the weather, your place, and °C or °F.</td></tr>
+                <tr><td>Working Hours</td><td>Shade the time outside them in the day and week views, with their start and end.</td></tr>
+                <tr><td>Background</td><td>Run in background and start at login.</td></tr>
+                <tr><td>Bottom Bar</td><td>Showing the bar, and what’s in it.</td></tr>
+                <tr><td>Calendars</td><td>Everything under <a href="#calendars">Managing Calendars</a>.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="shortcuts">
+          <h2>Keyboard Shortcuts</h2>
+          <p>Press <kbd>Ctrl</kbd> <kbd>?</kbd> in Navcal to see these at any time.</p>
+          <div class="filter">
+            <svg class="icon" aria-hidden="true"><use href="#search"/></svg>
+            <input class="entry" type="search" placeholder="Find a shortcut" aria-label="Find a shortcut" data-filter="shortcut-tables">
+          </div>
+          <div id="shortcut-tables">
+            <div class="table-wrap shortcut-group">
+              <table>
+                <thead><tr><th scope="col">General</th><th scope="col">Keys</th></tr></thead>
+                <tbody>
+                  <tr><td>Show keyboard shortcuts</td><td><kbd>Ctrl</kbd> <kbd>?</kbd></td></tr>
+                  <tr><td>Preferences</td><td><kbd>Ctrl</kbd> <kbd>,</kbd></td></tr>
+                  <tr><td>Open main menu</td><td><kbd>F10</kbd></td></tr>
+                  <tr><td>Search</td><td><kbd>Ctrl</kbd> <kbd>F</kbd></td></tr>
+                  <tr><td>Print</td><td><kbd>Ctrl</kbd> <kbd>P</kbd></td></tr>
+                  <tr><td>Close window</td><td><kbd>Ctrl</kbd> <kbd>W</kbd></td></tr>
+                  <tr><td>Quit</td><td><kbd>Ctrl</kbd> <kbd>Q</kbd></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-wrap shortcut-group">
+              <table>
+                <thead><tr><th scope="col">Navigation</th><th scope="col">Keys</th></tr></thead>
+                <tbody>
+                  <tr><td>Go to today</td><td><kbd>Ctrl</kbd> <kbd>T</kbd></td></tr>
+                  <tr><td>Go to date</td><td><kbd>Ctrl</kbd> <kbd>G</kbd></td></tr>
+                  <tr><td>Previous period</td><td><kbd>Alt</kbd> <kbd>←</kbd></td></tr>
+                  <tr><td>Next period</td><td><kbd>Alt</kbd> <kbd>→</kbd></td></tr>
+                  <tr><td>Day view</td><td><kbd>Ctrl</kbd> <kbd>1</kbd></td></tr>
+                  <tr><td>Week view</td><td><kbd>Ctrl</kbd> <kbd>2</kbd></td></tr>
+                  <tr><td>Month view</td><td><kbd>Ctrl</kbd> <kbd>3</kbd></td></tr>
+                  <tr><td>Year view</td><td><kbd>Ctrl</kbd> <kbd>4</kbd></td></tr>
+                  <tr><td>Agenda view</td><td><kbd>Ctrl</kbd> <kbd>5</kbd></td></tr>
+                  <tr><td>Move between days or times</td><td><kbd>←</kbd> <kbd>→</kbd> <kbd>↑</kbd> <kbd>↓</kbd></td></tr>
+                  <tr><td>Select the next or previous event</td><td><kbd>Space</kbd> / <kbd>Shift</kbd> <kbd>Space</kbd></td></tr>
+                  <tr><td>Zoom in on the hours</td><td><kbd>Ctrl</kbd> <kbd>+</kbd></td></tr>
+                  <tr><td>Zoom out</td><td><kbd>Ctrl</kbd> <kbd>−</kbd></td></tr>
+                  <tr><td>Reset zoom</td><td><kbd>Ctrl</kbd> <kbd>0</kbd></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-wrap shortcut-group">
+              <table>
+                <thead><tr><th scope="col">Events</th><th scope="col">Keys</th></tr></thead>
+                <tbody>
+                  <tr><td>New event</td><td><kbd>Ctrl</kbd> <kbd>N</kbd></td></tr>
+                  <tr><td>Open the selected event, or create one</td><td><kbd>Enter</kbd></td></tr>
+                  <tr><td>Select more events</td><td><kbd>Ctrl</kbd> and click</td></tr>
+                  <tr><td>Select all visible events</td><td><kbd>Ctrl</kbd> <kbd>A</kbd></td></tr>
+                  <tr><td>Clear the selection</td><td><kbd>Esc</kbd></td></tr>
+                  <tr><td>Copy</td><td><kbd>Ctrl</kbd> <kbd>C</kbd></td></tr>
+                  <tr><td>Cut</td><td><kbd>Ctrl</kbd> <kbd>X</kbd></td></tr>
+                  <tr><td>Paste</td><td><kbd>Ctrl</kbd> <kbd>V</kbd></td></tr>
+                  <tr><td>Duplicate</td><td><kbd>Ctrl</kbd> <kbd>D</kbd></td></tr>
+                  <tr><td>Duplicate by dragging</td><td><kbd>Ctrl</kbd> and drag</td></tr>
+                  <tr><td>Delete</td><td><kbd>Delete</kbd></td></tr>
+                  <tr><td>Undo</td><td><kbd>Ctrl</kbd> <kbd>Z</kbd></td></tr>
+                  <tr><td>Redo</td><td><kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>Z</kbd></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="no-match" hidden>No shortcut matches that.</p>
+          </div>
+        </section>
+
+        <section id="accessibility">
+          <h2>Accessibility</h2>
+          <p>Everything in Navcal works from the keyboard. The calendar views describe themselves to screen readers: each day is a list of its events, and moving with the arrow keys reads out the day, the time or the event. Navcal follows your system’s text size, high contrast, light or dark style and accent color.</p>
+          <p>If something doesn’t work for you, that’s a bug worth reporting<span hidden data-repo-only> on the <a data-repo-link data-repo-path="/issues" href="#">issue tracker</a></span>.</p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="byline"><img src="icon.svg" alt="" width="24" height="24"> Navcal</p>
+          <p>A calendar for GNOME, by Nave Kuhar.</p>
+          <p>Free software under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL</a>, version 3 or later.</p>
+        </div>
+        <nav aria-labelledby="f-learn">
+          <h2 id="f-learn">Learn</h2>
+          <ul>
+            <li><a href="./#features">Features</a></li>
+            <li><a href="guide.html">User Guide</a></li>
+            <li><a href="guide.html#shortcuts">Keyboard Shortcuts</a></li>
+            <li><a href="./#faq">Questions</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="f-get">
+          <h2 id="f-get">Get Navcal</h2>
+          <ul>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="download.html#build">Build It Yourself</a></li>
+            <li><a href="download.html#release-notes">What’s New</a></li>
+            <li hidden data-repo-only><a data-repo-link href="#">Source Code</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Thanks to</h2>
+          <ul>
+            <li><a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a></li>
+            <li><a href="https://open-meteo.com">Open-Meteo.com</a></li>
+            <li><a href="https://www.gnome.org">The GNOME project</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Nave Kuhar</p>
+        <div class="appearance" role="radiogroup" aria-labelledby="style-label">
+          <span id="style-label">Style</span>
+          <span class="segmented">
+            <label><input type="radio" name="theme" value="system" checked> System</label>
+            <label><input type="radio" name="theme" value="light"> Light</label>
+            <label><input type="radio" name="theme" value="dark"> Dark</label>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

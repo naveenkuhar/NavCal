@@ -169,7 +169,17 @@ Navcal is tested with a calendar of about 8,500 events: ten years of history, 15
 
 ## Website
 
-The project's website is in `docs/`: one page with screenshots in light and dark, which follows the visitor's system style. To publish it with GitHub Pages, open the repository's **Settings → Pages**, choose **Deploy from a branch**, then the `main` branch and the `/docs` folder. Put the repository's address in `data-repo` at the top of `docs/index.html`; until then the Source Code button and the clone step stay hidden.
+The project's website is in `docs/`, a static site with no build step and nothing loaded from other servers:
+
+- `index.html`: the home page, with the views, a working quick add demo (`quickadd.js`, the same rules as `src/navcal/quickadd.py` in JavaScript), the features, questions and answers;
+- `guide.html`: the user guide, with every keyboard shortcut;
+- `download.html`: installing, building, troubleshooting and what's new;
+- `404.html`: shown by GitHub Pages for missing pages;
+- `site.js` and `style.css`, shared by all pages.
+
+Screenshots come in light and dark and follow the visitor's style, which they can also pick on the site. To publish it with GitHub Pages, open the repository's **Settings → Pages**, choose **Deploy from a branch**, then the `main` branch and the `/docs` folder. Put the repository's address in `REPO` at the top of `docs/site.js`; until then the download button, the source code links and the clone step stay hidden.
+
+The pages also work opened straight from the folder. To preview them as they'll be served: `python3 -m http.server -d docs`.
 
 ## Development
 

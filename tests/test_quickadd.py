@@ -1,7 +1,12 @@
 # SPDX-FileCopyrightText: 2026 Nave Kuhar
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+import json
+import os
+import shutil
+import subprocess
 from datetime import datetime, time, timedelta
+from pathlib import Path
 
 import pytest
 
@@ -104,3 +109,46 @@ def test_focused_day_and_slot_are_defaults():
     assert ev.start == datetime(2026, 9, 30, 15)
     ev = parse("Call the bank 4pm", NOW, default_day=date(2026, 9, 30))
     assert ev.start == datetime(2026, 9, 30, 16)
+
+
+# The website's demo (docs/quickadd.js) has the same rules in JavaScript: both must agree.
+WEBSITE_PHRASES = [
+    "Lunch with Sam tomorrow 1pm at Café Luna", "Dentist friday 9am", "Team meeting next monday 10:30-11:45",
+    "Call mom at 3", "Yoga every monday and thursday 6pm", "Standup every weekday 9:15",
+    "Standup every weekday 9am for 15 min", "Conference sep 30 all day",
+    "Flight to Lisbon 17 october 7:40am @ Pearson Terminal 1", "Dinner tonight at Pizzeria Libretto",
+    "Review the budget in 3 days afternoon", "Coffee with Alex 9-10am", "Night shift 10pm-6am",
+    "Night shift friday 10pm-6am", "Book club every other week thursday 7:30pm",
+    "Book club next friday 7:30pm",
+    "Gym for 90 minutes tomorrow morning", "Pay rent monthly", "Party saturday from 8 to 11pm at Mia's place",
+    "Doctor 12/10 at 2:30pm", "Dentist sep 30 8:30am for 45 min", "Birthday dinner 3 days from now",
+    "Presentation the day after tomorrow at noon", "Plan the week", "Standup 9-5pm", "Meeting at 10 on 3/4",
+    "Lunch @ The Keg, downtown tomorrow", "Retro every friday 4pm for 45 min",
+    "Workshop 14:00-16:30 tomorrow at Main Office", "Conference oct 12 all day", "Call Mom in 3 days evening",
+    "Mia’s birthday dec 3 every year", "Sam's birthday dec 3 yearly",
+    "Team retro every other week friday 3pm",
+]
+NODE_SCRIPT = """
+const {parse} = require(process.argv[1]);
+const now = new Date(2026, 8, 24, 10, 17);
+const pad = n => String(n).padStart(2, "0");
+const iso = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
+  + `T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+console.log(JSON.stringify(JSON.parse(process.argv[2]).map(text => {
+  const e = parse(text, now);
+  return [e.title, iso(e.start), iso(e.end), e.allDay, e.location, e.freq, e.interval, e.byday];
+})));
+"""
+
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="needs Node.js")
+def test_website_demo_agrees():
+    js_file = Path(__file__).parent.parent / "docs" / "quickadd.js"
+    env = dict(os.environ, LC_ALL="en_US.UTF-8")  # month before day, as below
+    out = subprocess.run(["node", "-e", NODE_SCRIPT, str(js_file), json.dumps(WEBSITE_PHRASES)],
+                         capture_output=True, text=True, check=True, env=env).stdout
+    for text, got in zip(WEBSITE_PHRASES, json.loads(out), strict=True):
+        ev = parse(text, NOW, month_first=True)
+        want = [ev.title, ev.start.strftime("%Y-%m-%dT%H:%M"), ev.end.strftime("%Y-%m-%dT%H:%M"),
+                ev.all_day, ev.location, ev.freq, ev.interval, [d for d, _n in ev.byday]]
+        assert got == want, text

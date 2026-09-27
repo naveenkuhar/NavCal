@@ -1,46 +1,150 @@
 <!doctype html>
-<!-- The repository's address goes in data-repo below (like "https://github.com/you/navcal").
-     While it's empty, the Source Code button and the clone step stay hidden. -->
-<html lang="en" data-repo="">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Navcal — a calendar for GNOME</title>
-  <meta name="description" content="Navcal is a calendar app for GNOME that works with the calendars you already have, with tasks, weather, reminders and printing built in.">
+  <meta name="description" content="Navcal is a free calendar app for GNOME that works with the calendars you already have, with tasks, weather, opening hours, reminders and printing built in.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#fafafb" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#222226" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Navcal — a calendar for GNOME">
   <meta property="og:description" content="Your calendars, tasks and plans in one fast, simple GNOME app.">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+  <script>
+    // Before anything is drawn: the style picked on this site, and a flag for the scripted parts.
+    (() => {
+      const root = document.documentElement;
+      root.classList.add("js");
+      let theme = null;
+      try { theme = localStorage.getItem("theme"); } catch {}
+      if (theme === "light" || theme === "dark") root.dataset.theme = theme;
+      root.dataset.shownTheme = root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    })();
+  </script>
+  <script src="quickadd.js" defer></script>
+  <script src="site.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Navcal",
+      "description": "A calendar app for GNOME that works with the calendars you already have.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Linux",
+      "softwareVersion": "0.6.0",
+      "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+      "author": {"@type": "Person", "name": "Nave Kuhar"},
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  <svg class="sprite" aria-hidden="true">
+    <!-- icons, used as <svg><use href="#name"/></svg> -->
+    <symbol id="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+    </symbol>
+    <symbol id="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+      <path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a7 7 0 0 0 10.7 10.7z"/>
+    </symbol>
+    <symbol id="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M4 6h16M4 12h16M4 18h16"/>
+    </symbol>
+    <symbol id="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6L6 18"/>
+    </symbol>
+    <symbol id="copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+      <rect x="8" y="8" width="12" height="12" rx="2"/>
+      <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>
+    </symbol>
+    <symbol id="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12.5l4.5 4.5L19 7.5"/>
+    </symbol>
+    <symbol id="clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 7v5l3 2"/>
+    </symbol>
+    <symbol id="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+      <path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/>
+      <circle cx="12" cy="9.5" r="2.5"/>
+    </symbol>
+    <symbol id="repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 2l3 3-3 3"/>
+      <path d="M4 11V9a4 4 0 0 1 4-4h12"/>
+      <path d="M7 22l-3-3 3-3"/>
+      <path d="M20 13v2a4 4 0 0 1-4 4H4"/>
+    </symbol>
+    <symbol id="download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>
+    </symbol>
+    <symbol id="book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+      <path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/>
+      <path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/>
+    </symbol>
+    <symbol id="code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/>
+    </symbol>
+    <symbol id="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M13 6l6 6-6 6"/>
+    </symbol>
+    <symbol id="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 9l6 6 6-6"/>
+    </symbol>
+    <symbol id="info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 11v6M12 7.5v.5"/>
+    </symbol>
+    <symbol id="warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10.3 4.2L2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 4.2a2 2 0 0 0-3.4 0z"/>
+      <path d="M12 10v4M12 17.5v.5"/>
+    </symbol>
+    <symbol id="search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="10.5" cy="10.5" r="6.5"/>
+      <path d="M15.5 15.5L20 20"/>
+    </symbol>
+  </svg>
 
   <header class="topbar">
     <nav class="wrap nav" aria-label="Main">
-      <a class="brand" href="#top"><img src="icon.svg" alt="" width="28" height="28"> Navcal</a>
-      <ul>
+      <a class="brand" href="./"><img src="icon.svg" alt="" width="28" height="28"> Navcal</a>
+      <ul class="nav-links" id="nav-links">
         <li><a href="#features">Features</a></li>
-        <li><a href="#privacy">Privacy</a></li>
-        <li><a href="#install">Install</a></li>
-        <li hidden data-repo-only><a data-repo-link href="#">Source</a></li>
+        <li><a href="guide.html">Guide</a></li>
+        <li><a href="download.html">Download</a></li>
+        <li hidden data-repo-only><a data-repo-link href="#">Source Code</a></li>
       </ul>
+      <button class="icon-button theme-toggle" type="button" aria-label="Use dark style" title="Use dark style">
+        <svg class="icon sun" aria-hidden="true"><use href="#sun"/></svg>
+        <svg class="icon moon" aria-hidden="true"><use href="#moon"/></svg>
+      </button>
+      <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu" hidden>
+        <svg class="icon" aria-hidden="true"><use href="#menu"/></svg>
+      </button>
     </nav>
   </header>
 
   <main id="main">
     <section class="hero" id="top">
       <div class="wrap narrow">
+        <a class="badge" href="download.html#release-notes"><b>0.6.0</b> Weather, opening hours and printing your way <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
         <img class="app-icon" src="icon.svg" alt="" width="128" height="128">
         <h1>Navcal</h1>
         <p class="tagline">A calendar for GNOME that plans around your day.</p>
         <p class="lead">Navcal works with the calendars you already have — Google, Microsoft 365, Nextcloud, iCloud — and brings your events, tasks, weather and plans together in one clean, fast app.</p>
         <div class="actions">
-          <a class="button primary" href="#install">Install Navcal</a>
-          <a class="button" hidden data-repo-only data-repo-link href="#">Source Code</a>
+          <a class="button primary" href="download.html"><svg class="icon" aria-hidden="true"><use href="#download"/></svg> Download</a>
+          <a class="button" href="guide.html"><svg class="icon" aria-hidden="true"><use href="#book"/></svg> Read the Guide</a>
         </div>
+        <ul class="facts">
+          <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> Free and open source</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> No account, no ads, no tracking</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> Any Linux with Flatpak</li>
+        </ul>
       </div>
       <div class="wrap">
         <picture class="shot hero-shot">
@@ -49,18 +153,128 @@
                   media="(max-width: 600px) and (prefers-color-scheme: dark)">
           <source srcset="images/mobile-light.webp" width="360" height="740" media="(max-width: 600px)">
           <source srcset="images/week-dark.webp" media="(prefers-color-scheme: dark)">
-          <img src="images/week-light.webp" width="1280" height="800"
-               alt="Navcal's week view: events for the week in colored blocks, the weather under each date, a small month calendar, upcoming events and tasks in the sidebar, and a bar at the bottom with the calendars, the next event and the weather now.">
+          <img src="images/week-light.webp" width="1280" height="800" fetchpriority="high"
+               alt="Navcal’s week view: events for the week in colored blocks, the weather under each date, a small month calendar, upcoming events and tasks in the sidebar, and a bar at the bottom with the calendars, the next event and the weather now.">
         </picture>
       </div>
     </section>
 
-    <section id="features" class="features">
+    <section id="views" class="band" aria-labelledby="views-title">
       <div class="wrap">
-        <article class="feature">
+        <header class="section-head reveal">
+          <span class="eyebrow">Five views</span>
+          <h2 id="views-title">See your time the way you think about it</h2>
+          <p>From a single busy day to the whole year, one shortcut apart: <kbd>Ctrl</kbd> <kbd>1</kbd> to <kbd>5</kbd>.</p>
+        </header>
+        <div class="tabs" data-tabs>
+          <div class="tablist" role="tablist" aria-label="Views">
+            <button type="button" role="tab" id="tab-day" aria-controls="panel-day" aria-selected="true">Day</button>
+            <button type="button" role="tab" id="tab-week" aria-controls="panel-week" aria-selected="false" tabindex="-1">Week</button>
+            <button type="button" role="tab" id="tab-month" aria-controls="panel-month" aria-selected="false" tabindex="-1">Month</button>
+            <button type="button" role="tab" id="tab-year" aria-controls="panel-year" aria-selected="false" tabindex="-1">Year</button>
+            <button type="button" role="tab" id="tab-agenda" aria-controls="panel-agenda" aria-selected="false" tabindex="-1">Agenda</button>
+          </div>
+          <div class="tabpanel active" role="tabpanel" id="panel-day" aria-labelledby="tab-day">
+            <figure>
+              <picture class="shot">
+                <source srcset="images/day-dark.webp" media="(prefers-color-scheme: dark)">
+                <img src="images/day-light.webp" width="1280" height="800" loading="lazy"
+                     alt="The day view for Monday: a standup, a design review, and lunch at Café Luna with fifteen minutes of travel time shaded before it. The sidebar shows the month, the next events and tasks.">
+              </picture>
+              <figcaption><b>Day.</b> Your day hour by hour, with the travel time blocked out before events and the forecast under the date.</figcaption>
+            </figure>
+          </div>
+          <div class="tabpanel" role="tabpanel" id="panel-week" aria-labelledby="tab-week">
+            <figure>
+              <picture class="shot">
+                <source srcset="images/week-dark.webp" media="(prefers-color-scheme: dark)">
+                <img src="images/week-light.webp" width="1280" height="800" loading="lazy"
+                     alt="The week view: seven days side by side, a conference across three days at the top, and the high and low temperatures under each date.">
+              </picture>
+              <figcaption><b>Week.</b> Seven days side by side — or three or four on a smaller screen, and without the weekend if you like.</figcaption>
+            </figure>
+          </div>
+          <div class="tabpanel" role="tabpanel" id="panel-month" aria-labelledby="tab-month">
+            <figure>
+              <picture class="shot">
+                <source srcset="images/month-dark.webp" media="(prefers-color-scheme: dark)">
+                <img src="images/month-light.webp" width="1280" height="800" loading="lazy"
+                     alt="The month view for October, with events in each day, a trip spanning a week, and the forecast in the corner of the coming days.">
+              </picture>
+              <figcaption><b>Month.</b> The whole month at a glance. Trips and conferences stretch across their days.</figcaption>
+            </figure>
+          </div>
+          <div class="tabpanel" role="tabpanel" id="panel-year" aria-labelledby="tab-year">
+            <figure>
+              <picture class="shot">
+                <source srcset="images/year-dark.webp" media="(prefers-color-scheme: dark)">
+                <img src="images/year-light.webp" width="1280" height="800" loading="lazy"
+                     alt="The year view: twelve small months, with colored dots under the days that have events.">
+              </picture>
+              <figcaption><b>Year.</b> Twelve months, with a dot in each event’s color under the busy days. Double-click a day to open it.</figcaption>
+            </figure>
+          </div>
+          <div class="tabpanel" role="tabpanel" id="panel-agenda" aria-labelledby="tab-agenda">
+            <figure>
+              <picture class="shot">
+                <source srcset="images/agenda-dark.webp" media="(prefers-color-scheme: dark)">
+                <img src="images/agenda-light.webp" width="1280" height="800" loading="lazy"
+                     alt="The agenda view: the coming days as lists of events with their times, places and calendars, and the tasks due that day with a check box.">
+              </picture>
+              <figcaption><b>Agenda.</b> What’s next, as a list: each day’s events with where and when, and the tasks due that day.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quick-add" aria-labelledby="qa-title">
+      <div class="wrap qa-grid">
+        <div class="text reveal">
+          <span class="eyebrow">Quick add</span>
+          <h2 id="qa-title">Just type it</h2>
+          <p>Press <kbd>Ctrl</kbd> <kbd>N</kbd> and write the event the way you’d say it. Navcal works out the day, the time, the place and whether it repeats, and shows you what it understood before you add it. Try it here — it works just like in the app.</p>
+          <ul class="understands">
+            <li><b>Dates</b> <span>today, tomorrow, friday, next friday, sep 30, 9/30, in 3 days</span></li>
+            <li><b>Times</b> <span>1pm, 13:00, noon, 1-2pm, from 9 to 11am, morning</span></li>
+            <li><b>Lengths</b> <span>for 2 hours, for 45 min, all day</span></li>
+            <li><b>Repeats</b> <span>every day, every monday and thursday, every other week</span></li>
+            <li><b>Places</b> <span>@ Room 4, or “at” and a name</span></li>
+          </ul>
+        </div>
+        <div class="qa-demo reveal" data-quickadd>
+          <div class="popover">
+            <label class="popover-title" for="qa-input">New Event</label>
+            <input class="entry" id="qa-input" type="text" value="Lunch with Sam tomorrow 1pm at Café Luna"
+                   placeholder="Lunch with Sam tomorrow 1pm" autocomplete="off" spellcheck="false">
+            <div class="qa-preview" aria-live="polite"></div>
+            <div class="qa-buttons">
+              <button class="button primary" type="button" data-add>Add</button>
+            </div>
+          </div>
+          <div class="chips" role="group" aria-label="Examples">
+            <span>Try:</span>
+            <button type="button">Yoga every monday and thursday 6pm</button>
+            <button type="button">Dentist sep 30 8:30am for 45 min</button>
+            <button type="button">Night shift friday 10pm-6am</button>
+            <button type="button">Standup every weekday 9am for 15 min</button>
+          </div>
+          <ul class="added" aria-label="Added in this demo" aria-live="polite" hidden></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features band">
+      <div class="wrap">
+        <article class="feature reveal">
           <div class="text">
             <h2>All your calendars, in sync</h2>
-            <p>Navcal uses GNOME’s calendar service, so the accounts you add in Settings — Google, Microsoft 365, Exchange, Nextcloud, iCloud or any CalDAV server — simply show up. Show or hide calendars from the bottom bar, pick their colors, subscribe to calendar links and add your country’s holidays.</p>
+            <p>Navcal uses GNOME’s calendar service, so the accounts you add in Settings simply show up — and changes sync both ways.</p>
+            <ul class="points">
+              <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> Google, Microsoft 365, Exchange, Nextcloud, iCloud and any CalDAV server</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> Subscribe to calendar links and add your country’s holidays</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> Import and export standard .ics files, thousands of events in seconds</li>
+            </ul>
           </div>
           <picture class="shot">
             <source srcset="images/month-dark.webp" media="(prefers-color-scheme: dark)">
@@ -69,10 +283,15 @@
           </picture>
         </article>
 
-        <article class="feature flip">
+        <article class="feature flip reveal">
           <div class="text">
             <h2>Knows where you’re going</h2>
-            <p>Type a place and pick it from the suggestions. Navcal shows the forecast for when you get there and, for cafés, shops and museums, whether they’ll be open. If a place closes before your event ends, you’ll see a warning right on the event.</p>
+            <p>Type a place and pick it from the suggestions. Navcal shows the forecast for when you get there and, for cafés, shops and museums, whether they’ll be open.</p>
+            <ul class="points">
+              <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> Address suggestions as you type, from OpenStreetMap</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> The forecast at the place, at the time of the event</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> A warning on the event when a place is closed or closes before it ends</li>
+            </ul>
           </div>
           <picture class="shot">
             <source srcset="images/editor-dark.webp" media="(prefers-color-scheme: dark)">
@@ -81,10 +300,32 @@
           </picture>
         </article>
 
-        <article class="feature">
+        <article class="feature reveal">
+          <div class="text">
+            <h2>Move it, stretch it, copy it</h2>
+            <p>Drag an event to another time or day, or drag its edge to change how long it lasts. Hold <kbd>Ctrl</kbd> to leave a copy behind: a faded copy follows the pointer and an outline shows where it will land.</p>
+            <ul class="points">
+              <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> Select several events to copy, cut or delete them together</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> Pinch, or scroll with <kbd>Ctrl</kbd> held, to zoom the hours</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> Undo your last fifty changes, even after restarting</li>
+            </ul>
+          </div>
+          <picture class="shot">
+            <source srcset="images/copydrag-dark.webp" media="(prefers-color-scheme: dark)">
+            <img src="images/copydrag-light.webp" width="800" height="360" loading="lazy"
+                 alt="Copying the design review to Tuesday with Ctrl held: the original stays on Monday, a faded copy follows the pointer and a dashed outline shows where it will land at 9:15 AM.">
+          </picture>
+        </article>
+
+        <article class="feature flip reveal">
           <div class="text">
             <h2>Print it your way</h2>
-            <p>Print a day, a week or a month as a calendar, as a checklist to tick off, or both side by side — and see exactly how it will look before you print. Or save it as an image to share.</p>
+            <p>Print a day, a week or a month as a calendar, as a checklist to tick off, or both side by side — and see exactly how it will look before you print.</p>
+            <ul class="points">
+              <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> Put the calendar left, right, above or below the agenda</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> Portrait or landscape, with or without colors</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> Save it as a PDF, or as an image to share</li>
+            </ul>
           </div>
           <picture class="shot">
             <source srcset="images/print-dark.webp" media="(prefers-color-scheme: dark)">
@@ -93,10 +334,27 @@
           </picture>
         </article>
 
-        <article class="feature flip">
+        <article class="feature reveal">
+          <div class="text">
+            <h2>A bottom bar that’s yours</h2>
+            <p>The bar under the calendar works like a dock. Choose what it holds and in what order, and turn off what you don’t need.</p>
+            <ul class="points">
+              <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> A button per calendar to show or hide it</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> The next event, tasks due today, the weather now and world clocks</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#check"/></svg> Shortcuts to New Event, Today, Search, Go to Date and Print</li>
+            </ul>
+          </div>
+          <picture class="shot">
+            <source srcset="images/prefs-dark.webp" media="(prefers-color-scheme: dark)">
+            <img src="images/prefs-light.webp" width="656" height="754" loading="lazy"
+                 alt="The Bottom Bar page in Preferences: a switch to show the bar, and the list of items it can hold, each with arrows to move it and a switch to turn it on.">
+          </picture>
+        </article>
+
+        <article class="feature flip reveal">
           <div class="text">
             <h2>At home on any screen</h2>
-            <p>From a large monitor down to a phone, the layout adapts: the sidebar slides away, the view switcher moves to the bottom, and everything stays easy to use by touch or with the keyboard. Light or dark, it follows your system’s style and accent color.</p>
+            <p>From a large monitor down to a phone-sized window, the layout adapts: the sidebar slides away, the views move to the bottom, and everything stays easy to use by touch or with the keyboard. Light or dark, it follows your system’s style and accent color.</p>
           </div>
           <picture class="shot phone">
             <source srcset="images/mobile-dark.webp" media="(prefers-color-scheme: dark)">
@@ -109,75 +367,189 @@
 
     <section class="more" aria-labelledby="more-title">
       <div class="wrap">
-        <h2 id="more-title">And much more</h2>
+        <header class="section-head reveal">
+          <h2 id="more-title">And much more</h2>
+          <p>The details that make a calendar pleasant to live in.</p>
+        </header>
         <ul class="cards">
           <li style="--dot: var(--blue)"><h3>Repeating events</h3><p>Every weekday, the second Tuesday, the last Friday. Change one, this and the following, or all.</p></li>
           <li style="--dot: var(--orange)"><h3>Reminders</h3><p>Several per event, with a snooze button. Missed ones are waiting when you come back.</p></li>
-          <li style="--dot: var(--green)"><h3>Quick add</h3><p>Type “Lunch with Sam tomorrow 1pm at Café Luna” and it’s on your calendar.</p></li>
-          <li style="--dot: var(--purple)"><h3>Tasks</h3><p>Your to-do lists next to your events, from the same lists your other apps use.</p></li>
-          <li style="--dot: var(--red)"><h3>Travel time</h3><p>Blocks out the trip before an event and tells you when it’s time to leave.</p></li>
-          <li style="--dot: var(--teal)"><h3>Weather</h3><p>The forecast under each day, with the high and the low, in °C or °F.</p></li>
-          <li style="--dot: var(--yellow)"><h3>World clocks</h3><p>The time in other cities, and a second time zone next to the hours.</p></li>
-          <li style="--dot: var(--blue)"><h3>Drag and drop</h3><p>Move events around, hold Ctrl to duplicate with a live preview, pinch to zoom the hours.</p></li>
-          <li style="--dot: var(--orange)"><h3>Undo that remembers</h3><p>Undo and redo your last fifty changes, even after restarting.</p></li>
-          <li style="--dot: var(--green)"><h3>Your bottom bar</h3><p>Choose what it shows: calendars, the next event, the weather, clocks and shortcuts.</p></li>
+          <li style="--dot: var(--green)"><h3>Tasks</h3><p>Your to-do lists next to your events, from the same lists your other apps use.</p></li>
+          <li style="--dot: var(--purple)"><h3>Travel time</h3><p>Blocks out the trip before an event and tells you when it’s time to leave.</p></li>
+          <li style="--dot: var(--red)"><h3>Weather</h3><p>The forecast under each day, with the high and the low, in °C or °F.</p></li>
+          <li style="--dot: var(--teal)"><h3>World clocks</h3><p>The time in other cities, and a second time zone next to the hours.</p></li>
+          <li style="--dot: var(--yellow)"><h3>Time zones</h3><p>Give an event its own time zone and see it in yours, daylight saving included.</p></li>
+          <li style="--dot: var(--blue)"><h3>Search</h3><p>Start typing anywhere to find events by title, place or notes.</p></li>
+          <li style="--dot: var(--orange)"><h3>Activities search</h3><p>Find your events from the GNOME overview, without opening the app.</p></li>
+          <li style="--dot: var(--green)"><h3>Copy and paste</h3><p>Copy a few events, click another day and paste: they keep their spacing.</p></li>
           <li style="--dot: var(--purple)"><h3>Keyboard and screen readers</h3><p>Everything works from the keyboard, and the calendar describes itself to screen readers.</p></li>
-          <li style="--dot: var(--red)"><h3>Fast with big calendars</h3><p>Years of history and thousands of events: moving around takes a few milliseconds.</p></li>
+          <li style="--dot: var(--red)"><h3>Runs in the background</h3><p>Close the window and reminders still arrive. Start at login if you like.</p></li>
         </ul>
       </div>
     </section>
 
-    <section id="privacy" class="privacy">
-      <div class="wrap narrow">
-        <h2>Your calendar stays yours</h2>
-        <p>Your events live in GNOME’s calendar service on your computer, or with the accounts you chose — not on anyone else’s servers. Address suggestions and opening hours come from OpenStreetMap and forecasts from Open-Meteo; one switch in Preferences turns those lookups off. There are no accounts to create, no ads and no tracking — and Navcal is free software, so anyone can check.</p>
+    <section class="band" aria-labelledby="fast-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="eyebrow">Fast with big calendars</span>
+          <h2 id="fast-title">Years of history, no waiting</h2>
+          <p>Navcal is tested with a calendar of ten years: one-off events, 150 repeating ones with edited and skipped days, and 300 birthdays.</p>
+        </header>
+        <ul class="stats reveal">
+          <li><b>8,500</b><span>events in the test calendar</span></li>
+          <li><b>~10&nbsp;ms</b><span>to show another month of it</span></li>
+          <li><b>~3&nbsp;s</b><span>to import all of it from a file</span></li>
+          <li><b>50</b><span>changes you can undo, even after restarting</span></li>
+        </ul>
       </div>
     </section>
 
-    <section id="install" class="install">
-      <div class="wrap narrow">
-        <h2>Install Navcal</h2>
-        <p>Navcal comes as a Flatpak, which works on any Linux distribution with GNOME. The GNOME runtime it needs comes from <a href="https://flathub.org">Flathub</a> by itself.</p>
-        <p class="actions left" hidden data-repo-only>
-          <a class="button primary" data-repo-link data-repo-path="/releases/latest" href="#">Download the Flatpak</a>
-        </p>
-        <ol class="steps">
-          <li>
-            <p>Install the file you downloaded:</p>
-            <pre><code>flatpak install navcal-0.6.0.flatpak</code></pre>
-          </li>
-          <li>
-            <p>Open Navcal from your apps, or run:</p>
-            <pre><code>flatpak run io.github.navcal.Navcal</code></pre>
-          </li>
-        </ol>
-        <h3>Build it yourself</h3>
-        <p>You’ll need the Flatpak builder and the GNOME SDK (a one-time download of about 1 GB). The build script installs Navcal for you and makes a <code>.flatpak</code> file to share.</p>
-        <pre><code><span hidden data-repo-only>git clone <span data-repo-url></span>.git navcal
-cd navcal
-</span>flatpak install --user flathub org.flatpak.Builder org.gnome.Sdk//50
-tools/build-flatpak.sh</code></pre>
-        <p class="note">To remove Navcal: <code>flatpak uninstall io.github.navcal.Navcal</code></p>
+    <section aria-labelledby="keys-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="eyebrow">Keyboard</span>
+          <h2 id="keys-title">Keep your hands on the keys</h2>
+          <p>Every action has a shortcut, and the arrow keys move between days, hours and events.</p>
+        </header>
+        <ul class="keys reveal">
+          <li><span>New event</span> <span><kbd>Ctrl</kbd><kbd>N</kbd></span></li>
+          <li><span>Search</span> <span><kbd>Ctrl</kbd><kbd>F</kbd></span></li>
+          <li><span>Go to today</span> <span><kbd>Ctrl</kbd><kbd>T</kbd></span></li>
+          <li><span>Go to a date</span> <span><kbd>Ctrl</kbd><kbd>G</kbd></span></li>
+          <li><span>Switch views</span> <span><kbd>Ctrl</kbd><kbd>1</kbd>–<kbd>5</kbd></span></li>
+          <li><span>Previous or next</span> <span><kbd>Alt</kbd><kbd>←</kbd><kbd>→</kbd></span></li>
+          <li><span>Undo</span> <span><kbd>Ctrl</kbd><kbd>Z</kbd></span></li>
+          <li><span>All shortcuts</span> <span><kbd>Ctrl</kbd><kbd>?</kbd></span></li>
+        </ul>
+        <p class="center"><a class="more-link" href="guide.html#shortcuts">All keyboard shortcuts <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></p>
+      </div>
+    </section>
+
+    <section id="privacy" class="privacy band" aria-labelledby="privacy-title">
+      <div class="wrap narrow reveal">
+        <div class="privacy-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4" stroke-linecap="round"/></svg></div>
+        <div>
+          <h2 id="privacy-title">Your calendar stays yours</h2>
+          <p>Your events live in GNOME’s calendar service on your computer, or with the accounts you chose — not on anyone else’s servers. There are no accounts to create, no ads and no tracking, and Navcal is free software, so anyone can check.</p>
+          <p>Address suggestions and opening hours come from OpenStreetMap and forecasts from Open-Meteo. One switch in Preferences turns those lookups off.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <h2 id="faq-title">Questions</h2>
+        </header>
+        <div class="faq">
+          <details>
+            <summary>Which calendars does it work with? <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+            <div><p>Any account with calendars in GNOME’s <b>Settings → Online Accounts</b>: Google, Microsoft 365, Exchange, Nextcloud, and iCloud or any other CalDAV server. It also has calendars that stay on your computer, and can subscribe to calendar links (webcal or .ics).</p></div>
+          </details>
+          <details>
+            <summary>Can I use it alongside GNOME Calendar? <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+            <div><p>Yes. Both use GNOME’s calendar service, so they show the same events, and a change in one shows up in the other — and in the clock menu in the top bar.</p></div>
+          </details>
+          <details>
+            <summary>Does it work outside GNOME? <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+            <div><p>It works best on GNOME. On other desktops it needs GNOME’s calendar service (evolution-data-server) installed, and online accounts are added with GNOME Settings.</p></div>
+          </details>
+          <details>
+            <summary>Is it on Flathub? <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+            <div><p>Not yet. For now, download the Flatpak file from the <a href="download.html">Download page</a> — the GNOME runtime it needs still comes from Flathub, by itself.</p></div>
+          </details>
+          <details>
+            <summary>Does it need the internet? <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+            <div><p>Only to sync your online calendars, and for the weather, address suggestions and opening hours. Turn off <b>Look up places and weather online</b> in Preferences and nothing else leaves your computer.</p></div>
+          </details>
+          <details>
+            <summary>Why don’t I see opening hours for a place? <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+            <div><p>They come from OpenStreetMap, where not every place lists them yet. Pick the place from the suggestions while typing, so Navcal looks up the right one. You can add missing hours on <a href="https://www.openstreetmap.org">openstreetmap.org</a>, and everyone who uses the map gets them too.</p></div>
+          </details>
+          <details>
+            <summary>Will reminders come when the window is closed? <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+            <div><p>Yes: closing the window keeps Navcal running in the background, and <b>Start at login</b> in Preferences starts it hidden when you log in. Reminders that came due while it wasn’t running are waiting next time, marked as missed.</p></div>
+          </details>
+          <details>
+            <summary>How do I back up my events? <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+            <div><p>In <b>Preferences → Calendars</b>, choose <b>Export Events…</b> and “All calendars”. That makes one standard .ics file with everything, which <b>Import Events…</b> brings back — and which other calendar apps can read too.</p></div>
+          </details>
+          <details>
+            <summary>Which languages does it speak? <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+            <div><p>English and French so far; quick add understands English phrasing. Every text in the app can be translated, and new languages are welcome.</p></div>
+          </details>
+          <details>
+            <summary>How can I help? <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></summary>
+            <div>
+              <p>Tell others about it, report problems and ideas, translate it into your language, or improve the code. The source comes with a guide for contributors.</p>
+              <p hidden data-repo-only><a data-repo-link data-repo-path="/issues" href="#">Report a problem or share an idea</a></p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="cta-box reveal">
+          <h2 id="cta-title">Ready to plan your week?</h2>
+          <p>Navcal is free, installs in a minute, and works with the calendars you already have.</p>
+          <div class="actions">
+            <a class="button primary" href="download.html"><svg class="icon" aria-hidden="true"><use href="#download"/></svg> Download Navcal</a>
+            <a class="button" href="guide.html">Read the Guide</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="wrap">
-      <p class="byline"><img src="icon.svg" alt="" width="20" height="20"> Navcal, by Nave Kuhar</p>
-      <p>Free software under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL</a>, version 3 or later</p>
-      <p hidden data-repo-only><a data-repo-link href="#">Source code</a></p>
+      <div class="footer-grid">
+        <div>
+          <p class="byline"><img src="icon.svg" alt="" width="24" height="24"> Navcal</p>
+          <p>A calendar for GNOME, by Nave Kuhar.</p>
+          <p>Free software under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL</a>, version 3 or later.</p>
+        </div>
+        <nav aria-labelledby="f-learn">
+          <h2 id="f-learn">Learn</h2>
+          <ul>
+            <li><a href="./#features">Features</a></li>
+            <li><a href="guide.html">User Guide</a></li>
+            <li><a href="guide.html#shortcuts">Keyboard Shortcuts</a></li>
+            <li><a href="./#faq">Questions</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="f-get">
+          <h2 id="f-get">Get Navcal</h2>
+          <ul>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="download.html#build">Build It Yourself</a></li>
+            <li><a href="download.html#release-notes">What’s New</a></li>
+            <li hidden data-repo-only><a data-repo-link href="#">Source Code</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Thanks to</h2>
+          <ul>
+            <li><a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a></li>
+            <li><a href="https://open-meteo.com">Open-Meteo.com</a></li>
+            <li><a href="https://www.gnome.org">The GNOME project</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Nave Kuhar</p>
+        <div class="appearance" role="radiogroup" aria-labelledby="style-label">
+          <span id="style-label">Style</span>
+          <span class="segmented">
+            <label><input type="radio" name="theme" value="system" checked> System</label>
+            <label><input type="radio" name="theme" value="light"> Light</label>
+            <label><input type="radio" name="theme" value="dark"> Dark</label>
+          </span>
+        </div>
+      </div>
     </div>
   </footer>
-
-  <script>
-    // Show the links to the repository once its address is set (see data-repo at the top).
-    const repo = document.documentElement.dataset.repo.replace(/\/+$/, "").replace(/\.git$/, "");
-    if (repo) {
-      for (const el of document.querySelectorAll("[data-repo-only]")) el.hidden = false;
-      for (const a of document.querySelectorAll("[data-repo-link]")) a.href = repo + (a.dataset.repoPath || "");
-      for (const el of document.querySelectorAll("[data-repo-url]")) el.textContent = repo;
-    }
-  </script>
 </body>
 </html>
