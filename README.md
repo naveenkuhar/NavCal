@@ -1,6 +1,6 @@
 # Navcal
 
-A calendar for GNOME, written in Python with GTK 4 and libadwaita. It follows the GNOME Human Interface Guidelines: adaptive layout, header bar, Adwaita dialogs, toasts with Undo, light and dark styles.
+  A calendar for GNOME, written in Python with GTK 4 and libadwaita. It follows the GNOME Human Interface Guidelines: adaptive layout, header bar, Adwaita dialogs, toasts with Undo, light and dark styles.
 
 Navcal stores events in GNOME's calendar service (Evolution Data Server), the same one GNOME Calendar and the top-bar clock menu use. So it shows every calendar you already have, and syncs with accounts added in **Settings → Online Accounts**: Google, Microsoft 365, Exchange, Nextcloud, and iCloud or any CalDAV server (via "Calendar, Contacts and Files").
 
