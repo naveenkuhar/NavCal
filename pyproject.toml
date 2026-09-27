@@ -2,6 +2,9 @@
 name = "navcal"
 version = "0.6.0"
 description = "A GNOME calendar with reminders"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [{ name = "Nave Kuhar" }]
 requires-python = ">=3.13"
 # GTK 4, libadwaita and PyGObject come from the system (e.g. Fedora's
 # python3-gobject, gtk4, libadwaita), so the venv needs system site packages.

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Conversion between Navcal events and iCalendar (libical) components.
 
 Unknown properties (attendees, organizer, custom X- fields, unsupported RRULE

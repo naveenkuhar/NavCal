@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-27 04:18-0400\n"
+"POT-Creation-Date: 2026-09-27 04:22-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,1601 +18,1597 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: src/navcal/application.py:40
+#: src/navcal/application.py:43
 msgid "Start hidden, only showing reminders"
 msgstr ""
 
-#: src/navcal/application.py:84
+#: src/navcal/application.py:87
 #, python-brace-format
 msgid "Moved {n} event to the “Navcal” calendar"
 msgid_plural "Moved {n} events to the “Navcal” calendar"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/application.py:124
+#: src/navcal/application.py:127
 msgid "Navcal Is Running in the Background"
 msgstr ""
 
-#: src/navcal/application.py:125
+#: src/navcal/application.py:128
 msgid ""
 "Reminders will keep appearing. Open Navcal again to see your calendar, or "
 "press Ctrl+Q in Navcal to quit."
 msgstr ""
 
-#: src/navcal/application.py:195
+#: src/navcal/application.py:198
 msgid "Plan your days and get reminders."
 msgstr ""
 
-#: src/navcal/application.py:196
+#: src/navcal/application.py:199
 msgid "translator-credits"
 msgstr ""
 
-#: src/navcal/application.py:197
-msgid "Navcal contributors"
-msgstr ""
-
-#: src/navcal/application.py:234 src/navcal/application.py:245
-#: src/navcal/editor.py:31
+#: src/navcal/application.py:240 src/navcal/application.py:251
+#: src/navcal/editor.py:34
 msgid "None"
 msgstr ""
 
-#: src/navcal/application.py:237 src/navcal/editor.py:32
+#: src/navcal/application.py:243 src/navcal/editor.py:35
 msgid "15 minutes"
 msgstr ""
 
-#: src/navcal/application.py:237 src/navcal/editor.py:32
+#: src/navcal/application.py:243 src/navcal/editor.py:35
 msgid "30 minutes"
 msgstr ""
 
-#: src/navcal/application.py:237 src/navcal/editor.py:32
+#: src/navcal/application.py:243 src/navcal/editor.py:35
 msgid "45 minutes"
 msgstr ""
 
-#: src/navcal/application.py:238 src/navcal/editor.py:33
+#: src/navcal/application.py:244 src/navcal/editor.py:36
 msgid "1 hour"
 msgstr ""
 
-#: src/navcal/application.py:238
+#: src/navcal/application.py:244
 msgid "90 minutes"
 msgstr ""
 
-#: src/navcal/application.py:238 src/navcal/editor.py:33
+#: src/navcal/application.py:244 src/navcal/editor.py:36
 msgid "2 hours"
 msgstr ""
 
-#: src/navcal/application.py:240
+#: src/navcal/application.py:246
 msgid "Use the system setting"
 msgstr ""
 
-#: src/navcal/application.py:240
+#: src/navcal/application.py:246
 msgid "Sunday"
 msgstr ""
 
-#: src/navcal/application.py:240
+#: src/navcal/application.py:246
 msgid "Monday"
 msgstr ""
 
-#: src/navcal/application.py:241
+#: src/navcal/application.py:247
 msgid "Saturday"
 msgstr ""
 
-#: src/navcal/application.py:242
+#: src/navcal/application.py:248
 msgid "A full week"
 msgstr ""
 
-#: src/navcal/application.py:242
+#: src/navcal/application.py:248
 msgid "4 days"
 msgstr ""
 
-#: src/navcal/application.py:242
+#: src/navcal/application.py:248
 msgid "3 days"
 msgstr ""
 
-#: src/navcal/application.py:261
+#: src/navcal/application.py:267
 msgid "From the region"
 msgstr ""
 
-#: src/navcal/application.py:261
+#: src/navcal/application.py:267
 msgid "Celsius (°C)"
 msgstr ""
 
-#: src/navcal/application.py:261
+#: src/navcal/application.py:267
 msgid "Fahrenheit (°F)"
 msgstr ""
 
-#: src/navcal/calendars.py:40 src/navcal/dock.py:22 src/navcal/dock.py:82
+#: src/navcal/calendars.py:43 src/navcal/dock.py:25 src/navcal/dock.py:85
 msgid "Calendars"
 msgstr ""
 
-#: src/navcal/calendars.py:51
+#: src/navcal/calendars.py:54
 msgid "Add Calendars"
 msgstr ""
 
-#: src/navcal/calendars.py:53
+#: src/navcal/calendars.py:56
 msgid "_Online Accounts…"
 msgstr ""
 
-#: src/navcal/calendars.py:54
+#: src/navcal/calendars.py:57
 msgid "_New Calendar…"
 msgstr ""
 
-#: src/navcal/calendars.py:55
+#: src/navcal/calendars.py:58
 msgid "_Subscribe to Calendar Link…"
 msgstr ""
 
-#: src/navcal/calendars.py:57
+#: src/navcal/calendars.py:60
 msgid "Add Public _Holidays…"
 msgstr ""
 
-#: src/navcal/calendars.py:63
+#: src/navcal/calendars.py:66
 msgid ""
 "Google, Microsoft 365, Exchange, Nextcloud and iCloud or other CalDAV "
 "servers are added in Online Accounts and appear here automatically."
 msgstr ""
 
-#: src/navcal/calendars.py:66
+#: src/navcal/calendars.py:69
 msgid "Import and Export"
 msgstr ""
 
-#: src/navcal/calendars.py:67
+#: src/navcal/calendars.py:70
 msgid "Exporting all calendars makes a backup you can import later."
 msgstr ""
 
-#: src/navcal/calendars.py:69
+#: src/navcal/calendars.py:72
 msgid "_Import Events…"
 msgstr ""
 
-#: src/navcal/calendars.py:71
+#: src/navcal/calendars.py:74
 msgid "_Export Events…"
 msgstr ""
 
-#: src/navcal/calendars.py:98
+#: src/navcal/calendars.py:101
 msgid "On This Computer"
 msgstr ""
 
-#: src/navcal/calendars.py:109
+#: src/navcal/calendars.py:112
 msgid "Loading…"
 msgstr ""
 
-#: src/navcal/calendars.py:109
+#: src/navcal/calendars.py:112
 msgid "Read-only"
 msgstr ""
 
-#: src/navcal/calendars.py:113 src/navcal/editor.py:452
+#: src/navcal/calendars.py:116 src/navcal/editor.py:455
 msgid "Calendar color"
 msgstr ""
 
-#: src/navcal/calendars.py:118
+#: src/navcal/calendars.py:121
 msgid "Remove calendar"
 msgstr ""
 
-#: src/navcal/calendars.py:122
+#: src/navcal/calendars.py:125
 msgid "Show in Navcal and the top bar"
 msgstr ""
 
-#: src/navcal/calendars.py:131
+#: src/navcal/calendars.py:134
 msgid "Remove Calendar?"
 msgstr ""
 
-#: src/navcal/calendars.py:132
+#: src/navcal/calendars.py:135
 #, python-brace-format
 msgid "“{name}” and all its events will be permanently deleted."
 msgstr ""
 
-#: src/navcal/calendars.py:133
+#: src/navcal/calendars.py:136
 #, python-brace-format
 msgid "You will no longer be subscribed to “{name}”."
 msgstr ""
 
-#: src/navcal/calendars.py:134 src/navcal/calendars.py:153
-#: src/navcal/calendars.py:226 src/navcal/calendars.py:286
-#: src/navcal/calendars.py:323 src/navcal/editor.py:515
-#: src/navcal/editor.py:890 src/navcal/window.py:732 src/navcal/ui/editor.ui:16
+#: src/navcal/calendars.py:137 src/navcal/calendars.py:156
+#: src/navcal/calendars.py:229 src/navcal/calendars.py:289
+#: src/navcal/calendars.py:326 src/navcal/editor.py:518
+#: src/navcal/editor.py:893 src/navcal/window.py:735 src/navcal/ui/editor.ui:16
 #: src/navcal/ui/print-dialog.ui:17 src/navcal/ui/task-dialog.ui:16
 msgid "_Cancel"
 msgstr ""
 
-#: src/navcal/calendars.py:135
+#: src/navcal/calendars.py:138
 msgid "_Remove"
 msgstr ""
 
-#: src/navcal/calendars.py:178
+#: src/navcal/calendars.py:181
 msgid "Something Went Wrong"
 msgstr ""
 
-#: src/navcal/calendars.py:179
+#: src/navcal/calendars.py:182
 msgid "_Close"
 msgstr ""
 
-#: src/navcal/calendars.py:191
+#: src/navcal/calendars.py:194
 msgid "New Calendar"
 msgstr ""
 
-#: src/navcal/calendars.py:191
+#: src/navcal/calendars.py:194
 msgid "The calendar is stored on this computer."
 msgstr ""
 
-#: src/navcal/calendars.py:192 src/navcal/calendars.py:209
+#: src/navcal/calendars.py:195 src/navcal/calendars.py:212
 msgid "_Name"
 msgstr ""
 
-#: src/navcal/calendars.py:192
+#: src/navcal/calendars.py:195
 msgid "_Create"
 msgstr ""
 
-#: src/navcal/calendars.py:199
+#: src/navcal/calendars.py:202
 msgid "Calendar links start with https:// or webcal://"
 msgstr ""
 
-#: src/navcal/calendars.py:206
+#: src/navcal/calendars.py:209
 msgid "Subscribe to Calendar"
 msgstr ""
 
-#: src/navcal/calendars.py:207
+#: src/navcal/calendars.py:210
 msgid ""
 "Add a read-only calendar from a link, such as public holidays or a sports "
 "schedule. It’s refreshed every hour."
 msgstr ""
 
-#: src/navcal/calendars.py:209 src/navcal/editor.py:511
+#: src/navcal/calendars.py:212 src/navcal/editor.py:514
 msgid "_Link"
 msgstr ""
 
-#: src/navcal/calendars.py:209
+#: src/navcal/calendars.py:212
 msgid "_Subscribe"
 msgstr ""
 
-#: src/navcal/calendars.py:215
+#: src/navcal/calendars.py:218
 msgid "_Country or region"
 msgstr ""
 
-#: src/navcal/calendars.py:222
+#: src/navcal/calendars.py:225
 msgid "Add Public Holidays"
 msgstr ""
 
-#: src/navcal/calendars.py:223
+#: src/navcal/calendars.py:226
 msgid ""
 "Holidays are added as a read-only calendar, using Google’s public holiday "
 "feed. No account is needed."
 msgstr ""
 
-#: src/navcal/calendars.py:227 src/navcal/editor.py:274
-#: src/navcal/editor.py:516 src/navcal/tasks.py:83 src/navcal/window.py:733
+#: src/navcal/calendars.py:230 src/navcal/editor.py:277
+#: src/navcal/editor.py:519 src/navcal/tasks.py:86 src/navcal/window.py:736
 #: src/navcal/ui/window.ui:281
 msgid "_Add"
 msgstr ""
 
-#: src/navcal/calendars.py:239
+#: src/navcal/calendars.py:242
 msgid "Couldn’t Add Holidays"
 msgstr ""
 
-#: src/navcal/calendars.py:246
+#: src/navcal/calendars.py:249
 msgid "_Calendar"
 msgstr ""
 
-#: src/navcal/calendars.py:259
+#: src/navcal/calendars.py:262
 msgid "Calendar Files"
 msgstr ""
 
-#: src/navcal/calendars.py:263
+#: src/navcal/calendars.py:266
 msgid "Import Events"
 msgstr ""
 
-#: src/navcal/calendars.py:273
+#: src/navcal/calendars.py:276
 msgid "Couldn’t Open File"
 msgstr ""
 
-#: src/navcal/calendars.py:277
+#: src/navcal/calendars.py:280
 msgid "There’s no calendar you can add events to. Create one first."
 msgstr ""
 
-#: src/navcal/calendars.py:282
+#: src/navcal/calendars.py:285
 msgid "Import Events?"
 msgstr ""
 
-#: src/navcal/calendars.py:283
+#: src/navcal/calendars.py:286
 #, python-brace-format
 msgid "Choose a calendar for the events in “{file}”."
 msgstr ""
 
-#: src/navcal/calendars.py:287
+#: src/navcal/calendars.py:290
 msgid "_Import"
 msgstr ""
 
-#: src/navcal/calendars.py:297
+#: src/navcal/calendars.py:300
 #, python-brace-format
 msgid "“{file}” isn’t a calendar file."
 msgstr ""
 
-#: src/navcal/calendars.py:298 src/navcal/calendars.py:303
+#: src/navcal/calendars.py:301 src/navcal/calendars.py:306
 msgid "Couldn’t Import Events"
 msgstr ""
 
-#: src/navcal/calendars.py:305
+#: src/navcal/calendars.py:308
 #, python-brace-format
 msgid "Imported {n} event"
 msgid_plural "Imported {n} events"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/calendars.py:318
+#: src/navcal/calendars.py:321
 msgid "All calendars (backup)"
 msgstr ""
 
-#: src/navcal/calendars.py:319
+#: src/navcal/calendars.py:322
 msgid "Export Events?"
 msgstr ""
 
-#: src/navcal/calendars.py:320
+#: src/navcal/calendars.py:323
 msgid "Events are saved as an .ics file that other calendar apps can open."
 msgstr ""
 
-#: src/navcal/calendars.py:324
+#: src/navcal/calendars.py:327
 msgid "_Export…"
 msgstr ""
 
-#: src/navcal/calendars.py:333
+#: src/navcal/calendars.py:336
 msgid "Navcal Backup"
 msgstr ""
 
-#: src/navcal/calendars.py:334
+#: src/navcal/calendars.py:337
 msgid "Export Events"
 msgstr ""
 
-#: src/navcal/calendars.py:346
+#: src/navcal/calendars.py:349
 msgid "Couldn’t Save File"
 msgstr ""
 
-#: src/navcal/calendars.py:348
+#: src/navcal/calendars.py:351
 #, python-brace-format
 msgid "Exported to “{file}”"
 msgstr ""
 
-#: src/navcal/dock.py:22
+#: src/navcal/dock.py:25
 msgid "A button for each calendar, to show or hide it"
 msgstr ""
 
-#: src/navcal/dock.py:23
+#: src/navcal/dock.py:26
 msgid "Next event"
 msgstr ""
 
-#: src/navcal/dock.py:23
+#: src/navcal/dock.py:26
 msgid "What’s coming up, and when"
 msgstr ""
 
-#: src/navcal/dock.py:24
+#: src/navcal/dock.py:27
 msgid "Tasks for today"
 msgstr ""
 
-#: src/navcal/dock.py:24
+#: src/navcal/dock.py:27
 msgid "How many tasks are due today or overdue"
 msgstr ""
 
-#: src/navcal/dock.py:25
+#: src/navcal/dock.py:28
 msgid "Weather"
 msgstr ""
 
-#: src/navcal/dock.py:25
+#: src/navcal/dock.py:28
 msgid "The weather now, for the place set under Weather"
 msgstr ""
 
-#: src/navcal/dock.py:26 src/navcal/ui/window.ui:197
+#: src/navcal/dock.py:29 src/navcal/ui/window.ui:197
 msgid "World clocks"
 msgstr ""
 
-#: src/navcal/dock.py:26
+#: src/navcal/dock.py:29
 msgid "The time in the cities under World Clocks"
 msgstr ""
 
-#: src/navcal/dock.py:27
+#: src/navcal/dock.py:30
 msgid "New event button"
 msgstr ""
 
-#: src/navcal/dock.py:28
+#: src/navcal/dock.py:31
 msgid "Today button"
 msgstr ""
 
-#: src/navcal/dock.py:29
+#: src/navcal/dock.py:32
 msgid "Search button"
 msgstr ""
 
-#: src/navcal/dock.py:30
+#: src/navcal/dock.py:33
 msgid "Go to date button"
 msgstr ""
 
-#: src/navcal/dock.py:31
+#: src/navcal/dock.py:34
 msgid "Print button"
 msgstr ""
 
-#: src/navcal/dock.py:34 src/navcal/ui/shortcuts-dialog.ui:40
+#: src/navcal/dock.py:37 src/navcal/ui/shortcuts-dialog.ui:40
 #: src/navcal/ui/window.ui:224
 msgid "New event"
 msgstr ""
 
-#: src/navcal/dock.py:35 src/navcal/ui/shortcuts-dialog.ui:21
+#: src/navcal/dock.py:38 src/navcal/ui/shortcuts-dialog.ui:21
 #: src/navcal/ui/window.ui:308
 msgid "Go to today"
 msgstr ""
 
-#: src/navcal/dock.py:36 src/navcal/ui/shortcuts-dialog.ui:13
+#: src/navcal/dock.py:39 src/navcal/ui/shortcuts-dialog.ui:13
 #: src/navcal/ui/window.ui:337
 msgid "Search"
 msgstr ""
 
-#: src/navcal/dock.py:37 src/navcal/ui/shortcuts-dialog.ui:22
+#: src/navcal/dock.py:40 src/navcal/ui/shortcuts-dialog.ui:22
 msgid "Go to date"
 msgstr ""
 
-#: src/navcal/dock.py:38 src/navcal/ui/print-dialog.ui:6
+#: src/navcal/dock.py:41 src/navcal/ui/print-dialog.ui:6
 #: src/navcal/ui/shortcuts-dialog.ui:14
 msgid "Print"
 msgstr ""
 
-#: src/navcal/dock.py:131
+#: src/navcal/dock.py:134
 msgid "Show or hide this calendar"
 msgstr ""
 
-#: src/navcal/dock.py:150
+#: src/navcal/dock.py:153
 msgid "Nothing coming up"
 msgstr ""
 
-#: src/navcal/dock.py:156
+#: src/navcal/dock.py:159
 #, python-brace-format
 msgid "{title} in {n} minute"
 msgid_plural "{title} in {n} minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/dock.py:159
+#: src/navcal/dock.py:162
 #, python-brace-format
 msgid "{title} at {time}"
 msgstr ""
 
-#: src/navcal/dock.py:161
+#: src/navcal/dock.py:164
 #, python-brace-format
 msgid "{title} tomorrow at {time}"
 msgstr ""
 
-#: src/navcal/dock.py:163
+#: src/navcal/dock.py:166
 #, python-brace-format
 msgid "{title} on {day} at {time}"
 msgstr ""
 
-#: src/navcal/dock.py:166
+#: src/navcal/dock.py:169
 msgid "Show the next event"
 msgstr ""
 
-#: src/navcal/dock.py:171
+#: src/navcal/dock.py:174
 #, python-brace-format
 msgid "{n} task for today"
 msgid_plural "{n} tasks for today"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/dock.py:172
+#: src/navcal/dock.py:175
 msgid "No tasks for today"
 msgstr ""
 
-#: src/navcal/dock.py:173
+#: src/navcal/dock.py:176
 msgid "Show tasks"
 msgstr ""
 
-#: src/navcal/dock.py:178
+#: src/navcal/dock.py:181
 msgid "No world clocks"
 msgstr ""
 
-#: src/navcal/dock.py:181
+#: src/navcal/dock.py:184
 #, python-brace-format
 msgid "{city} {time}"
 msgstr ""
 
-#: src/navcal/dock.py:183
+#: src/navcal/dock.py:186
 msgid "Show world clocks"
 msgstr ""
 
-#: src/navcal/dock.py:200
+#: src/navcal/dock.py:203
 msgid "Bottom Bar"
 msgstr ""
 
-#: src/navcal/dock.py:203
+#: src/navcal/dock.py:206
 msgid "Show the _bottom bar"
 msgstr ""
 
-#: src/navcal/dock.py:208
+#: src/navcal/dock.py:211
 msgid "Items"
 msgstr ""
 
-#: src/navcal/dock.py:209
+#: src/navcal/dock.py:212
 msgid "What the bar shows, from left to right"
 msgstr ""
 
-#: src/navcal/dock.py:231
+#: src/navcal/dock.py:234
 msgid "Move up"
 msgstr ""
 
-#: src/navcal/dock.py:233
+#: src/navcal/dock.py:236
 msgid "Move down"
 msgstr ""
 
-#: src/navcal/draw.py:52 src/navcal/draw.py:72
+#: src/navcal/draw.py:55 src/navcal/draw.py:75
 msgid "PM"
 msgstr ""
 
-#: src/navcal/draw.py:52 src/navcal/draw.py:72
+#: src/navcal/draw.py:55 src/navcal/draw.py:75
 msgid "AM"
 msgstr ""
 
-#: src/navcal/draw.py:58
+#: src/navcal/draw.py:61
 #, python-brace-format
 msgctxt "day and time"
 msgid "{day}, {time}"
 msgstr ""
 
-#: src/navcal/draw.py:65
+#: src/navcal/draw.py:68
 msgctxt "short PM"
 msgid "p"
 msgstr ""
 
-#: src/navcal/draw.py:65
+#: src/navcal/draw.py:68
 msgctxt "short AM"
 msgid "a"
 msgstr ""
 
-#: src/navcal/draw.py:380
+#: src/navcal/draw.py:383
 msgid "all day"
 msgstr ""
 
-#: src/navcal/draw.py:381
+#: src/navcal/draw.py:384
 #, python-brace-format
 msgid "{start} to {end}"
 msgstr ""
 
-#: src/navcal/draw.py:386
+#: src/navcal/draw.py:389
 msgid "repeats"
 msgstr ""
 
-#: src/navcal/draw.py:391 src/navcal/window.py:470
+#: src/navcal/draw.py:394 src/navcal/window.py:473
 msgid "no events"
 msgstr ""
 
-#: src/navcal/draw.py:391 src/navcal/window.py:122
+#: src/navcal/draw.py:394 src/navcal/window.py:125
 #, python-brace-format
 msgid "{n} event"
 msgid_plural "{n} events"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/draw.py:392 src/navcal/printing.py:183 src/navcal/reminders.py:34
-#: src/navcal/reminders.py:42 src/navcal/reminders.py:49
-#: src/navcal/views/agenda.py:26 src/navcal/views/timegrid.py:117
-#: src/navcal/window.py:75 src/navcal/window.py:448 src/navcal/window.py:471
+#: src/navcal/draw.py:395 src/navcal/printing.py:186 src/navcal/reminders.py:37
+#: src/navcal/reminders.py:45 src/navcal/reminders.py:52
+#: src/navcal/views/agenda.py:29 src/navcal/views/timegrid.py:120
+#: src/navcal/window.py:78 src/navcal/window.py:451 src/navcal/window.py:474
 msgid "%A, %B %-d"
 msgstr ""
 
-#: src/navcal/editor.py:25 src/navcal/editor.py:34
+#: src/navcal/editor.py:28 src/navcal/editor.py:37
 msgid "Never"
 msgstr ""
 
-#: src/navcal/editor.py:26
+#: src/navcal/editor.py:29
 msgid "Daily"
 msgstr ""
 
-#: src/navcal/editor.py:27
+#: src/navcal/editor.py:30
 msgid "Weekly"
 msgstr ""
 
-#: src/navcal/editor.py:28
+#: src/navcal/editor.py:31
 msgid "Monthly"
 msgstr ""
 
-#: src/navcal/editor.py:29
+#: src/navcal/editor.py:32
 msgid "Yearly"
 msgstr ""
 
-#: src/navcal/editor.py:31
+#: src/navcal/editor.py:34
 msgid "5 minutes"
 msgstr ""
 
-#: src/navcal/editor.py:31
+#: src/navcal/editor.py:34
 msgid "10 minutes"
 msgstr ""
 
-#: src/navcal/editor.py:33
+#: src/navcal/editor.py:36
 msgid "1½ hours"
 msgstr ""
 
-#: src/navcal/editor.py:34
+#: src/navcal/editor.py:37
 msgid "On a date"
 msgstr ""
 
-#: src/navcal/editor.py:34
+#: src/navcal/editor.py:37
 msgid "After a number of times"
 msgstr ""
 
-#: src/navcal/editor.py:37
+#: src/navcal/editor.py:40
 msgid "At start time"
 msgstr ""
 
-#: src/navcal/editor.py:38
+#: src/navcal/editor.py:41
 msgid "5 minutes before"
 msgstr ""
 
-#: src/navcal/editor.py:39
+#: src/navcal/editor.py:42
 msgid "10 minutes before"
 msgstr ""
 
-#: src/navcal/editor.py:40
+#: src/navcal/editor.py:43
 msgid "15 minutes before"
 msgstr ""
 
-#: src/navcal/editor.py:41
+#: src/navcal/editor.py:44
 msgid "30 minutes before"
 msgstr ""
 
-#: src/navcal/editor.py:42
+#: src/navcal/editor.py:45
 msgid "1 hour before"
 msgstr ""
 
-#: src/navcal/editor.py:43
+#: src/navcal/editor.py:46
 msgid "2 hours before"
 msgstr ""
 
-#: src/navcal/editor.py:44
+#: src/navcal/editor.py:47
 msgid "1 day before"
 msgstr ""
 
-#: src/navcal/editor.py:45
+#: src/navcal/editor.py:48
 msgid "1 week before"
 msgstr ""
 
-#: src/navcal/editor.py:51
+#: src/navcal/editor.py:54
 #, python-brace-format
 msgid "{n} day"
 msgid_plural "{n} days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/editor.py:52
+#: src/navcal/editor.py:55
 #, python-brace-format
 msgid "{n} week"
 msgid_plural "{n} weeks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/editor.py:53
+#: src/navcal/editor.py:56
 #, python-brace-format
 msgid "{n} month"
 msgid_plural "{n} months"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/editor.py:54
+#: src/navcal/editor.py:57
 #, python-brace-format
 msgid "{n} year"
 msgid_plural "{n} years"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/editor.py:67 src/navcal/views/timegrid.py:117
-#: src/navcal/window.py:70 src/navcal/window.py:92 src/navcal/window.py:97
+#: src/navcal/editor.py:70 src/navcal/views/timegrid.py:120
+#: src/navcal/window.py:73 src/navcal/window.py:95 src/navcal/window.py:100
 msgid "%a, %b %-d"
 msgstr ""
 
-#: src/navcal/editor.py:67 src/navcal/search_provider.py:127
-#: src/navcal/window.py:758
+#: src/navcal/editor.py:70 src/navcal/search_provider.py:130
+#: src/navcal/window.py:761
 msgid "%a, %b %-d, %Y"
 msgstr ""
 
-#: src/navcal/editor.py:76
+#: src/navcal/editor.py:79
 #, python-brace-format
 msgid "{n} day before"
 msgid_plural "{n} days before"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/editor.py:79
+#: src/navcal/editor.py:82
 #, python-brace-format
 msgid "{n} hour before"
 msgid_plural "{n} hours before"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/editor.py:80
+#: src/navcal/editor.py:83
 #, python-brace-format
 msgid "{n} minute before"
 msgid_plural "{n} minutes before"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/editor.py:116
+#: src/navcal/editor.py:119
 #, python-brace-format
 msgid "The first {weekday}"
 msgstr ""
 
-#: src/navcal/editor.py:116
+#: src/navcal/editor.py:119
 #, python-brace-format
 msgid "The second {weekday}"
 msgstr ""
 
-#: src/navcal/editor.py:117
+#: src/navcal/editor.py:120
 #, python-brace-format
 msgid "The third {weekday}"
 msgstr ""
 
-#: src/navcal/editor.py:117
+#: src/navcal/editor.py:120
 #, python-brace-format
 msgid "The fourth {weekday}"
 msgstr ""
 
-#: src/navcal/editor.py:118
+#: src/navcal/editor.py:121
 #, python-brace-format
 msgid "The fifth {weekday}"
 msgstr ""
 
-#: src/navcal/editor.py:118
+#: src/navcal/editor.py:121
 #, python-brace-format
 msgid "The last {weekday}"
 msgstr ""
 
-#: src/navcal/editor.py:131
+#: src/navcal/editor.py:134
 msgid "Choose date"
 msgstr ""
 
-#: src/navcal/editor.py:166
+#: src/navcal/editor.py:169
 msgid "Choose time"
 msgstr ""
 
-#: src/navcal/editor.py:169
+#: src/navcal/editor.py:172
 msgid "Hour"
 msgstr ""
 
-#: src/navcal/editor.py:170
+#: src/navcal/editor.py:173
 msgid "Minute"
 msgstr ""
 
-#: src/navcal/editor.py:353
+#: src/navcal/editor.py:356
 msgid "Custom…"
 msgstr ""
 
-#: src/navcal/editor.py:384
+#: src/navcal/editor.py:387
 msgid "Custom (kept as is)"
 msgstr ""
 
-#: src/navcal/editor.py:424
+#: src/navcal/editor.py:427
 msgid "Reminder"
 msgstr ""
 
-#: src/navcal/editor.py:428
+#: src/navcal/editor.py:431
 msgid "Remove reminder"
 msgstr ""
 
-#: src/navcal/editor.py:444
+#: src/navcal/editor.py:447
 msgid "Read-only calendar"
 msgstr ""
 
-#: src/navcal/editor.py:460
+#: src/navcal/editor.py:463
 msgid "Custom"
 msgstr ""
 
-#: src/navcal/editor.py:492
+#: src/navcal/editor.py:495
 msgid "Remove link"
 msgstr ""
 
-#: src/navcal/editor.py:509
+#: src/navcal/editor.py:512
 msgid "Add Link"
 msgstr ""
 
-#: src/navcal/editor.py:510
+#: src/navcal/editor.py:513
 msgid "Add a web page or other link to the event."
 msgstr ""
 
-#: src/navcal/editor.py:545
+#: src/navcal/editor.py:548
 msgid "Attach File"
 msgstr ""
 
-#: src/navcal/editor.py:554
+#: src/navcal/editor.py:557
 #, python-brace-format
 msgid "Overlaps with “{title}”"
 msgstr ""
 
-#: src/navcal/editor.py:555
+#: src/navcal/editor.py:558
 #, python-brace-format
 msgid "Overlaps with “{title}” and {n} more"
 msgid_plural "Overlaps with “{title}” and {n} more"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/editor.py:665
+#: src/navcal/editor.py:668
 #, python-brace-format
 msgid "{temperature}, {summary}"
 msgstr ""
 
-#: src/navcal/editor.py:681
+#: src/navcal/editor.py:684
 msgid "Opening hours not listed"
 msgstr ""
 
-#: src/navcal/editor.py:739
+#: src/navcal/editor.py:742
 #, python-brace-format
 msgid "Your time: {day} {time}"
 msgstr ""
 
-#: src/navcal/editor.py:755
+#: src/navcal/editor.py:758
 #, python-brace-format
 msgid "Day {n}"
 msgstr ""
 
-#: src/navcal/editor.py:798
+#: src/navcal/editor.py:801
 msgid "Ends before it starts"
 msgstr ""
 
-#: src/navcal/editor.py:817
+#: src/navcal/editor.py:820
 msgid "Untitled Event"
 msgstr ""
 
-#: src/navcal/editor.py:875
+#: src/navcal/editor.py:878
 msgid "Change Recurring Event?"
 msgstr ""
 
-#: src/navcal/editor.py:875
+#: src/navcal/editor.py:878
 #, python-brace-format
 msgid "“{title}” repeats. Choose which events to change."
 msgstr ""
 
-#: src/navcal/editor.py:876
+#: src/navcal/editor.py:879
 msgid "Move Recurring Event?"
 msgstr ""
 
-#: src/navcal/editor.py:876
+#: src/navcal/editor.py:879
 #, python-brace-format
 msgid "“{title}” repeats. Choose which events to move."
 msgstr ""
 
-#: src/navcal/editor.py:877
+#: src/navcal/editor.py:880
 msgid "Delete Recurring Event?"
 msgstr ""
 
-#: src/navcal/editor.py:877
+#: src/navcal/editor.py:880
 #, python-brace-format
 msgid "“{title}” repeats. Choose which events to delete."
 msgstr ""
 
-#: src/navcal/editor.py:891
+#: src/navcal/editor.py:894
 msgid "_All Events"
 msgstr ""
 
-#: src/navcal/editor.py:892
+#: src/navcal/editor.py:895
 msgid "This and _Following"
 msgstr ""
 
-#: src/navcal/editor.py:893
+#: src/navcal/editor.py:896
 msgid "_Only This Event"
 msgstr ""
 
-#: src/navcal/holidays.py:13
+#: src/navcal/holidays.py:16
 msgid "Argentina"
 msgstr ""
 
-#: src/navcal/holidays.py:13
+#: src/navcal/holidays.py:16
 msgid "Australia"
 msgstr ""
 
-#: src/navcal/holidays.py:13
+#: src/navcal/holidays.py:16
 msgid "Austria"
 msgstr ""
 
-#: src/navcal/holidays.py:14
+#: src/navcal/holidays.py:17
 msgid "Belgium"
 msgstr ""
 
-#: src/navcal/holidays.py:14
+#: src/navcal/holidays.py:17
 msgid "Brazil"
 msgstr ""
 
-#: src/navcal/holidays.py:14
+#: src/navcal/holidays.py:17
 msgid "Bulgaria"
 msgstr ""
 
-#: src/navcal/holidays.py:15
+#: src/navcal/holidays.py:18
 msgid "Canada"
 msgstr ""
 
-#: src/navcal/holidays.py:15
+#: src/navcal/holidays.py:18
 msgid "Chile"
 msgstr ""
 
-#: src/navcal/holidays.py:15
+#: src/navcal/holidays.py:18
 msgid "China"
 msgstr ""
 
-#: src/navcal/holidays.py:16
+#: src/navcal/holidays.py:19
 msgid "Colombia"
 msgstr ""
 
-#: src/navcal/holidays.py:16
+#: src/navcal/holidays.py:19
 msgid "Croatia"
 msgstr ""
 
-#: src/navcal/holidays.py:16
+#: src/navcal/holidays.py:19
 msgid "Czechia"
 msgstr ""
 
-#: src/navcal/holidays.py:17
+#: src/navcal/holidays.py:20
 msgid "Denmark"
 msgstr ""
 
-#: src/navcal/holidays.py:17
+#: src/navcal/holidays.py:20
 msgid "Egypt"
 msgstr ""
 
-#: src/navcal/holidays.py:17
+#: src/navcal/holidays.py:20
 msgid "Finland"
 msgstr ""
 
-#: src/navcal/holidays.py:18
+#: src/navcal/holidays.py:21
 msgid "France"
 msgstr ""
 
-#: src/navcal/holidays.py:18
+#: src/navcal/holidays.py:21
 msgid "Germany"
 msgstr ""
 
-#: src/navcal/holidays.py:18
+#: src/navcal/holidays.py:21
 msgid "Greece"
 msgstr ""
 
-#: src/navcal/holidays.py:19
+#: src/navcal/holidays.py:22
 msgid "Hong Kong"
 msgstr ""
 
-#: src/navcal/holidays.py:19
+#: src/navcal/holidays.py:22
 msgid "Hungary"
 msgstr ""
 
-#: src/navcal/holidays.py:19
+#: src/navcal/holidays.py:22
 msgid "India"
 msgstr ""
 
-#: src/navcal/holidays.py:20
+#: src/navcal/holidays.py:23
 msgid "Indonesia"
 msgstr ""
 
-#: src/navcal/holidays.py:20
+#: src/navcal/holidays.py:23
 msgid "Ireland"
 msgstr ""
 
-#: src/navcal/holidays.py:20
+#: src/navcal/holidays.py:23
 msgid "Italy"
 msgstr ""
 
-#: src/navcal/holidays.py:21
+#: src/navcal/holidays.py:24
 msgid "Japan"
 msgstr ""
 
-#: src/navcal/holidays.py:21
+#: src/navcal/holidays.py:24
 msgid "Kenya"
 msgstr ""
 
-#: src/navcal/holidays.py:21
+#: src/navcal/holidays.py:24
 msgid "Malaysia"
 msgstr ""
 
-#: src/navcal/holidays.py:22
+#: src/navcal/holidays.py:25
 msgid "Mexico"
 msgstr ""
 
-#: src/navcal/holidays.py:22
+#: src/navcal/holidays.py:25
 msgid "Netherlands"
 msgstr ""
 
-#: src/navcal/holidays.py:22
+#: src/navcal/holidays.py:25
 msgid "New Zealand"
 msgstr ""
 
-#: src/navcal/holidays.py:23
+#: src/navcal/holidays.py:26
 msgid "Nigeria"
 msgstr ""
 
-#: src/navcal/holidays.py:23
+#: src/navcal/holidays.py:26
 msgid "Norway"
 msgstr ""
 
-#: src/navcal/holidays.py:23
+#: src/navcal/holidays.py:26
 msgid "Peru"
 msgstr ""
 
-#: src/navcal/holidays.py:24
+#: src/navcal/holidays.py:27
 msgid "Philippines"
 msgstr ""
 
-#: src/navcal/holidays.py:24
+#: src/navcal/holidays.py:27
 msgid "Poland"
 msgstr ""
 
-#: src/navcal/holidays.py:24
+#: src/navcal/holidays.py:27
 msgid "Portugal"
 msgstr ""
 
-#: src/navcal/holidays.py:25
+#: src/navcal/holidays.py:28
 msgid "Romania"
 msgstr ""
 
-#: src/navcal/holidays.py:25
+#: src/navcal/holidays.py:28
 msgid "Russia"
 msgstr ""
 
-#: src/navcal/holidays.py:25
+#: src/navcal/holidays.py:28
 msgid "Saudi Arabia"
 msgstr ""
 
-#: src/navcal/holidays.py:26
+#: src/navcal/holidays.py:29
 msgid "Singapore"
 msgstr ""
 
-#: src/navcal/holidays.py:26
+#: src/navcal/holidays.py:29
 msgid "Slovakia"
 msgstr ""
 
-#: src/navcal/holidays.py:26
+#: src/navcal/holidays.py:29
 msgid "South Africa"
 msgstr ""
 
-#: src/navcal/holidays.py:27
+#: src/navcal/holidays.py:30
 msgid "South Korea"
 msgstr ""
 
-#: src/navcal/holidays.py:27
+#: src/navcal/holidays.py:30
 msgid "Spain"
 msgstr ""
 
-#: src/navcal/holidays.py:27
+#: src/navcal/holidays.py:30
 msgid "Sweden"
 msgstr ""
 
-#: src/navcal/holidays.py:28
+#: src/navcal/holidays.py:31
 msgid "Switzerland"
 msgstr ""
 
-#: src/navcal/holidays.py:28
+#: src/navcal/holidays.py:31
 msgid "Taiwan"
 msgstr ""
 
-#: src/navcal/holidays.py:28
+#: src/navcal/holidays.py:31
 msgid "Thailand"
 msgstr ""
 
-#: src/navcal/holidays.py:29
+#: src/navcal/holidays.py:32
 msgid "Turkey"
 msgstr ""
 
-#: src/navcal/holidays.py:29
+#: src/navcal/holidays.py:32
 msgid "Ukraine"
 msgstr ""
 
-#: src/navcal/holidays.py:30
+#: src/navcal/holidays.py:33
 msgid "United Arab Emirates"
 msgstr ""
 
-#: src/navcal/holidays.py:30
+#: src/navcal/holidays.py:33
 msgid "United Kingdom"
 msgstr ""
 
-#: src/navcal/holidays.py:31
+#: src/navcal/holidays.py:34
 msgid "United States"
 msgstr ""
 
-#: src/navcal/holidays.py:31
+#: src/navcal/holidays.py:34
 msgid "Vietnam"
 msgstr ""
 
-#: src/navcal/holidays.py:33
+#: src/navcal/holidays.py:36
 msgid "Christian holidays"
 msgstr ""
 
-#: src/navcal/holidays.py:33
+#: src/navcal/holidays.py:36
 msgid "Islamic holidays"
 msgstr ""
 
-#: src/navcal/holidays.py:34
+#: src/navcal/holidays.py:37
 msgid "Jewish holidays"
 msgstr ""
 
-#: src/navcal/holidays.py:47
+#: src/navcal/holidays.py:50
 #, python-brace-format
 msgid "Holidays in {country}"
 msgstr ""
 
-#: src/navcal/models.py:13
+#: src/navcal/models.py:16
 msgid "Blue"
 msgstr ""
 
-#: src/navcal/models.py:14
+#: src/navcal/models.py:17
 msgid "Teal"
 msgstr ""
 
-#: src/navcal/models.py:15
+#: src/navcal/models.py:18
 msgid "Green"
 msgstr ""
 
-#: src/navcal/models.py:16
+#: src/navcal/models.py:19
 msgid "Yellow"
 msgstr ""
 
-#: src/navcal/models.py:17
+#: src/navcal/models.py:20
 msgid "Orange"
 msgstr ""
 
-#: src/navcal/models.py:18
+#: src/navcal/models.py:21
 msgid "Red"
 msgstr ""
 
-#: src/navcal/models.py:19
+#: src/navcal/models.py:22
 msgid "Pink"
 msgstr ""
 
-#: src/navcal/models.py:20
+#: src/navcal/models.py:23
 msgid "Purple"
 msgstr ""
 
-#: src/navcal/models.py:21
+#: src/navcal/models.py:24
 msgid "Slate"
 msgstr ""
 
-#: src/navcal/place_search.py:31
+#: src/navcal/place_search.py:34
 msgid "Suggested places"
 msgstr ""
 
-#: src/navcal/place_search.py:32
+#: src/navcal/place_search.py:35
 msgid "Places from OpenStreetMap contributors"
 msgstr ""
 
-#: src/navcal/places.py:37
+#: src/navcal/places.py:40
 msgid "Café"
 msgstr ""
 
-#: src/navcal/places.py:37
+#: src/navcal/places.py:40
 msgid "Restaurant"
 msgstr ""
 
-#: src/navcal/places.py:38
+#: src/navcal/places.py:41
 msgid "Fast food"
 msgstr ""
 
-#: src/navcal/places.py:38
+#: src/navcal/places.py:41
 msgid "Bar"
 msgstr ""
 
-#: src/navcal/places.py:38
+#: src/navcal/places.py:41
 msgid "Pub"
 msgstr ""
 
-#: src/navcal/places.py:39
+#: src/navcal/places.py:42
 msgid "Ice cream shop"
 msgstr ""
 
-#: src/navcal/places.py:39
+#: src/navcal/places.py:42
 msgid "Bank"
 msgstr ""
 
-#: src/navcal/places.py:40
+#: src/navcal/places.py:43
 msgid "Pharmacy"
 msgstr ""
 
-#: src/navcal/places.py:40
+#: src/navcal/places.py:43
 msgid "Library"
 msgstr ""
 
-#: src/navcal/places.py:41
+#: src/navcal/places.py:44
 msgid "Cinema"
 msgstr ""
 
-#: src/navcal/places.py:41
+#: src/navcal/places.py:44
 msgid "Theater"
 msgstr ""
 
-#: src/navcal/places.py:42
+#: src/navcal/places.py:45
 msgid "Hospital"
 msgstr ""
 
-#: src/navcal/places.py:42
+#: src/navcal/places.py:45
 msgid "Clinic"
 msgstr ""
 
-#: src/navcal/places.py:43
+#: src/navcal/places.py:46
 msgid "Dentist"
 msgstr ""
 
-#: src/navcal/places.py:43
+#: src/navcal/places.py:46
 msgid "Doctor’s office"
 msgstr ""
 
-#: src/navcal/places.py:44
+#: src/navcal/places.py:47
 msgid "Post office"
 msgstr ""
 
-#: src/navcal/places.py:44
+#: src/navcal/places.py:47
 msgid "Gas station"
 msgstr ""
 
-#: src/navcal/places.py:45
+#: src/navcal/places.py:48
 msgid "Community center"
 msgstr ""
 
-#: src/navcal/places.py:46
+#: src/navcal/places.py:49
 msgid "Supermarket"
 msgstr ""
 
-#: src/navcal/places.py:46
+#: src/navcal/places.py:49
 msgid "Convenience store"
 msgstr ""
 
-#: src/navcal/places.py:47
+#: src/navcal/places.py:50
 msgid "Bakery"
 msgstr ""
 
-#: src/navcal/places.py:47
+#: src/navcal/places.py:50
 msgid "Shopping mall"
 msgstr ""
 
-#: src/navcal/places.py:48
+#: src/navcal/places.py:51
 msgid "Clothing store"
 msgstr ""
 
-#: src/navcal/places.py:48
+#: src/navcal/places.py:51
 msgid "Hairdresser"
 msgstr ""
 
-#: src/navcal/places.py:49
+#: src/navcal/places.py:52
 msgid "Museum"
 msgstr ""
 
-#: src/navcal/places.py:49
+#: src/navcal/places.py:52
 msgid "Hotel"
 msgstr ""
 
-#: src/navcal/places.py:50
+#: src/navcal/places.py:53
 msgid "Gallery"
 msgstr ""
 
-#: src/navcal/places.py:50
+#: src/navcal/places.py:53
 msgid "Attraction"
 msgstr ""
 
-#: src/navcal/places.py:51
+#: src/navcal/places.py:54
 msgid "Zoo"
 msgstr ""
 
-#: src/navcal/places.py:51
+#: src/navcal/places.py:54
 msgid "Gym"
 msgstr ""
 
-#: src/navcal/places.py:52
+#: src/navcal/places.py:55
 msgid "Sports center"
 msgstr ""
 
-#: src/navcal/places.py:52
+#: src/navcal/places.py:55
 msgid "Park"
 msgstr ""
 
-#: src/navcal/places.py:53
+#: src/navcal/places.py:56
 msgid "Swimming pool"
 msgstr ""
 
-#: src/navcal/places.py:55
+#: src/navcal/places.py:58
 msgid "Place"
 msgstr ""
 
-#: src/navcal/places.py:55
+#: src/navcal/places.py:58
 msgid "Shop"
 msgstr ""
 
-#: src/navcal/places.py:55
+#: src/navcal/places.py:58
 msgid "Tourist spot"
 msgstr ""
 
-#: src/navcal/places.py:56
+#: src/navcal/places.py:59
 msgid "Leisure"
 msgstr ""
 
-#: src/navcal/places.py:56
+#: src/navcal/places.py:59
 msgid "Office"
 msgstr ""
 
-#: src/navcal/places.py:56
+#: src/navcal/places.py:59
 msgid "Workshop"
 msgstr ""
 
-#: src/navcal/places.py:57
+#: src/navcal/places.py:60
 msgid "Health care"
 msgstr ""
 
-#: src/navcal/places.py:57
+#: src/navcal/places.py:60
 msgid "Club"
 msgstr ""
 
-#: src/navcal/places.py:469
+#: src/navcal/places.py:472
 #, python-brace-format
 msgid "Open until {time}"
 msgstr ""
 
-#: src/navcal/places.py:470
+#: src/navcal/places.py:473
 #, python-brace-format
 msgid "Closes at {time}, before the event ends"
 msgstr ""
 
-#: src/navcal/places.py:473
+#: src/navcal/places.py:476
 #, python-brace-format
 msgid "Closed at {time}, opens at {opens}"
 msgstr ""
 
-#: src/navcal/places.py:475
+#: src/navcal/places.py:478
 #, python-brace-format
 msgid "Closed at {time}"
 msgstr ""
 
-#: src/navcal/print_dialog.py:17
+#: src/navcal/print_dialog.py:20
 msgid "Calendar and agenda"
 msgstr ""
 
-#: src/navcal/print_dialog.py:17
+#: src/navcal/print_dialog.py:20
 msgid "Calendar"
 msgstr ""
 
-#: src/navcal/print_dialog.py:17 src/navcal/views/agenda.py:194
+#: src/navcal/print_dialog.py:20 src/navcal/views/agenda.py:197
 msgid "Agenda"
 msgstr ""
 
-#: src/navcal/print_dialog.py:18
+#: src/navcal/print_dialog.py:21
 msgid "Left of the agenda"
 msgstr ""
 
-#: src/navcal/print_dialog.py:18
+#: src/navcal/print_dialog.py:21
 msgid "Right of the agenda"
 msgstr ""
 
-#: src/navcal/print_dialog.py:19
+#: src/navcal/print_dialog.py:22
 msgid "Above the agenda"
 msgstr ""
 
-#: src/navcal/print_dialog.py:19
+#: src/navcal/print_dialog.py:22
 msgid "Below the agenda"
 msgstr ""
 
-#: src/navcal/print_dialog.py:20 src/navcal/views/timegrid.py:55
-#: src/navcal/views/timegrid.py:126
+#: src/navcal/print_dialog.py:23 src/navcal/views/timegrid.py:58
+#: src/navcal/views/timegrid.py:129
 msgid "Day"
 msgstr ""
 
-#: src/navcal/print_dialog.py:20 src/navcal/views/timegrid.py:55
-#: src/navcal/views/timegrid.py:127
+#: src/navcal/print_dialog.py:23 src/navcal/views/timegrid.py:58
+#: src/navcal/views/timegrid.py:130
 msgid "Week"
 msgstr ""
 
-#: src/navcal/print_dialog.py:20 src/navcal/views/month.py:21
-#: src/navcal/views/month.py:64
+#: src/navcal/print_dialog.py:23 src/navcal/views/month.py:24
+#: src/navcal/views/month.py:67
 msgid "Month"
 msgstr ""
 
-#: src/navcal/print_dialog.py:21
+#: src/navcal/print_dialog.py:24
 msgid "Portrait"
 msgstr ""
 
-#: src/navcal/print_dialog.py:21
+#: src/navcal/print_dialog.py:24
 msgid "Landscape"
 msgstr ""
 
-#: src/navcal/print_dialog.py:105 src/navcal/printing.py:173
+#: src/navcal/print_dialog.py:108 src/navcal/printing.py:176
 #, python-brace-format
 msgid "Page {n} of {total}"
 msgstr ""
 
-#: src/navcal/print_dialog.py:130
+#: src/navcal/print_dialog.py:133
 msgid "PNG images"
 msgstr ""
 
-#: src/navcal/print_dialog.py:133
+#: src/navcal/print_dialog.py:136
 msgid "Save as Image"
 msgstr ""
 
-#: src/navcal/print_dialog.py:145
+#: src/navcal/print_dialog.py:148
 msgid "Couldn’t save the image"
 msgstr ""
 
-#: src/navcal/print_dialog.py:147
+#: src/navcal/print_dialog.py:150
 #, python-brace-format
 msgid "Saved “{name}”"
 msgstr ""
 
-#: src/navcal/printing.py:66 src/navcal/views/agenda.py:26
+#: src/navcal/printing.py:69 src/navcal/views/agenda.py:29
 msgid "%A, %B %-d, %Y"
 msgstr ""
 
-#: src/navcal/printing.py:68 src/navcal/window.py:98
+#: src/navcal/printing.py:71 src/navcal/window.py:101
 #, python-brace-format
 msgid "{first} – {last}"
 msgstr ""
 
-#: src/navcal/printing.py:68 src/navcal/views/agenda.py:191
-#: src/navcal/views/month.py:155 src/navcal/views/timegrid.py:121
+#: src/navcal/printing.py:71 src/navcal/views/agenda.py:194
+#: src/navcal/views/month.py:158 src/navcal/views/timegrid.py:124
 msgid "%b %-d"
 msgstr ""
 
-#: src/navcal/printing.py:69
+#: src/navcal/printing.py:72
 msgid "%b %-d, %Y"
 msgstr ""
 
-#: src/navcal/printing.py:70
+#: src/navcal/printing.py:73
 msgid "%B %Y"
 msgstr ""
 
-#: src/navcal/printing.py:185
+#: src/navcal/printing.py:188
 msgid "No events"
 msgstr ""
 
-#: src/navcal/printing.py:234 src/navcal/printing.py:255
-#: src/navcal/views/month.py:190
+#: src/navcal/printing.py:237 src/navcal/printing.py:258
+#: src/navcal/views/month.py:193
 #, python-brace-format
 msgid "{n} more"
 msgid_plural "{n} more"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/printing.py:271 src/navcal/printing.py:372
-#: src/navcal/views/agenda.py:34 src/navcal/window.py:568
+#: src/navcal/printing.py:274 src/navcal/printing.py:375
+#: src/navcal/views/agenda.py:37 src/navcal/window.py:571
 msgid "All day"
 msgstr ""
 
-#: src/navcal/printing.py:380
+#: src/navcal/printing.py:383
 #, python-brace-format
 msgid "{time} {title}"
 msgstr ""
 
-#: src/navcal/reminders.py:34 src/navcal/window.py:65
-#: src/navcal/worldclock.py:42
+#: src/navcal/reminders.py:37 src/navcal/window.py:68
+#: src/navcal/worldclock.py:45
 msgid "Today"
 msgstr ""
 
-#: src/navcal/reminders.py:39
+#: src/navcal/reminders.py:42
 #, python-brace-format
 msgid "Started at {time}"
 msgstr ""
 
-#: src/navcal/reminders.py:41
+#: src/navcal/reminders.py:44
 #, python-brace-format
 msgid "Started at {time} on {day}"
 msgstr ""
 
-#: src/navcal/reminders.py:44
+#: src/navcal/reminders.py:47
 #, python-brace-format
 msgid "Now, {time}"
 msgstr ""
 
-#: src/navcal/reminders.py:46
+#: src/navcal/reminders.py:49
 #, python-brace-format
 msgid "In {n} minute, at {time}"
 msgid_plural "In {n} minutes, at {time}"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/reminders.py:49
+#: src/navcal/reminders.py:52
 #, python-brace-format
 msgid "{day} at {time}"
 msgstr ""
 
-#: src/navcal/reminders.py:133
+#: src/navcal/reminders.py:136
 #, python-brace-format
 msgid "Missed: {title}"
 msgstr ""
 
-#: src/navcal/reminders.py:139
+#: src/navcal/reminders.py:142
 #, python-brace-format
 msgid "“{title}” starts at {time}"
 msgstr ""
 
-#: src/navcal/reminders.py:142
+#: src/navcal/reminders.py:145
 msgid "Time to Leave"
 msgstr ""
 
-#: src/navcal/reminders.py:151
+#: src/navcal/reminders.py:154
 #, python-brace-format
 msgid "Snooze {n} Minutes"
 msgstr ""
 
-#: src/navcal/tasks.py:26
+#: src/navcal/tasks.py:29
 #, python-brace-format
 msgid "Due today at {time}"
 msgstr ""
 
-#: src/navcal/tasks.py:26
+#: src/navcal/tasks.py:29
 msgid "Due today"
 msgstr ""
 
-#: src/navcal/tasks.py:28
+#: src/navcal/tasks.py:31
 #, python-brace-format
 msgid "Due tomorrow at {time}"
 msgstr ""
 
-#: src/navcal/tasks.py:28
+#: src/navcal/tasks.py:31
 msgid "Due tomorrow"
 msgstr ""
 
-#: src/navcal/tasks.py:30
+#: src/navcal/tasks.py:33
 #, python-brace-format
 msgid "Overdue · {day} at {time}"
 msgstr ""
 
-#: src/navcal/tasks.py:30
+#: src/navcal/tasks.py:33
 #, python-brace-format
 msgid "Overdue · {day}"
 msgstr ""
 
-#: src/navcal/tasks.py:32
+#: src/navcal/tasks.py:35
 #, python-brace-format
 msgid "Due {day} at {time}"
 msgstr ""
 
-#: src/navcal/tasks.py:32
+#: src/navcal/tasks.py:35
 #, python-brace-format
 msgid "Due {day}"
 msgstr ""
 
-#: src/navcal/tasks.py:48
+#: src/navcal/tasks.py:51
 msgid "Mark as done"
 msgstr ""
 
-#: src/navcal/tasks.py:78
+#: src/navcal/tasks.py:81
 msgid "New Task"
 msgstr ""
 
-#: src/navcal/tasks.py:78
+#: src/navcal/tasks.py:81
 msgid "Edit Task"
 msgstr ""
 
-#: src/navcal/tasks.py:102
+#: src/navcal/tasks.py:105
 msgid "Read-only list"
 msgstr ""
 
-#: src/navcal/views/agenda.py:23
+#: src/navcal/views/agenda.py:26
 #, python-brace-format
 msgid "Today, {date}"
 msgstr ""
 
-#: src/navcal/views/agenda.py:23 src/navcal/views/agenda.py:25
+#: src/navcal/views/agenda.py:26 src/navcal/views/agenda.py:28
 msgid "%B %-d"
 msgstr ""
 
-#: src/navcal/views/agenda.py:25
+#: src/navcal/views/agenda.py:28
 #, python-brace-format
 msgid "Tomorrow, {date}"
 msgstr ""
 
-#: src/navcal/views/agenda.py:33
+#: src/navcal/views/agenda.py:36
 #, python-brace-format
 msgid "All day · day {n} of {total}"
 msgstr ""
 
-#: src/navcal/views/agenda.py:49
+#: src/navcal/views/agenda.py:52
 msgid "No Events"
 msgstr ""
 
-#: src/navcal/views/agenda.py:50
+#: src/navcal/views/agenda.py:53
 msgid "Nothing is planned for these 30 days"
 msgstr ""
 
-#: src/navcal/views/month.py:61
+#: src/navcal/views/month.py:64
 msgid "%b %Y"
 msgstr ""
 
-#: src/navcal/views/timegrid.py:56
+#: src/navcal/views/timegrid.py:59
 #, python-brace-format
 msgid "{view}, all-day events"
 msgstr ""
 
-#: src/navcal/views/timegrid.py:119
+#: src/navcal/views/timegrid.py:122
 #, python-brace-format
 msgid "{month} {start} – {end}"
 msgstr ""
 
-#: src/navcal/views/timegrid.py:127
+#: src/navcal/views/timegrid.py:130
 #, python-brace-format
 msgid "{n} Day"
 msgid_plural "{n} Days"
@@ -1620,530 +1616,530 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. Translators: the label of the all-day row, in a narrow column; keep it short.
-#: src/navcal/views/timegrid.py:341
+#: src/navcal/views/timegrid.py:344
 msgctxt "all-day row"
 msgid "All day"
 msgstr ""
 
-#: src/navcal/views/timegrid.py:354
+#: src/navcal/views/timegrid.py:357
 #, python-brace-format
 msgid "Week {n}"
 msgstr ""
 
-#: src/navcal/views/timegrid.py:355
+#: src/navcal/views/timegrid.py:358
 #, python-brace-format
 msgid "Weeks {first}–{last}"
 msgstr ""
 
-#: src/navcal/views/timegrid.py:403
+#: src/navcal/views/timegrid.py:406
 #, python-brace-format
 msgid "{n} all-day event"
 msgid_plural "{n} all-day events"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/views/timegrid.py:665
+#: src/navcal/views/timegrid.py:668
 #, python-brace-format
 msgid "Travel · {n} min"
 msgid_plural "Travel · {n} min"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/views/timegrid.py:666
+#: src/navcal/views/timegrid.py:669
 #, python-brace-format
 msgid "Travel · {n} h"
 msgstr ""
 
-#: src/navcal/views/year.py:61 src/navcal/views/year.py:82
+#: src/navcal/views/year.py:64 src/navcal/views/year.py:85
 msgid "Year"
 msgstr ""
 
-#: src/navcal/views/year.py:120
+#: src/navcal/views/year.py:123
 #, python-brace-format
 msgid "{month}, {n} day with events"
 msgid_plural "{month}, {n} days with events"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/weather.py:24
+#: src/navcal/weather.py:27
 msgid "Clear"
 msgstr ""
 
-#: src/navcal/weather.py:24
+#: src/navcal/weather.py:27
 msgid "Mostly clear"
 msgstr ""
 
-#: src/navcal/weather.py:25
+#: src/navcal/weather.py:28
 msgid "Partly cloudy"
 msgstr ""
 
-#: src/navcal/weather.py:25 src/navcal/weather.py:80
+#: src/navcal/weather.py:28 src/navcal/weather.py:83
 msgid "Cloudy"
 msgstr ""
 
-#: src/navcal/weather.py:26
+#: src/navcal/weather.py:29
 msgid "Fog"
 msgstr ""
 
-#: src/navcal/weather.py:27 src/navcal/weather.py:28
+#: src/navcal/weather.py:30 src/navcal/weather.py:31
 msgid "Drizzle"
 msgstr ""
 
-#: src/navcal/weather.py:28 src/navcal/weather.py:29
+#: src/navcal/weather.py:31 src/navcal/weather.py:32
 msgid "Freezing drizzle"
 msgstr ""
 
-#: src/navcal/weather.py:30
+#: src/navcal/weather.py:33
 msgid "Light rain"
 msgstr ""
 
-#: src/navcal/weather.py:30
+#: src/navcal/weather.py:33
 msgid "Rain"
 msgstr ""
 
-#: src/navcal/weather.py:31
+#: src/navcal/weather.py:34
 msgid "Heavy rain"
 msgstr ""
 
-#: src/navcal/weather.py:31 src/navcal/weather.py:32
+#: src/navcal/weather.py:34 src/navcal/weather.py:35
 msgid "Freezing rain"
 msgstr ""
 
-#: src/navcal/weather.py:33
+#: src/navcal/weather.py:36
 msgid "Light snow"
 msgstr ""
 
-#: src/navcal/weather.py:33
+#: src/navcal/weather.py:36
 msgid "Snow"
 msgstr ""
 
-#: src/navcal/weather.py:33
+#: src/navcal/weather.py:36
 msgid "Heavy snow"
 msgstr ""
 
-#: src/navcal/weather.py:34
+#: src/navcal/weather.py:37
 msgid "Snow grains"
 msgstr ""
 
-#: src/navcal/weather.py:35
+#: src/navcal/weather.py:38
 msgid "Showers"
 msgstr ""
 
-#: src/navcal/weather.py:36
+#: src/navcal/weather.py:39
 msgid "Heavy showers"
 msgstr ""
 
-#: src/navcal/weather.py:36 src/navcal/weather.py:37
+#: src/navcal/weather.py:39 src/navcal/weather.py:40
 msgid "Snow showers"
 msgstr ""
 
-#: src/navcal/weather.py:38
+#: src/navcal/weather.py:41
 msgid "Thunderstorm"
 msgstr ""
 
-#: src/navcal/weather.py:38 src/navcal/weather.py:39
+#: src/navcal/weather.py:41 src/navcal/weather.py:42
 msgid "Thunderstorm with hail"
 msgstr ""
 
-#: src/navcal/weather.py:84
+#: src/navcal/weather.py:87
 #, python-brace-format
 msgid "{degrees}°"
 msgstr ""
 
-#: src/navcal/weather.py:91
+#: src/navcal/weather.py:94
 #, python-brace-format
 msgid "{high}° / {low}°"
 msgstr ""
 
-#: src/navcal/window.py:67 src/navcal/worldclock.py:42
+#: src/navcal/window.py:70 src/navcal/worldclock.py:45
 msgid "Tomorrow"
 msgstr ""
 
-#: src/navcal/window.py:77
+#: src/navcal/window.py:80
 #, python-brace-format
 msgid "{name} calendar"
 msgstr ""
 
-#: src/navcal/window.py:96
+#: src/navcal/window.py:99
 #, python-brace-format
 msgid "{day}, all day"
 msgstr ""
 
-#: src/navcal/window.py:101
+#: src/navcal/window.py:104
 #, python-brace-format
 msgid "{day}, {start} – {end}"
 msgstr ""
 
-#: src/navcal/window.py:102
+#: src/navcal/window.py:105
 #, python-brace-format
 msgid "{day}, {start} – {end} ({end_day})"
 msgstr ""
 
-#: src/navcal/window.py:108
+#: src/navcal/window.py:111
 msgid "Repeats every weekday"
 msgstr ""
 
-#: src/navcal/window.py:110
+#: src/navcal/window.py:113
 #, python-brace-format
 msgid "Repeats every day"
 msgid_plural "Repeats every {n} days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:111
+#: src/navcal/window.py:114
 #, python-brace-format
 msgid "Repeats every week"
 msgid_plural "Repeats every {n} weeks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:112
+#: src/navcal/window.py:115
 #, python-brace-format
 msgid "Repeats every month"
 msgid_plural "Repeats every {n} months"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:113
+#: src/navcal/window.py:116
 #, python-brace-format
 msgid "Repeats every year"
 msgid_plural "Repeats every {n} years"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:117
+#: src/navcal/window.py:120
 #, python-brace-format
 msgid "{repeats} on {days}"
 msgstr ""
 
-#: src/navcal/window.py:229
+#: src/navcal/window.py:232
 msgid "New task"
 msgstr ""
 
-#: src/navcal/window.py:448
+#: src/navcal/window.py:451
 #, python-brace-format
 msgid "No events on {day}"
 msgstr ""
 
-#: src/navcal/window.py:474
+#: src/navcal/window.py:477
 #, python-brace-format
 msgid "{day}, {events}"
 msgstr ""
 
-#: src/navcal/window.py:541
+#: src/navcal/window.py:544
 #, python-brace-format
 msgid "“{name}” couldn’t be loaded"
 msgstr ""
 
-#: src/navcal/window.py:542
+#: src/navcal/window.py:545
 #, python-brace-format
 msgid "{n} calendar couldn’t be loaded"
 msgid_plural "{n} calendars couldn’t be loaded"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:545
+#: src/navcal/window.py:548
 msgid "_Manage Calendars"
 msgstr ""
 
-#: src/navcal/window.py:548
+#: src/navcal/window.py:551
 msgid ""
 "You’re offline. Changes to online calendars sync when you’re back online."
 msgstr ""
 
-#: src/navcal/window.py:582
+#: src/navcal/window.py:585
 #, python-brace-format
 msgid "Show {n} More"
 msgid_plural "Show {n} More"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:583
+#: src/navcal/window.py:586
 msgid "Show Less"
 msgstr ""
 
-#: src/navcal/window.py:610
+#: src/navcal/window.py:613
 msgid "Hide Finished Tasks"
 msgstr ""
 
-#: src/navcal/window.py:611
+#: src/navcal/window.py:614
 #, python-brace-format
 msgid "Show {n} Finished Task"
 msgid_plural "Show {n} Finished Tasks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:651
+#: src/navcal/window.py:654
 #, python-brace-format
 msgid "{event}. {warning}"
 msgstr ""
 
-#: src/navcal/window.py:707
+#: src/navcal/window.py:710
 msgid "Remove clock"
 msgstr ""
 
-#: src/navcal/window.py:713
+#: src/navcal/window.py:716
 msgid "_Add World Clock…"
 msgstr ""
 
-#: src/navcal/window.py:724
+#: src/navcal/window.py:727
 msgid "_City or time zone"
 msgstr ""
 
-#: src/navcal/window.py:729
+#: src/navcal/window.py:732
 msgid "Add World Clock"
 msgstr ""
 
-#: src/navcal/window.py:730
+#: src/navcal/window.py:733
 msgid "Search for a city in the time zone you want."
 msgstr ""
 
-#: src/navcal/window.py:768
+#: src/navcal/window.py:771
 msgid "Past"
 msgstr ""
 
-#: src/navcal/window.py:800 src/navcal/window.py:808
+#: src/navcal/window.py:803 src/navcal/window.py:811
 #, python-brace-format
 msgid "{n} event selected"
 msgid_plural "{n} events selected"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:817
+#: src/navcal/window.py:820
 msgid "_Edit…"
 msgstr ""
 
-#: src/navcal/window.py:817
+#: src/navcal/window.py:820
 msgid "_Open"
 msgstr ""
 
-#: src/navcal/window.py:819
+#: src/navcal/window.py:822
 msgid "D_uplicate"
 msgstr ""
 
-#: src/navcal/window.py:819
+#: src/navcal/window.py:822
 msgid "D_uplicate…"
 msgstr ""
 
-#: src/navcal/window.py:820
+#: src/navcal/window.py:823
 msgid "_Copy"
 msgstr ""
 
-#: src/navcal/window.py:821
+#: src/navcal/window.py:824
 msgid "Cu_t"
 msgstr ""
 
-#: src/navcal/window.py:825
+#: src/navcal/window.py:828
 msgid "_Delete"
 msgstr ""
 
-#: src/navcal/window.py:828
+#: src/navcal/window.py:831
 msgid "_New Event…"
 msgstr ""
 
-#: src/navcal/window.py:829
+#: src/navcal/window.py:832
 msgid "_Paste"
 msgstr ""
 
-#: src/navcal/window.py:856
+#: src/navcal/window.py:859
 msgid "Couldn’t save the change"
 msgstr ""
 
-#: src/navcal/window.py:923
+#: src/navcal/window.py:926
 msgid "Type what, when and where"
 msgstr ""
 
-#: src/navcal/window.py:937 src/navcal/window.py:964
+#: src/navcal/window.py:940 src/navcal/window.py:967
 msgid "There’s no calendar you can add events to"
 msgstr ""
 
-#: src/navcal/window.py:951 src/navcal/window.py:958 src/navcal/window.py:972
-#: src/navcal/window.py:1248
+#: src/navcal/window.py:954 src/navcal/window.py:961 src/navcal/window.py:975
+#: src/navcal/window.py:1251
 #, python-brace-format
 msgid "Add “{title}”"
 msgstr ""
 
-#: src/navcal/window.py:957 src/navcal/window.py:971
+#: src/navcal/window.py:960 src/navcal/window.py:974
 #: src/navcal/ui/window.ui:238
 msgid "New Event"
 msgstr ""
 
-#: src/navcal/window.py:991
+#: src/navcal/window.py:994
 msgid "Couldn’t add the event"
 msgid_plural "Couldn’t add the events"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:1008
+#: src/navcal/window.py:1011
 msgid "Event Details"
 msgstr ""
 
-#: src/navcal/window.py:1008
+#: src/navcal/window.py:1011
 msgid "Edit Event"
 msgstr ""
 
-#: src/navcal/window.py:1028 src/navcal/window.py:1220
+#: src/navcal/window.py:1031 src/navcal/window.py:1223
 #, python-brace-format
 msgid "Duplicate “{title}”"
 msgstr ""
 
-#: src/navcal/window.py:1107
+#: src/navcal/window.py:1110
 msgid "That calendar isn’t available right now"
 msgstr ""
 
-#: src/navcal/window.py:1109
+#: src/navcal/window.py:1112
 #, python-brace-format
 msgid "Move “{title}”"
 msgstr ""
 
-#: src/navcal/window.py:1109 src/navcal/window.py:1271
+#: src/navcal/window.py:1112 src/navcal/window.py:1274
 #, python-brace-format
 msgid "Change “{title}”"
 msgstr ""
 
-#: src/navcal/window.py:1110 src/navcal/window.py:1261
-#: src/navcal/window.py:1272
+#: src/navcal/window.py:1113 src/navcal/window.py:1264
+#: src/navcal/window.py:1275
 #, python-brace-format
 msgid "Couldn’t save “{title}”"
 msgstr ""
 
-#: src/navcal/window.py:1122 src/navcal/ui/editor.ui:31
+#: src/navcal/window.py:1125 src/navcal/ui/editor.ui:31
 msgid "This calendar is read-only"
 msgstr ""
 
-#: src/navcal/window.py:1148
+#: src/navcal/window.py:1151
 #, python-brace-format
 msgid "Cut “{title}”"
 msgstr ""
 
-#: src/navcal/window.py:1148 src/navcal/window.py:1279
+#: src/navcal/window.py:1151 src/navcal/window.py:1282
 #, python-brace-format
 msgid "Delete “{title}”"
 msgstr ""
 
-#: src/navcal/window.py:1149
+#: src/navcal/window.py:1152
 #, python-brace-format
 msgid "“{title}” cut"
 msgstr ""
 
-#: src/navcal/window.py:1149 src/navcal/window.py:1280
+#: src/navcal/window.py:1152 src/navcal/window.py:1283
 #, python-brace-format
 msgid "“{title}” deleted"
 msgstr ""
 
-#: src/navcal/window.py:1150 src/navcal/window.py:1282
+#: src/navcal/window.py:1153 src/navcal/window.py:1285
 #, python-brace-format
 msgid "Couldn’t delete “{title}”"
 msgstr ""
 
-#: src/navcal/window.py:1152
+#: src/navcal/window.py:1155
 #, python-brace-format
 msgid "Cut {n} event"
 msgid_plural "Cut {n} events"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:1153
+#: src/navcal/window.py:1156
 #, python-brace-format
 msgid "Delete {n} event"
 msgid_plural "Delete {n} events"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:1154
+#: src/navcal/window.py:1157
 #, python-brace-format
 msgid "{n} event cut"
 msgid_plural "{n} events cut"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:1155
+#: src/navcal/window.py:1158
 #, python-brace-format
 msgid "{n} event deleted"
 msgid_plural "{n} events deleted"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:1156
+#: src/navcal/window.py:1159
 msgid "Couldn’t delete the events"
 msgstr ""
 
-#: src/navcal/window.py:1182
+#: src/navcal/window.py:1185
 #, python-brace-format
 msgid "“{title}” copied"
 msgstr ""
 
-#: src/navcal/window.py:1183
+#: src/navcal/window.py:1186
 #, python-brace-format
 msgid "{n} event copied"
 msgid_plural "{n} events copied"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:1210
+#: src/navcal/window.py:1213
 #, python-brace-format
 msgid "Paste “{title}”"
 msgstr ""
 
-#: src/navcal/window.py:1211
+#: src/navcal/window.py:1214
 #, python-brace-format
 msgid "Paste {n} event"
 msgid_plural "Paste {n} events"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:1219
+#: src/navcal/window.py:1222
 msgid "Duplicate Event"
 msgstr ""
 
-#: src/navcal/window.py:1225
+#: src/navcal/window.py:1228
 #, python-brace-format
 msgid "Duplicate {n} event"
 msgid_plural "Duplicate {n} events"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/window.py:1241
+#: src/navcal/window.py:1244
 msgid "There’s no task list you can add tasks to"
 msgstr ""
 
-#: src/navcal/window.py:1249
+#: src/navcal/window.py:1252
 #, python-brace-format
 msgid "Couldn’t add “{title}”"
 msgstr ""
 
-#: src/navcal/window.py:1256
+#: src/navcal/window.py:1259
 #, python-brace-format
 msgid "Finish “{title}”"
 msgstr ""
 
-#: src/navcal/window.py:1256
+#: src/navcal/window.py:1259
 #, python-brace-format
 msgid "Reopen “{title}”"
 msgstr ""
 
-#: src/navcal/window.py:1258
+#: src/navcal/window.py:1261
 #, python-brace-format
 msgid "“{title}” done"
 msgstr ""
 
-#: src/navcal/window.py:1303
+#: src/navcal/window.py:1306
 msgid "Couldn’t undo the change"
 msgstr ""
 
-#: src/navcal/window.py:1314
+#: src/navcal/window.py:1317
 msgid "_Undo"
 msgstr ""
 
-#: src/navcal/worldclock.py:42
+#: src/navcal/worldclock.py:45
 msgid "Yesterday"
 msgstr ""
 
-#: src/navcal/worldclock.py:45
+#: src/navcal/worldclock.py:48
 msgid "Same time"
 msgstr ""
 
-#: src/navcal/worldclock.py:48
+#: src/navcal/worldclock.py:51
 #, python-brace-format
 msgid "{amount} hour"
 msgid_plural "{amount} hours"

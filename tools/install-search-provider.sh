@@ -1,4 +1,6 @@
 #!/bin/sh
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Shows Navcal events in the GNOME Activities search.
 # GNOME Shell only reads search providers from system folders, so this one
 # file needs administrator rights. Log out and back in afterwards.

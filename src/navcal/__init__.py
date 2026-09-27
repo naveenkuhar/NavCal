@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Navcal: a GNOME calendar with reminders."""
 
 VERSION = "0.6.0"

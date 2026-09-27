@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """The event editor dialog and the recurring-event scope prompt."""
 
 from __future__ import annotations

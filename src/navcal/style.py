@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Generated CSS classes for user-chosen calendar and event colors.
 
 Everything else is styled with libadwaita style classes, plus the few size

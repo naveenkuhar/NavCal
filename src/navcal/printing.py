@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Printouts: a calendar (month grid, week planner or day timeline), an agenda
 checklist with a box to tick per event, or both on one page.
 

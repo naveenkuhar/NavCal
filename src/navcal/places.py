@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Places: address search as you type, finding where an event's location is,
 and opening hours, all from OpenStreetMap (Photon for search, Nominatim for
 details). Data © OpenStreetMap contributors."""

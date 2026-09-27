@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Evolution Data Server backend: the same calendars GNOME Calendar and the
 GNOME Shell clock menu use, including online accounts (Google, Microsoft 365,
 Nextcloud, CalDAV/iCloud) configured in GNOME Settings.

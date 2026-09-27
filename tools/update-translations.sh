@@ -1,4 +1,6 @@
 #!/bin/sh
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Extracts translatable text into po/navcal.pot, merges it into po/<lang>.po,
 # and compiles those into src/navcal/locale/<lang>/LC_MESSAGES/navcal.mo.
 # Run after changing any user-visible text. Add languages to po/LINGUAS.

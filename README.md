@@ -209,3 +209,9 @@ po/               translations (navcal.pot template, fr.po)
 tests/            unit tests, and calendar-service tests run by run-eds-tests.sh
 tools/            build-resources.sh, update-translations.sh, install-search-provider.sh
 ```
+
+## License
+
+Navcal is free software: you can use, study, share and change it under the terms of the [GNU General Public License](LICENSE), version 3 or (at your option) any later version. If you distribute Navcal or a program based on it, you must share its source code under the same license.
+
+© 2026 Nave Kuhar

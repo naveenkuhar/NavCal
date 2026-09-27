@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """The Adw.Application: app-wide actions, dialogs, background mode."""
 
 from __future__ import annotations
@@ -194,7 +197,10 @@ class Application(Adw.Application):
             version=VERSION,
             comments=_("Plan your days and get reminders."),
             translator_credits=_("translator-credits"),
-            developers=[_("Navcal contributors")],
+            developer_name="Nave Kuhar",
+            developers=["Nave Kuhar"],
+            copyright="© 2026 Nave Kuhar",
+            license_type=Gtk.License.GPL_3_0,
         )
         about.present(self.window)
 

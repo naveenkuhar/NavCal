@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """The bottom bar, like a dock: calendar buttons, the next event, tasks to do,
 weather, world clocks and shortcut buttons. Which of them and in what order is
 up to the user (Preferences → Bottom Bar)."""

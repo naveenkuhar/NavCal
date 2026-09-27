@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Quick add: turn "Lunch with Sam tomorrow 1pm at Café Luna" into an event.
 
 English phrasing only. Understands dates (today, tomorrow, friday, next friday,

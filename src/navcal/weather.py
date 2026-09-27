@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Weather forecasts from Open-Meteo (open-meteo.com): no account or key needed.
 One place's forecast (chosen in Preferences) is shown under the days, and events
 with a location get the forecast for when they start."""

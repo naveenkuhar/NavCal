@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Address suggestions under an entry row while typing (GTK has no completion
 popover for entry rows)."""
 

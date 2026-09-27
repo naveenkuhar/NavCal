@@ -1,4 +1,6 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Runs the EDS integration tests against a private, throwaway calendar service.
 # Your real calendars are never touched: D-Bus, config, data and cache are all
 # isolated in a temporary directory.

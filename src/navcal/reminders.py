@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Desktop notifications for event reminders.
 
 Reminders come from the events' VALARMs, so reminders set in other apps

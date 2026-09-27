@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Desktop integration: the .desktop entry, app icon and start-at-login."""
 
 from __future__ import annotations

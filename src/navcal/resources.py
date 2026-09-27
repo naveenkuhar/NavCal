@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Registers the compiled GResource bundle (UI files, CSS, icons).
 
 Must be imported before any module that defines a Gtk.Template class.

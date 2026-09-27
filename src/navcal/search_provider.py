@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """GNOME Shell search provider: Navcal events in the Activities overview search.
 
 GNOME Shell only reads search providers from system folders, so this needs a

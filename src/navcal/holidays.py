@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Public holiday calendars (Google's public iCalendar feeds, no account needed)."""
 
 from __future__ import annotations

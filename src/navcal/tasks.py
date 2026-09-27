@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Tasks: the task editor dialog and task rows (with a check box) for lists."""
 
 from __future__ import annotations

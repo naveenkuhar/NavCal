@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """The main window: header bar, sidebar, the views and all event actions."""
 
 from __future__ import annotations

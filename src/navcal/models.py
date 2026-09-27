@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Core data model: events, repeat rules and occurrences. No GTK or EDS here."""
 
 from __future__ import annotations

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """The print dialog: pick a layout, see the page as it will print, then print it
 or save it as an image."""
 

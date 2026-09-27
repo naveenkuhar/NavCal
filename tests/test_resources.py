@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """The compiled GResource must be rebuilt after UI, CSS or icon changes."""
 
 import re

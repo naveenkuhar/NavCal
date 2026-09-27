@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Translations (gettext). Import `_` and `ngettext` from here.
 
 Compiled translations live in navcal/locale/<lang>/LC_MESSAGES/navcal.mo, built

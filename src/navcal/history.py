@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Undo/redo history that survives restarting Navcal.
 
 Each entry is a label plus the snapshots needed to restore the affected events

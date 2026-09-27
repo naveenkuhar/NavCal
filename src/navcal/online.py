@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Small web requests (place search, opening hours, weather), made in the
 background on the main loop. Nothing is sent unless the user turned the online
 features on in Preferences (they are on by default)."""

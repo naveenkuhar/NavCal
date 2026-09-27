@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Nave Kuhar
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """Week and day views: an all-day header above a scrollable 24-hour grid."""
 
 from __future__ import annotations
