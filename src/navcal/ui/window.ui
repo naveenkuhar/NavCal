@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface domain="navcal">
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+
+  <menu id="dock_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Manage Calendars…</attribute>
+        <attribute name="action">app.calendars</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Customize Bottom Bar…</attribute>
+        <attribute name="action">app.customize-dock</attribute>
+      </item>
+    </section>
+  </menu>
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Print…</attribute>
+        <attribute name="action">win.print</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Preferences</attribute>
+        <attribute name="action">app.preferences</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+        <attribute name="action">app.shortcuts</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_About Navcal</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+
+  <template class="NavcalWindow" parent="AdwApplicationWindow">
+    <property name="title">Navcal</property>
+    <property name="width-request">360</property>
+    <property name="height-request">294</property>
+
+    <!-- Adaptive layout. When several match, the last one applies, so each
+         narrower breakpoint repeats the setters of the wider ones. -->
+    <child>
+      <object class="AdwBreakpoint">
+        <condition>max-width: 1180sp</condition>
+        <setter object="switcher" property="policy">narrow</setter>
+      </object>
+    </child>
+    <child>
+      <object class="AdwBreakpoint">
+        <condition>max-width: 960sp</condition>
+        <setter object="split_view" property="collapsed">True</setter>
+        <setter object="switcher" property="policy">narrow</setter>
+      </object>
+    </child>
+    <child>
+      <object class="AdwBreakpoint">
+        <condition>max-width: 660sp</condition>
+        <setter object="split_view" property="collapsed">True</setter>
+        <setter object="switcher_bar" property="reveal">True</setter>
+        <setter object="content_header" property="title-widget">narrow_title</setter>
+        <setter object="period_bar" property="visible">False</setter>
+        <!-- Room for the other header buttons; today is also in the sidebar calendar. -->
+        <setter object="today_button" property="visible">False</setter>
+      </object>
+    </child>
+    <child>
+      <object class="AdwBreakpoint">
+        <condition>max-height: 480sp</condition>
+        <setter object="split_view" property="collapsed">True</setter>
+        <setter object="switcher" property="policy">narrow</setter>
+        <setter object="calendar_bar" property="visible">False</setter>
+      </object>
+    </child>
+    <child>
+      <object class="AdwBreakpoint">
+        <condition>max-width: 660sp and max-height: 480sp</condition>
+        <setter object="split_view" property="collapsed">True</setter>
+        <setter object="switcher_bar" property="reveal">True</setter>
+        <setter object="content_header" property="title-widget">narrow_title</setter>
+        <setter object="period_bar" property="visible">False</setter>
+        <!-- Room for the other header buttons; today is also in the sidebar calendar. -->
+        <setter object="today_button" property="visible">False</setter>
+        <setter object="calendar_bar" property="visible">False</setter>
+      </object>
+    </child>
+
+    <property name="content">
+      <object class="AdwToastOverlay" id="toasts">
+        <property name="child">
+          <object class="AdwOverlaySplitView" id="split_view">
+            <property name="min-sidebar-width">250</property>
+            <property name="max-sidebar-width">300</property>
+
+            <property name="sidebar">
+              <object class="AdwToolbarView">
+                <child type="top">
+                  <object class="AdwHeaderBar">
+                    <property name="title-widget">
+                      <object class="AdwWindowTitle">
+                        <property name="title">Navcal</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <property name="content">
+                  <object class="GtkScrolledWindow">
+                    <property name="hscrollbar-policy">never</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <property name="spacing">6</property>
+                        <child>
+                          <object class="GtkCalendar" id="calendar">
+                            <property name="margin-start">6</property>
+                            <property name="margin-end">6</property>
+                            <style><class name="card"/><class name="event-marks"/></style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">Upcoming</property>
+                            <property name="xalign">0</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-top">12</property>
+                            <style><class name="heading"/></style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkListBox" id="upcoming">
+                            <style><class name="navigation-sidebar"/></style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwStatusPage" id="upcoming_empty">
+                            <property name="icon-name">x-office-calendar-symbolic</property>
+                            <property name="title" translatable="yes">No Upcoming Events</property>
+                            <property name="description" translatable="yes">Events in the next two weeks appear here</property>
+                            <property name="vexpand">True</property>
+                            <style><class name="compact"/></style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox" id="tasks_section">
+                            <property name="orientation">vertical</property>
+                            <property name="spacing">6</property>
+                            <property name="margin-start">6</property>
+                            <property name="margin-end">6</property>
+                            <property name="margin-bottom">12</property>
+                            <property name="visible">False</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">Tasks</property>
+                                <property name="xalign">0</property>
+                                <property name="margin-start">6</property>
+                                <property name="margin-top">12</property>
+                                <style><class name="heading"/></style>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkListBox" id="tasks_list">
+                                <property name="selection-mode">none</property>
+                                <style><class name="boxed-list"/></style>
+                                <accessibility>
+                                  <property name="label" translatable="yes">Tasks</property>
+                                </accessibility>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <property name="spacing">6</property>
+                            <property name="margin-start">6</property>
+                            <property name="margin-end">6</property>
+                            <property name="margin-bottom">12</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">World Clocks</property>
+                                <property name="xalign">0</property>
+                                <property name="margin-start">6</property>
+                                <property name="margin-top">12</property>
+                                <style><class name="heading"/></style>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkListBox" id="clocks_list">
+                                <property name="selection-mode">none</property>
+                                <style><class name="boxed-list"/></style>
+                                <accessibility>
+                                  <property name="label" translatable="yes">World clocks</property>
+                                </accessibility>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </property>
+
+            <property name="content">
+              <object class="AdwToolbarView">
+                <child type="top">
+                  <object class="AdwHeaderBar" id="content_header">
+                    <child type="start">
+                      <object class="GtkToggleButton" id="sidebar_button">
+                        <property name="icon-name">sidebar-show-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">Toggle sidebar</property>
+                        <property name="active" bind-source="split_view" bind-property="show-sidebar" bind-flags="sync-create|bidirectional"/>
+                      </object>
+                    </child>
+                    <child type="start">
+                      <object class="GtkMenuButton" id="new_event_button">
+                        <property name="icon-name">list-add-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">New event</property>
+                        <property name="popover">
+                          <object class="GtkPopover" id="quick_add_popover">
+                            <property name="child">
+                              <object class="GtkBox">
+                                <property name="orientation">vertical</property>
+                                <property name="spacing">12</property>
+                                <property name="margin-top">6</property>
+                                <property name="margin-bottom">6</property>
+                                <property name="margin-start">6</property>
+                                <property name="margin-end">6</property>
+                                <property name="width-request">300</property>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label" translatable="yes">New Event</property>
+                                    <property name="xalign">0</property>
+                                    <style><class name="heading"/></style>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkBox">
+                                    <property name="orientation">vertical</property>
+                                    <property name="spacing">6</property>
+                                    <child>
+                                      <object class="GtkEntry" id="quick_add_entry">
+                                        <property name="placeholder-text" translatable="yes">Lunch with Sam tomorrow 1pm</property>
+                                        <accessibility>
+                                          <property name="label" translatable="yes">Event title, date and time</property>
+                                          <relation name="described-by">quick_add_preview</relation>
+                                        </accessibility>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel" id="quick_add_preview">
+                                        <property name="xalign">0</property>
+                                        <property name="wrap">True</property>
+                                        <property name="max-width-chars">36</property>
+                                        <style>
+                                          <class name="caption"/>
+                                          <class name="dim-label"/>
+                                        </style>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkBox">
+                                    <property name="spacing">6</property>
+                                    <property name="homogeneous">True</property>
+                                    <child>
+                                      <object class="GtkButton" id="quick_edit_button">
+                                        <property name="label" translatable="yes">_Edit Details…</property>
+                                        <property name="use-underline">True</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkButton" id="quick_add_button">
+                                        <property name="label" translatable="yes">_Add</property>
+                                        <property name="use-underline">True</property>
+                                        <style><class name="suggested-action"/></style>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </property>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                    <child type="start">
+                      <object class="GtkBox">
+                        <style><class name="linked"/></style>
+                        <child>
+                          <object class="GtkButton">
+                            <property name="icon-name">go-previous-symbolic</property>
+                            <property name="action-name">win.previous</property>
+                            <property name="tooltip-text" translatable="yes">Previous</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="today_button">
+                            <property name="icon-name">navcal-today-symbolic</property>
+                            <property name="action-name">win.today</property>
+                            <property name="tooltip-text" translatable="yes">Go to today</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton">
+                            <property name="icon-name">go-next-symbolic</property>
+                            <property name="action-name">win.next</property>
+                            <property name="tooltip-text" translatable="yes">Next</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <property name="title-widget">
+                      <object class="AdwViewSwitcher" id="switcher">
+                        <property name="stack">stack</property>
+                        <property name="policy">wide</property>
+                      </object>
+                    </property>
+                    <child type="end">
+                      <object class="GtkMenuButton">
+                        <property name="icon-name">open-menu-symbolic</property>
+                        <property name="menu-model">primary_menu</property>
+                        <property name="primary">True</property>
+                        <property name="tooltip-text" translatable="yes">Main Menu</property>
+                      </object>
+                    </child>
+                    <child type="end">
+                      <object class="GtkToggleButton" id="search_button">
+                        <property name="icon-name">system-search-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">Search</property>
+                        <property name="active" bind-source="search_bar" bind-property="search-mode-enabled" bind-flags="sync-create|bidirectional"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child type="top">
+                  <object class="GtkSearchBar" id="search_bar">
+                    <property name="child">
+                      <object class="AdwClamp">
+                        <property name="maximum-size">480</property>
+                        <property name="child">
+                          <object class="GtkSearchEntry" id="search_entry">
+                            <property name="placeholder-text" translatable="yes">Search events</property>
+                            <property name="hexpand">True</property>
+                          </object>
+                        </property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child type="top">
+                  <object class="AdwBanner" id="banner"/>
+                </child>
+                <property name="content">
+                  <object class="GtkStack" id="content_stack">
+                    <property name="transition-type">crossfade</property>
+                    <child>
+                      <object class="GtkStackPage">
+                        <property name="name">calendar</property>
+                        <property name="child">
+                  <object class="GtkBox">
+                    <property name="orientation">vertical</property>
+                    <style><class name="view"/></style>
+                    <child>
+                      <object class="GtkBox" id="period_bar">
+                        <property name="spacing">6</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
+                        <property name="margin-top">6</property>
+                        <property name="margin-bottom">6</property>
+                        <child>
+                          <object class="GtkLabel" id="period_label">
+                            <property name="xalign">0</property>
+                            <property name="ellipsize">end</property>
+                            <style><class name="title-2"/></style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="year_label">
+                            <property name="xalign">0</property>
+                            <style>
+                              <class name="title-2"/>
+                              <class name="dim-label"/>
+                            </style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwSpinner" id="spinner">
+                            <property name="hexpand">True</property>
+                            <property name="halign">end</property>
+                            <property name="visible">False</property>
+                            <property name="tooltip-text" translatable="yes">Loading calendars</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkOverlay" id="views_overlay">
+                        <property name="vexpand">True</property>
+                        <property name="child">
+                          <object class="AdwViewStack" id="stack">
+                            <property name="vexpand">True</property>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                    <!-- Hidden widgets whose style (fonts, named colors) the
+                         custom-drawn views read, so they follow the theme. -->
+                    <child>
+                      <object class="GtkBox" id="style_probes">
+                        <property name="visible">False</property>
+                      </object>
+                    </child>
+                  </object>
+
+                        </property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkStackPage">
+                        <property name="name">search</property>
+                        <property name="child">
+                          <object class="GtkStack" id="search_stack">
+                            <style><class name="view"/></style>
+                            <child>
+                              <object class="GtkStackPage">
+                                <property name="name">results</property>
+                                <property name="child">
+                                  <object class="GtkScrolledWindow">
+                                    <property name="hscrollbar-policy">never</property>
+                                    <property name="child">
+                                      <object class="AdwClamp">
+                                        <property name="maximum-size">720</property>
+                                        <property name="child">
+                                          <object class="GtkListBox" id="search_results">
+                                            <property name="selection-mode">none</property>
+                                            <property name="valign">start</property>
+                                            <property name="margin-top">24</property>
+                                            <property name="margin-bottom">24</property>
+                                            <property name="margin-start">12</property>
+                                            <property name="margin-end">12</property>
+                                            <style><class name="boxed-list"/></style>
+                                          </object>
+                                        </property>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkStackPage">
+                                <property name="name">empty</property>
+                                <property name="child">
+                                  <object class="AdwStatusPage">
+                                    <property name="icon-name">system-search-symbolic</property>
+                                    <property name="title" translatable="yes">No Results Found</property>
+                                    <property name="description" translatable="yes">Try a different search</property>
+                                  </object>
+                                </property>
+                              </object>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+                <child type="bottom">
+                  <object class="GtkScrolledWindow" id="calendar_bar">
+                    <property name="vscrollbar-policy">never</property>
+                    <property name="propagate-natural-height">True</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="spacing">6</property>
+                        <property name="margin-top">6</property>
+                        <property name="margin-bottom">6</property>
+                        <property name="margin-start">6</property>
+                        <property name="margin-end">6</property>
+                        <child>
+                          <object class="GtkBox" id="dock_box">
+                            <property name="spacing">12</property>
+                            <accessibility>
+                              <property name="label" translatable="yes">Bottom bar</property>
+                            </accessibility>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkMenuButton">
+                            <property name="icon-name">emblem-system-symbolic</property>
+                            <property name="menu-model">dock_menu</property>
+                            <property name="tooltip-text" translatable="yes">Calendars and bottom bar</property>
+                            <property name="halign">end</property>
+                            <property name="valign">center</property>
+                            <property name="hexpand">True</property>
+                            <style><class name="flat"/></style>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child type="bottom">
+                  <object class="AdwViewSwitcherBar" id="switcher_bar">
+                    <property name="stack">stack</property>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+
+  <object class="AdwWindowTitle" id="narrow_title"/>
+</interface>

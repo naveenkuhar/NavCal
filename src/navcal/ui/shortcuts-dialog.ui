@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface domain="navcal">
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.8"/>
+  <object class="AdwShortcutsDialog" id="shortcuts_dialog">
+    <child>
+      <object class="AdwShortcutsSection">
+        <property name="title" translatable="yes">General</property>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Show keyboard shortcuts</property><property name="accelerator">&lt;Control&gt;question</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Preferences</property><property name="accelerator">&lt;Control&gt;comma</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Open main menu</property><property name="accelerator">F10</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Close window</property><property name="accelerator">&lt;Control&gt;w</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Search</property><property name="accelerator">&lt;Control&gt;f</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Print</property><property name="accelerator">&lt;Control&gt;p</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Quit</property><property name="accelerator">&lt;Control&gt;q</property></object></child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwShortcutsSection">
+        <property name="title" translatable="yes">Navigation</property>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Go to today</property><property name="accelerator">&lt;Control&gt;t</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Go to date</property><property name="accelerator">&lt;Control&gt;g</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Previous period</property><property name="accelerator">&lt;Alt&gt;Left</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Next period</property><property name="accelerator">&lt;Alt&gt;Right</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Day view</property><property name="accelerator">&lt;Control&gt;1</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Week view</property><property name="accelerator">&lt;Control&gt;2</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Month view</property><property name="accelerator">&lt;Control&gt;3</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Year view</property><property name="accelerator">&lt;Control&gt;4</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Agenda view</property><property name="accelerator">&lt;Control&gt;5</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Move between days or times</property><property name="accelerator">Left Right Up Down</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Select next or previous event</property><property name="accelerator">space &lt;Shift&gt;space</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Zoom in on the hours</property><property name="accelerator">&lt;Control&gt;plus</property><property name="subtitle" translatable="yes">Day and week views; or pinch, or Ctrl+scroll</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Zoom out</property><property name="accelerator">&lt;Control&gt;minus</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Reset zoom</property><property name="accelerator">&lt;Control&gt;0</property></object></child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwShortcutsSection">
+        <property name="title" translatable="yes">Events</property>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">New event</property><property name="accelerator">&lt;Control&gt;n</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Open selected event, or create one</property><property name="accelerator">Return</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Select more events</property><property name="accelerator">Control_L</property><property name="subtitle" translatable="yes">Hold while clicking events</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Select all visible events</property><property name="accelerator">&lt;Control&gt;a</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Clear selection</property><property name="accelerator">Escape</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Copy</property><property name="accelerator">&lt;Control&gt;c</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Cut</property><property name="accelerator">&lt;Control&gt;x</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Paste</property><property name="accelerator">&lt;Control&gt;v</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Duplicate</property><property name="accelerator">&lt;Control&gt;d</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Duplicate by dragging</property><property name="accelerator">Control_L</property><property name="subtitle" translatable="yes">Hold while dropping an event</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Delete</property><property name="accelerator">Delete</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Undo</property><property name="accelerator">&lt;Control&gt;z</property></object></child>
+        <child><object class="AdwShortcutsItem"><property name="title" translatable="yes">Redo</property><property name="accelerator">&lt;Shift&gt;&lt;Control&gt;z</property></object></child>
+      </object>
+    </child>
+  </object>
+</interface>

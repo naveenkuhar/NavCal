@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface domain="navcal">
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="NavcalEventEditor" parent="AdwDialog">
+    <property name="content-width">480</property>
+    <property name="content-height">760</property>
+    <property name="child">
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar" id="header">
+            <property name="show-start-title-buttons">False</property>
+            <property name="show-end-title-buttons">False</property>
+            <child type="start">
+              <object class="GtkButton" id="cancel_button">
+                <property name="label" translatable="yes">_Cancel</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkButton" id="save_button">
+                <property name="label" translatable="yes">_Save</property>
+                <property name="use-underline">True</property>
+                <style><class name="suggested-action"/></style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="top">
+          <object class="AdwBanner" id="readonly_banner">
+            <property name="title" translatable="yes">This calendar is read-only</property>
+          </object>
+        </child>
+        <property name="content">
+          <object class="AdwPreferencesPage" id="page">
+
+            <child>
+              <object class="AdwPreferencesGroup">
+                <child>
+                  <object class="AdwEntryRow" id="title_row">
+                    <property name="title" translatable="yes">_Title</property>
+                    <property name="use-underline">True</property>
+                    <property name="activates-default">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwEntryRow" id="location_row">
+                    <property name="title" translatable="yes">_Location</property>
+                    <property name="use-underline">True</property>
+                    <property name="activates-default">True</property>
+                    <child type="suffix">
+                      <object class="GtkButton" id="map_button">
+                        <property name="icon-name">mark-location-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">Show on map</property>
+                        <property name="valign">center</property>
+                        <style><class name="flat"/></style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwActionRow" id="weather_row">
+                    <property name="visible">False</property>
+                    <property name="use-markup">False</property>
+                    <property name="subtitle" translatable="yes">Forecast there when it starts</property>
+                    <child type="prefix">
+                      <object class="GtkImage" id="weather_icon"/>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwActionRow" id="hours_row">
+                    <property name="visible">False</property>
+                    <property name="use-markup">False</property>
+                    <child type="prefix">
+                      <object class="GtkImage" id="hours_icon"/>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwPreferencesGroup">
+                <property name="title" translatable="yes">Schedule</property>
+                <child>
+                  <object class="AdwSwitchRow" id="all_day_row">
+                    <property name="title" translatable="yes">All _day</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwActionRow" id="start_row">
+                    <property name="title" translatable="yes">_Starts</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwActionRow" id="end_row">
+                    <property name="title" translatable="yes">_Ends</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwComboRow" id="travel_row">
+                    <property name="title" translatable="yes">T_ravel time</property>
+                    <property name="subtitle" translatable="yes">Time to get there. You’ll get a “Time to Leave” reminder.</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="travel_minutes_row">
+                    <property name="title" translatable="yes">Travel _minutes</property>
+                    <property name="use-underline">True</property>
+                    <property name="visible">False</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">1</property>
+                        <property name="upper">1440</property>
+                        <property name="step-increment">5</property>
+                        <property name="page-increment">15</property>
+                        <property name="value">20</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwActionRow" id="overlap_row">
+                    <property name="visible">False</property>
+                    <property name="use-markup">False</property>
+                    <child type="prefix">
+                      <object class="GtkImage">
+                        <property name="icon-name">dialog-warning-symbolic</property>
+                        <property name="accessible-role">presentation</property>
+                      </object>
+                    </child>
+                    <style><class name="warning"/></style>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwComboRow" id="tz_row">
+                    <property name="title" translatable="yes">Time _zone</property>
+                    <property name="use-underline">True</property>
+                    <property name="enable-search">True</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwPreferencesGroup">
+                <property name="title" translatable="yes">Repeat</property>
+                <child>
+                  <object class="AdwComboRow" id="repeat_row">
+                    <property name="title" translatable="yes">_Repeat</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="interval_row">
+                    <property name="title" translatable="yes">E_very</property>
+                    <property name="use-underline">True</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">1</property>
+                        <property name="upper">999</property>
+                        <property name="step-increment">1</property>
+                        <property name="value">1</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwActionRow" id="weekday_row">
+                    <property name="title" translatable="yes">On</property>
+                    <child type="suffix">
+                      <object class="GtkBox" id="weekday_box">
+                        <property name="valign">center</property>
+                        <style><class name="linked"/></style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwComboRow" id="monthly_row">
+                    <property name="title" translatable="yes">_On</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwComboRow" id="ends_row">
+                    <property name="title" translatable="yes">Stop_s</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwActionRow" id="until_row">
+                    <property name="title" translatable="yes">_Until</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="count_row">
+                    <property name="title" translatable="yes">_Number of times</property>
+                    <property name="use-underline">True</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">1</property>
+                        <property name="upper">999</property>
+                        <property name="step-increment">1</property>
+                        <property name="value">10</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwPreferencesGroup" id="reminders_group">
+                <property name="title" translatable="yes">Reminders</property>
+                <child>
+                  <object class="AdwButtonRow" id="add_reminder_row">
+                    <property name="title" translatable="yes">_Add Reminder</property>
+                    <property name="use-underline">True</property>
+                    <property name="start-icon-name">list-add-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwPreferencesGroup">
+                <child>
+                  <object class="AdwComboRow" id="calendar_row">
+                    <property name="title" translatable="yes">Ca_lendar</property>
+                    <property name="use-underline">True</property>
+                    <property name="use-subtitle">True</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwPreferencesGroup">
+                <property name="title" translatable="yes">Color</property>
+                <property name="description" translatable="yes">Uses the calendar’s color unless you pick one</property>
+                <child>
+                  <object class="AdwWrapBox" id="color_box">
+                    <property name="child-spacing">6</property>
+                    <property name="line-spacing">6</property>
+                    <accessibility>
+                      <property name="label" translatable="yes">Color</property>
+                    </accessibility>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwPreferencesGroup" id="links_group">
+                <property name="title" translatable="yes">Links and Files</property>
+                <child>
+                  <object class="AdwButtonRow" id="add_link_row">
+                    <property name="title" translatable="yes">Add Lin_k…</property>
+                    <property name="use-underline">True</property>
+                    <property name="start-icon-name">insert-link-symbolic</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwButtonRow" id="attach_row">
+                    <property name="title" translatable="yes">Attach _File…</property>
+                    <property name="use-underline">True</property>
+                    <property name="start-icon-name">mail-attachment-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwPreferencesGroup">
+                <property name="title" translatable="yes">Notes</property>
+                <child>
+                  <object class="GtkFrame">
+                    <property name="child">
+                      <object class="GtkTextView" id="notes_view">
+                        <property name="wrap-mode">word-char</property>
+                        <property name="accepts-tab">False</property>
+                        <property name="top-margin">12</property>
+                        <property name="bottom-margin">12</property>
+                        <property name="left-margin">12</property>
+                        <property name="right-margin">12</property>
+                        <property name="height-request">108</property>
+                        <accessibility>
+                          <property name="label" translatable="yes">Notes</property>
+                        </accessibility>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwPreferencesGroup" id="delete_group">
+                <child>
+                  <object class="AdwButtonRow" id="delete_row">
+                    <property name="title" translatable="yes">_Delete Event</property>
+                    <property name="use-underline">True</property>
+                    <style><class name="destructive-action"/></style>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>

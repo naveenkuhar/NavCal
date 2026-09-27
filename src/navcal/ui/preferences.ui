@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface domain="navcal">
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <object class="AdwPreferencesDialog" id="dialog">
+    <child>
+      <object class="AdwPreferencesPage">
+        <property name="name">general</property>
+        <property name="title" translatable="yes">General</property>
+        <property name="icon-name">preferences-system-symbolic</property>
+
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">New Events</property>
+            <child>
+              <object class="AdwComboRow" id="default_reminder">
+                <property name="title" translatable="yes">Default _reminder</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwComboRow" id="default_duration">
+                <property name="title" translatable="yes">Default _length</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Calendar View</property>
+            <child>
+              <object class="AdwComboRow" id="first_weekday">
+                <property name="title" translatable="yes">_First day of the week</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwComboRow" id="week_span">
+                <property name="title" translatable="yes">_Week view shows</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwSwitchRow" id="hide_weekends">
+                <property name="title" translatable="yes">_Hide weekends</property>
+                <property name="subtitle" translatable="yes">In the week and month views</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwSwitchRow" id="week_numbers">
+                <property name="title" translatable="yes">Show week _numbers</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwComboRow" id="second_timezone">
+                <property name="title" translatable="yes">Second _time zone</property>
+                <property name="subtitle" translatable="yes">Shown next to the hours in the day and week views</property>
+                <property name="use-underline">True</property>
+                <property name="enable-search">True</property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Weather and Places</property>
+            <property name="description" translatable="yes">Address suggestions and opening hours come from OpenStreetMap, forecasts from Open-Meteo. The locations you type are sent to them.</property>
+            <child>
+              <object class="AdwSwitchRow" id="online">
+                <property name="title" translatable="yes">Look up places and weather _online</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwSwitchRow" id="show_weather">
+                <property name="title" translatable="yes">Show _weather</property>
+                <property name="subtitle" translatable="yes">Under the days in the day, week and month views</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwEntryRow" id="weather_place">
+                <property name="title" translatable="yes">Weather _place</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwComboRow" id="temperature_unit">
+                <property name="title" translatable="yes">_Temperature unit</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Working Hours</property>
+            <child>
+              <object class="AdwSwitchRow" id="shade_work_hours">
+                <property name="title" translatable="yes">_Shade time outside working hours</property>
+                <property name="subtitle" translatable="yes">In the day and week views</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwComboRow" id="work_start">
+                <property name="title" translatable="yes">_Start</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwComboRow" id="work_end">
+                <property name="title" translatable="yes">_End</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Background</property>
+            <property name="description" translatable="yes">Reminders only appear while Navcal is running.</property>
+            <child>
+              <object class="AdwSwitchRow" id="run_in_background">
+                <property name="title" translatable="yes">R_un in background</property>
+                <property name="subtitle" translatable="yes">Keep running after the window is closed. Quit with Ctrl+Q.</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwSwitchRow" id="autostart">
+                <property name="title" translatable="yes">Start at _login</property>
+                <property name="subtitle" translatable="yes">Start hidden when you log in</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+      </object>
+    </child>
+  </object>
+</interface>

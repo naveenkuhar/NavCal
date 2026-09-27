@@ -1,0 +1,27 @@
+/* Swatches and dots show user-chosen calendar and event colors. There is no
+   style class for arbitrary colors, so each color gets a generated class in
+   style.py; only sizes and shape are set here. 32px keeps touch targets. */
+.event-color {
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0;
+  border-radius: 9999px;
+}
+
+.event-dot {
+  min-width: 12px;
+  min-height: 12px;
+  border-radius: 9999px;
+}
+
+/* The sidebar calendar marks days that have events with a dot under the
+   number, instead of the default tint. Accent color, or the text color on the
+   selected day. */
+calendar.event-marks > grid > label.day-number:checked:not(:selected) {
+  background-color: transparent;
+  background-image: radial-gradient(circle 2px at 50% 84%, var(--accent-color) 99%, transparent 100%);
+}
+
+calendar.event-marks > grid > label.day-number:checked:selected {
+  background-image: radial-gradient(circle 2px at 50% 84%, currentColor 99%, transparent 100%);
+}

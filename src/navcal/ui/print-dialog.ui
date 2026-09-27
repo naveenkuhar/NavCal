@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface domain="navcal">
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="NavcalPrintDialog" parent="AdwDialog">
+    <property name="title" translatable="yes">Print</property>
+    <property name="content-width">600</property>
+    <property name="content-height">760</property>
+    <property name="child">
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar">
+            <property name="show-start-title-buttons">False</property>
+            <property name="show-end-title-buttons">False</property>
+            <child type="start">
+              <object class="GtkButton" id="cancel_button">
+                <property name="label" translatable="yes">_Cancel</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkButton" id="print_button">
+                <property name="label" translatable="yes">_Print…</property>
+                <property name="use-underline">True</property>
+                <style><class name="suggested-action"/></style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <property name="content">
+          <object class="AdwPreferencesPage">
+            <child>
+              <object class="AdwPreferencesGroup">
+                <child>
+                  <object class="GtkBox">
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">6</property>
+                    <child>
+                      <object class="GtkDrawingArea" id="preview">
+                        <property name="height-request">340</property>
+                        <property name="accessible-role">img</property>
+                        <accessibility>
+                          <property name="label" translatable="yes">Preview of the printout</property>
+                        </accessibility>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox" id="pages_box">
+                        <property name="halign">center</property>
+                        <property name="spacing">6</property>
+                        <child>
+                          <object class="GtkButton" id="previous_page">
+                            <property name="icon-name">go-previous-symbolic</property>
+                            <property name="tooltip-text" translatable="yes">Previous page</property>
+                            <style><class name="flat"/><class name="circular"/></style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="pages_label">
+                            <style><class name="dim-label"/><class name="caption"/><class name="numeric"/></style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="next_page">
+                            <property name="icon-name">go-next-symbolic</property>
+                            <property name="tooltip-text" translatable="yes">Next page</property>
+                            <style><class name="flat"/><class name="circular"/></style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwPreferencesGroup">
+                <property name="title" translatable="yes">Layout</property>
+                <child>
+                  <object class="AdwComboRow" id="show_row">
+                    <property name="title" translatable="yes">_Show</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwComboRow" id="position_row">
+                    <property name="title" translatable="yes">Calendar _position</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwComboRow" id="period_row">
+                    <property name="title" translatable="yes">P_eriod</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwComboRow" id="orientation_row">
+                    <property name="title" translatable="yes">_Orientation</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwPreferencesGroup">
+                <property name="title" translatable="yes">Details</property>
+                <child>
+                  <object class="AdwSwitchRow" id="checkboxes_row">
+                    <property name="title" translatable="yes">_Checkboxes to tick off</property>
+                    <property name="subtitle" translatable="yes">In the agenda, next to each event</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSwitchRow" id="colors_row">
+                    <property name="title" translatable="yes">Event c_olors</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwPreferencesGroup">
+                <child>
+                  <object class="AdwButtonRow" id="image_row">
+                    <property name="title" translatable="yes">Save as _Image…</property>
+                    <property name="use-underline">True</property>
+                    <property name="start-icon-name">image-x-generic-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>
