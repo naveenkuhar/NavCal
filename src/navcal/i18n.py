@@ -4,7 +4,8 @@
 """Translations (gettext). Import `_` and `ngettext` from here.
 
 Compiled translations live in navcal/locale/<lang>/LC_MESSAGES/navcal.mo, built
-from po/*.po by tools/update-translations.sh. GtkBuilder files use the same
+from po/*.po by tools/update-translations.sh (installed builds use the system's
+locale folder instead). GtkBuilder files use the same
 "navcal" domain, set in each .ui file.
 """
 
@@ -12,10 +13,12 @@ from __future__ import annotations
 
 import gettext
 import locale
+import os
 from importlib.resources import files
 
 DOMAIN = "navcal"
-LOCALE_DIR = str(files("navcal").joinpath("locale"))
+# Installed builds set this (the launcher does); from the source folder, the package's own.
+LOCALE_DIR = os.environ.get("NAVCAL_LOCALEDIR") or str(files("navcal").joinpath("locale"))
 
 try:
     locale.setlocale(locale.LC_ALL, "")

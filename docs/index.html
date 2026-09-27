@@ -137,35 +137,34 @@
     <section id="install" class="install">
       <div class="wrap narrow">
         <h2>Install Navcal</h2>
-        <p>Navcal runs on Linux with GNOME. On Fedora Workstation, everything it needs is already there; other distributions need the same parts: GTK 4, libadwaita, PyGObject and Evolution Data Server. You’ll also need <a href="https://docs.astral.sh/uv/">uv</a>.</p>
+        <p>Navcal comes as a Flatpak, which works on any Linux distribution with GNOME. The GNOME runtime it needs comes from <a href="https://flathub.org">Flathub</a> by itself.</p>
+        <p class="actions left" hidden data-repo-only>
+          <a class="button primary" data-repo-link data-repo-path="/releases/latest" href="#">Download the Flatpak</a>
+        </p>
         <ol class="steps">
           <li>
-            <p>Make sure the system parts are installed:</p>
-            <pre><code>sudo dnf install python3-gobject gtk4 libadwaita evolution-data-server</code></pre>
-          </li>
-          <li hidden data-repo-only>
-            <p>Get the code:</p>
-            <pre><code>git clone <span data-repo-url></span>.git navcal
-cd navcal</code></pre>
+            <p>Install the file you downloaded:</p>
+            <pre><code>flatpak install navcal-0.6.0.flatpak</code></pre>
           </li>
           <li>
-            <p>Set it up (in the source folder):</p>
-            <pre><code>uv venv --python /usr/bin/python3 --system-site-packages .venv
-uv sync</code></pre>
-          </li>
-          <li>
-            <p>Start it:</p>
-            <pre><code>uv run navcal</code></pre>
+            <p>Open Navcal from your apps, or run:</p>
+            <pre><code>flatpak run io.github.navcal.Navcal</code></pre>
           </li>
         </ol>
-        <p class="note">On first start, Navcal adds itself to your apps. To find your events from the Activities search too, run <code>tools/install-search-provider.sh</code> once, then log out and back in.</p>
+        <h3>Build it yourself</h3>
+        <p>You’ll need the Flatpak builder and the GNOME SDK (a one-time download of about 1 GB). The build script installs Navcal for you and makes a <code>.flatpak</code> file to share.</p>
+        <pre><code><span hidden data-repo-only>git clone <span data-repo-url></span>.git navcal
+cd navcal
+</span>flatpak install --user flathub org.flatpak.Builder org.gnome.Sdk//50
+tools/build-flatpak.sh</code></pre>
+        <p class="note">To remove Navcal: <code>flatpak uninstall io.github.navcal.Navcal</code></p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="wrap">
-      <p><img src="icon.svg" alt="" width="20" height="20"> Navcal, by Nave Kuhar</p>
+      <p class="byline"><img src="icon.svg" alt="" width="20" height="20"> Navcal, by Nave Kuhar</p>
       <p>Free software under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL</a>, version 3 or later</p>
       <p hidden data-repo-only><a data-repo-link href="#">Source code</a></p>
     </div>
@@ -176,7 +175,7 @@ uv sync</code></pre>
     const repo = document.documentElement.dataset.repo.replace(/\/+$/, "").replace(/\.git$/, "");
     if (repo) {
       for (const el of document.querySelectorAll("[data-repo-only]")) el.hidden = false;
-      for (const a of document.querySelectorAll("[data-repo-link]")) a.href = repo;
+      for (const a of document.querySelectorAll("[data-repo-link]")) a.href = repo + (a.dataset.repoPath || "");
       for (const el of document.querySelectorAll("[data-repo-url]")) el.textContent = repo;
     }
   </script>

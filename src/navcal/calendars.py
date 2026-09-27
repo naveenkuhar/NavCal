@@ -25,9 +25,26 @@ def _hex(rgba: Gdk.RGBA) -> str:
 
 
 def open_online_accounts() -> None:
-    """GNOME Settings → Online Accounts (Google, Microsoft 365, Nextcloud, CalDAV…)."""
-    Gio.AppInfo.create_from_commandline("gnome-control-center online-accounts", None,
-                                        Gio.AppInfoCreateFlags.NONE).launch([], None)
+    """GNOME Settings → Online Accounts (Google, Microsoft 365, Nextcloud, CalDAV…).
+
+    Asks GNOME Settings over D-Bus, which also works from a Flatpak; the command
+    line is the fallback for older GNOME versions.
+    """
+    def done(bus, result):
+        try:
+            bus.call_finish(result)
+        except GLib.Error:
+            try:
+                Gio.AppInfo.create_from_commandline("gnome-control-center online-accounts", None,
+                                                    Gio.AppInfoCreateFlags.NONE).launch([], None)
+            except GLib.Error:
+                pass
+
+    panel = GLib.Variant("(sav)", ("online-accounts", []))
+    Gio.bus_get_sync(Gio.BusType.SESSION).call(
+        "org.gnome.Settings", "/org/gnome/Settings", "org.freedesktop.Application", "ActivateAction",
+        GLib.Variant("(sava{sv})", ("launch-panel", [panel], {})), None, Gio.DBusCallFlags.NONE, -1,
+        None, done)
 
 
 def next_color(backend: Backend) -> str:

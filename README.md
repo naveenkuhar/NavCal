@@ -6,6 +6,25 @@ Navcal stores events in GNOME's calendar service (Evolution Data Server), the sa
 
 It stays quick with big calendars: years of history, many repeating events, thousands of events (see [Large calendars](#large-calendars)).
 
+## Install
+
+Navcal comes as a Flatpak, which works on any Linux distribution with GNOME:
+
+```sh
+flatpak install navcal-0.6.0.flatpak       # the GNOME runtime comes from Flathub by itself
+flatpak run io.github.navcal.Navcal         # or open Navcal from your apps
+flatpak uninstall io.github.navcal.Navcal   # to remove it
+```
+
+To build the Flatpak yourself, install the builder and the GNOME SDK once, then run the build script. It installs Navcal for you and makes `navcal-0.6.0.flatpak` to share:
+
+```sh
+flatpak install --user flathub org.flatpak.Builder org.gnome.Sdk//50
+tools/build-flatpak.sh
+```
+
+In the Flatpak, searching from the Activities overview works without further setup. Distributions can package Navcal with its Meson build (`meson setup build && meson install -C build`).
+
 ## Setup
 
 Navcal uses the system's GTK bindings, so the virtual environment must see system packages:
@@ -41,7 +60,7 @@ Preferences are in `~/.config/navcal/settings.json`. Events live in the calendar
 
 ## Activities search
 
-Navcal can show events when you search in the GNOME Activities overview. GNOME Shell only reads search providers from system folders, so this needs one command with administrator rights:
+Navcal can show events when you search in the GNOME Activities overview. The Flatpak sets this up by itself. Run from the source folder, GNOME Shell only reads search providers from system folders, so this needs one command with administrator rights:
 
 ```sh
 tools/install-search-provider.sh   # then log out and back in
@@ -207,7 +226,10 @@ src/navcal/
   config.py       preferences file
 po/               translations (navcal.pot template, fr.po)
 tests/            unit tests, and calendar-service tests run by run-eds-tests.sh
-tools/            build-resources.sh, update-translations.sh, install-search-provider.sh
+tools/            build-resources.sh, update-translations.sh, install-search-provider.sh,
+                  build-flatpak.sh
+data/             desktop entry, app metadata and D-Bus service for installed builds
+build-aux/        the Flatpak manifest
 ```
 
 ## License

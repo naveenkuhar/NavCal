@@ -19,6 +19,7 @@ gi.require_version("GdkPixbuf", "2.0")
 import cairo  # noqa: E402
 from gi.repository import Adw, Gdk, GdkPixbuf, Gio, GLib, Gtk, Pango, PangoCairo  # noqa: E402
 
+from .desktop import IN_FLATPAK, PORTAL  # noqa: E402
 from .i18n import _, ngettext, pgettext  # noqa: E402
 
 # -- locale & clock ----------------------------------------------------------
@@ -35,7 +36,11 @@ def _interface_settings() -> Gio.Settings | None:
 @functools.cache
 def _clock() -> dict:
     """The clock format setting, kept up to date (reading it each time is slow)."""
-    settings, clock = _interface_settings(), {"12h": False}
+    clock = {"12h": False}
+    if IN_FLATPAK:  # the sandbox's own settings are the defaults: ask the desktop
+        _watch_portal_clock(clock)
+        return clock
+    settings = _interface_settings()
 
     def update(*_args):
         clock["12h"] = bool(settings and settings.get_string("clock-format") == "12h")
@@ -44,6 +49,26 @@ def _clock() -> dict:
         settings.connect("changed::clock-format", update)
     update()
     return clock
+
+
+def _watch_portal_clock(clock: dict) -> None:
+    namespace, key = "org.gnome.desktop.interface", "clock-format"
+    try:
+        bus = Gio.bus_get_sync(Gio.BusType.SESSION)
+        reply = bus.call_sync(*PORTAL, "org.freedesktop.portal.Settings", "Read",
+                              GLib.Variant("(ss)", (namespace, key)), None, Gio.DBusCallFlags.NONE, 1000, None)
+    except GLib.Error:
+        return
+    value = reply.unpack()[0]
+    clock["12h"] = (value[0] if isinstance(value, tuple) else value) == "12h"  # Read wraps it twice
+
+    def changed(_bus, _sender, _path, _iface, _signal, params):
+        ns, name, new = params.unpack()
+        if ns == namespace and name == key:
+            clock["12h"] = new == "12h"
+
+    bus.signal_subscribe(PORTAL[0], "org.freedesktop.portal.Settings", "SettingChanged", PORTAL[1],
+                         None, Gio.DBusSignalFlags.NONE, changed)
 
 
 def uses_12h_clock() -> bool:

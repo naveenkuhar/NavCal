@@ -95,7 +95,8 @@ class Application(Adw.Application):
     def do_shutdown(self):
         if self.window:
             self.window.save_state()
-        self.reminders.save()
+        if hasattr(self, "reminders"):  # not if starting up failed
+            self.reminders.save()
         Adw.Application.do_shutdown(self)
 
     def _migrate_legacy_events(self) -> int:
@@ -138,6 +139,8 @@ class Application(Adw.Application):
         if background and not self._held:
             self.hold()
             self._held = True
+            if desktop.IN_FLATPAK:  # so the sandbox lets it run without a window
+                desktop.request_background(desktop.autostart_enabled(self.config))
         elif not background and self._held:
             self.release()
             self._held = False
@@ -281,8 +284,8 @@ class Application(Adw.Application):
         background.set_active(config["run-in-background"])
         background.connect("notify::active", self._on_background_toggled)
         autostart = get("autostart")
-        autostart.set_active(desktop.autostart_enabled())
-        autostart.connect("notify::active", lambda row, _p: desktop.set_autostart(row.get_active()))
+        autostart.set_active(desktop.autostart_enabled(config))
+        autostart.connect("notify::active", lambda row, _p: desktop.set_autostart(row.get_active(), config))
 
         dialog = get("dialog")
         dialog.add(CalendarsPage(self.backend, window, window.toast))

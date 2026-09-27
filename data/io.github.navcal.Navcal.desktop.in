@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Navcal
+Comment=Plan your days and get reminders
+# Translators: search terms to find this application. Don't translate the semicolons; end with one.
+Keywords=calendar;event;reminder;schedule;agenda;
+Exec=navcal
+Icon=io.github.navcal.Navcal
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;Office;Calendar;
+StartupNotify=true
+DBusActivatable=true
+X-GNOME-UsesNotifications=true

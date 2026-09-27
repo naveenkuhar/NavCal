@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Nave Kuhar -->
+<!-- SPDX-License-Identifier: CC0-1.0 -->
+<component type="desktop-application">
+  <id>io.github.navcal.Navcal</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Navcal</name>
+  <summary>Plan your days and get reminders</summary>
+  <description>
+    <p>Navcal is a calendar for GNOME that works with the calendars you already have — Google, Microsoft 365, Nextcloud, iCloud or any CalDAV server — and brings your events, tasks, weather and plans together in one place.</p>
+    <ul>
+      <li>Day, week, month, year and agenda views</li>
+      <li>Repeating events, several reminders per event, and snooze</li>
+      <li>Tasks next to your events</li>
+      <li>Quick add: type “Lunch with Sam tomorrow 1pm”</li>
+      <li>The forecast and opening hours for the places you go</li>
+      <li>Printing as a calendar, a checklist, or both</li>
+    </ul>
+  </description>
+  <developer id="io.github.navcal">
+    <name translate="no">Nave Kuhar</name>
+  </developer>
+  <launchable type="desktop-id">io.github.navcal.Navcal.desktop</launchable>
+  <provides>
+    <binary>navcal</binary>
+  </provides>
+  <content_rating type="oars-1.1"/>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </supports>
+  <branding>
+    <color type="primary" scheme_preference="light">#99c1f1</color>
+    <color type="primary" scheme_preference="dark">#1a5fb4</color>
+  </branding>
+  <translation type="gettext">navcal</translation>
+  <releases>
+    <release version="0.6.0" date="2026-09-27">
+      <description>
+        <p>The first release.</p>
+      </description>
+    </release>
+  </releases>
+</component>

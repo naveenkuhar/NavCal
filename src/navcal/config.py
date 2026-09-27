@@ -35,6 +35,7 @@ DEFAULTS = {
     "work-start": 9,
     "work-end": 17,
     "footbar": True,
+    "autostart": False,  # in a Flatpak (elsewhere, the autostart file is what counts)
     "dock": ["calendars"],  # what the bottom bar shows, in order (dock.ITEMS)
     "world-clocks": [],  # time zone ids shown in the sidebar
     "second-timezone": "",  # extra hour labels in the day and week views

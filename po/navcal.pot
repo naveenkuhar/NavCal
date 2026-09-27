@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-27 04:22-0400\n"
+"POT-Creation-Date: 2026-09-27 04:40-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,329 +39,333 @@ msgid ""
 "press Ctrl+Q in Navcal to quit."
 msgstr ""
 
-#: src/navcal/application.py:198
+#: src/navcal/application.py:200
 msgid "Plan your days and get reminders."
 msgstr ""
 
-#: src/navcal/application.py:199
+#: src/navcal/application.py:201
 msgid "translator-credits"
 msgstr ""
 
-#: src/navcal/application.py:240 src/navcal/application.py:251
+#: src/navcal/application.py:242 src/navcal/application.py:253
 #: src/navcal/editor.py:34
 msgid "None"
 msgstr ""
 
-#: src/navcal/application.py:243 src/navcal/editor.py:35
+#: src/navcal/application.py:245 src/navcal/editor.py:35
 msgid "15 minutes"
 msgstr ""
 
-#: src/navcal/application.py:243 src/navcal/editor.py:35
+#: src/navcal/application.py:245 src/navcal/editor.py:35
 msgid "30 minutes"
 msgstr ""
 
-#: src/navcal/application.py:243 src/navcal/editor.py:35
+#: src/navcal/application.py:245 src/navcal/editor.py:35
 msgid "45 minutes"
 msgstr ""
 
-#: src/navcal/application.py:244 src/navcal/editor.py:36
+#: src/navcal/application.py:246 src/navcal/editor.py:36
 msgid "1 hour"
 msgstr ""
 
-#: src/navcal/application.py:244
+#: src/navcal/application.py:246
 msgid "90 minutes"
 msgstr ""
 
-#: src/navcal/application.py:244 src/navcal/editor.py:36
+#: src/navcal/application.py:246 src/navcal/editor.py:36
 msgid "2 hours"
 msgstr ""
 
-#: src/navcal/application.py:246
+#: src/navcal/application.py:248
 msgid "Use the system setting"
 msgstr ""
 
-#: src/navcal/application.py:246
+#: src/navcal/application.py:248
 msgid "Sunday"
 msgstr ""
 
-#: src/navcal/application.py:246
+#: src/navcal/application.py:248
 msgid "Monday"
 msgstr ""
 
-#: src/navcal/application.py:247
+#: src/navcal/application.py:249
 msgid "Saturday"
 msgstr ""
 
-#: src/navcal/application.py:248
+#: src/navcal/application.py:250
 msgid "A full week"
 msgstr ""
 
-#: src/navcal/application.py:248
+#: src/navcal/application.py:250
 msgid "4 days"
 msgstr ""
 
-#: src/navcal/application.py:248
+#: src/navcal/application.py:250
 msgid "3 days"
 msgstr ""
 
-#: src/navcal/application.py:267
+#: src/navcal/application.py:269
 msgid "From the region"
 msgstr ""
 
-#: src/navcal/application.py:267
+#: src/navcal/application.py:269
 msgid "Celsius (°C)"
 msgstr ""
 
-#: src/navcal/application.py:267
+#: src/navcal/application.py:269
 msgid "Fahrenheit (°F)"
 msgstr ""
 
-#: src/navcal/calendars.py:43 src/navcal/dock.py:25 src/navcal/dock.py:85
+#: src/navcal/calendars.py:60 src/navcal/dock.py:25 src/navcal/dock.py:85
 msgid "Calendars"
 msgstr ""
 
-#: src/navcal/calendars.py:54
+#: src/navcal/calendars.py:71
 msgid "Add Calendars"
 msgstr ""
 
-#: src/navcal/calendars.py:56
+#: src/navcal/calendars.py:73
 msgid "_Online Accounts…"
 msgstr ""
 
-#: src/navcal/calendars.py:57
+#: src/navcal/calendars.py:74
 msgid "_New Calendar…"
 msgstr ""
 
-#: src/navcal/calendars.py:58
+#: src/navcal/calendars.py:75
 msgid "_Subscribe to Calendar Link…"
 msgstr ""
 
-#: src/navcal/calendars.py:60
+#: src/navcal/calendars.py:77
 msgid "Add Public _Holidays…"
 msgstr ""
 
-#: src/navcal/calendars.py:66
+#: src/navcal/calendars.py:83
 msgid ""
 "Google, Microsoft 365, Exchange, Nextcloud and iCloud or other CalDAV "
 "servers are added in Online Accounts and appear here automatically."
 msgstr ""
 
-#: src/navcal/calendars.py:69
+#: src/navcal/calendars.py:86
 msgid "Import and Export"
 msgstr ""
 
-#: src/navcal/calendars.py:70
+#: src/navcal/calendars.py:87
 msgid "Exporting all calendars makes a backup you can import later."
 msgstr ""
 
-#: src/navcal/calendars.py:72
+#: src/navcal/calendars.py:89
 msgid "_Import Events…"
 msgstr ""
 
-#: src/navcal/calendars.py:74
+#: src/navcal/calendars.py:91
 msgid "_Export Events…"
 msgstr ""
 
-#: src/navcal/calendars.py:101
+#: src/navcal/calendars.py:118
 msgid "On This Computer"
 msgstr ""
 
-#: src/navcal/calendars.py:112
+#: src/navcal/calendars.py:129
 msgid "Loading…"
 msgstr ""
 
-#: src/navcal/calendars.py:112
+#: src/navcal/calendars.py:129
 msgid "Read-only"
 msgstr ""
 
-#: src/navcal/calendars.py:116 src/navcal/editor.py:455
+#: src/navcal/calendars.py:133 src/navcal/editor.py:455
 msgid "Calendar color"
 msgstr ""
 
-#: src/navcal/calendars.py:121
+#: src/navcal/calendars.py:138
 msgid "Remove calendar"
 msgstr ""
 
-#: src/navcal/calendars.py:125
+#: src/navcal/calendars.py:142
 msgid "Show in Navcal and the top bar"
 msgstr ""
 
-#: src/navcal/calendars.py:134
+#: src/navcal/calendars.py:151
 msgid "Remove Calendar?"
 msgstr ""
 
-#: src/navcal/calendars.py:135
+#: src/navcal/calendars.py:152
 #, python-brace-format
 msgid "“{name}” and all its events will be permanently deleted."
 msgstr ""
 
-#: src/navcal/calendars.py:136
+#: src/navcal/calendars.py:153
 #, python-brace-format
 msgid "You will no longer be subscribed to “{name}”."
 msgstr ""
 
-#: src/navcal/calendars.py:137 src/navcal/calendars.py:156
-#: src/navcal/calendars.py:229 src/navcal/calendars.py:289
-#: src/navcal/calendars.py:326 src/navcal/editor.py:518
+#: src/navcal/calendars.py:154 src/navcal/calendars.py:173
+#: src/navcal/calendars.py:246 src/navcal/calendars.py:306
+#: src/navcal/calendars.py:343 src/navcal/editor.py:518
 #: src/navcal/editor.py:893 src/navcal/window.py:735 src/navcal/ui/editor.ui:16
 #: src/navcal/ui/print-dialog.ui:17 src/navcal/ui/task-dialog.ui:16
 msgid "_Cancel"
 msgstr ""
 
-#: src/navcal/calendars.py:138
+#: src/navcal/calendars.py:155
 msgid "_Remove"
 msgstr ""
 
-#: src/navcal/calendars.py:181
+#: src/navcal/calendars.py:198
 msgid "Something Went Wrong"
 msgstr ""
 
-#: src/navcal/calendars.py:182
+#: src/navcal/calendars.py:199
 msgid "_Close"
 msgstr ""
 
-#: src/navcal/calendars.py:194
+#: src/navcal/calendars.py:211
 msgid "New Calendar"
 msgstr ""
 
-#: src/navcal/calendars.py:194
+#: src/navcal/calendars.py:211
 msgid "The calendar is stored on this computer."
 msgstr ""
 
-#: src/navcal/calendars.py:195 src/navcal/calendars.py:212
+#: src/navcal/calendars.py:212 src/navcal/calendars.py:229
 msgid "_Name"
 msgstr ""
 
-#: src/navcal/calendars.py:195
+#: src/navcal/calendars.py:212
 msgid "_Create"
 msgstr ""
 
-#: src/navcal/calendars.py:202
+#: src/navcal/calendars.py:219
 msgid "Calendar links start with https:// or webcal://"
 msgstr ""
 
-#: src/navcal/calendars.py:209
+#: src/navcal/calendars.py:226
 msgid "Subscribe to Calendar"
 msgstr ""
 
-#: src/navcal/calendars.py:210
+#: src/navcal/calendars.py:227
 msgid ""
 "Add a read-only calendar from a link, such as public holidays or a sports "
 "schedule. It’s refreshed every hour."
 msgstr ""
 
-#: src/navcal/calendars.py:212 src/navcal/editor.py:514
+#: src/navcal/calendars.py:229 src/navcal/editor.py:514
 msgid "_Link"
 msgstr ""
 
-#: src/navcal/calendars.py:212
+#: src/navcal/calendars.py:229
 msgid "_Subscribe"
 msgstr ""
 
-#: src/navcal/calendars.py:218
+#: src/navcal/calendars.py:235
 msgid "_Country or region"
 msgstr ""
 
-#: src/navcal/calendars.py:225
+#: src/navcal/calendars.py:242
 msgid "Add Public Holidays"
 msgstr ""
 
-#: src/navcal/calendars.py:226
+#: src/navcal/calendars.py:243
 msgid ""
 "Holidays are added as a read-only calendar, using Google’s public holiday "
 "feed. No account is needed."
 msgstr ""
 
-#: src/navcal/calendars.py:230 src/navcal/editor.py:277
+#: src/navcal/calendars.py:247 src/navcal/editor.py:277
 #: src/navcal/editor.py:519 src/navcal/tasks.py:86 src/navcal/window.py:736
 #: src/navcal/ui/window.ui:281
 msgid "_Add"
 msgstr ""
 
-#: src/navcal/calendars.py:242
+#: src/navcal/calendars.py:259
 msgid "Couldn’t Add Holidays"
 msgstr ""
 
-#: src/navcal/calendars.py:249
+#: src/navcal/calendars.py:266
 msgid "_Calendar"
 msgstr ""
 
-#: src/navcal/calendars.py:262
+#: src/navcal/calendars.py:279
 msgid "Calendar Files"
 msgstr ""
 
-#: src/navcal/calendars.py:266
+#: src/navcal/calendars.py:283
 msgid "Import Events"
 msgstr ""
 
-#: src/navcal/calendars.py:276
+#: src/navcal/calendars.py:293
 msgid "Couldn’t Open File"
 msgstr ""
 
-#: src/navcal/calendars.py:280
+#: src/navcal/calendars.py:297
 msgid "There’s no calendar you can add events to. Create one first."
 msgstr ""
 
-#: src/navcal/calendars.py:285
+#: src/navcal/calendars.py:302
 msgid "Import Events?"
 msgstr ""
 
-#: src/navcal/calendars.py:286
+#: src/navcal/calendars.py:303
 #, python-brace-format
 msgid "Choose a calendar for the events in “{file}”."
 msgstr ""
 
-#: src/navcal/calendars.py:290
+#: src/navcal/calendars.py:307
 msgid "_Import"
 msgstr ""
 
-#: src/navcal/calendars.py:300
+#: src/navcal/calendars.py:317
 #, python-brace-format
 msgid "“{file}” isn’t a calendar file."
 msgstr ""
 
-#: src/navcal/calendars.py:301 src/navcal/calendars.py:306
+#: src/navcal/calendars.py:318 src/navcal/calendars.py:323
 msgid "Couldn’t Import Events"
 msgstr ""
 
-#: src/navcal/calendars.py:308
+#: src/navcal/calendars.py:325
 #, python-brace-format
 msgid "Imported {n} event"
 msgid_plural "Imported {n} events"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/calendars.py:321
+#: src/navcal/calendars.py:338
 msgid "All calendars (backup)"
 msgstr ""
 
-#: src/navcal/calendars.py:322
+#: src/navcal/calendars.py:339
 msgid "Export Events?"
 msgstr ""
 
-#: src/navcal/calendars.py:323
+#: src/navcal/calendars.py:340
 msgid "Events are saved as an .ics file that other calendar apps can open."
 msgstr ""
 
-#: src/navcal/calendars.py:327
+#: src/navcal/calendars.py:344
 msgid "_Export…"
 msgstr ""
 
-#: src/navcal/calendars.py:336
+#: src/navcal/calendars.py:353
 msgid "Navcal Backup"
 msgstr ""
 
-#: src/navcal/calendars.py:337
+#: src/navcal/calendars.py:354
 msgid "Export Events"
 msgstr ""
 
-#: src/navcal/calendars.py:349
+#: src/navcal/calendars.py:366
 msgid "Couldn’t Save File"
 msgstr ""
 
-#: src/navcal/calendars.py:351
+#: src/navcal/calendars.py:368
 #, python-brace-format
 msgid "Exported to “{file}”"
+msgstr ""
+
+#: src/navcal/desktop.py:113
+msgid "Navcal shows reminders while its window is closed"
 msgstr ""
 
 #: src/navcal/dock.py:25
@@ -530,55 +534,55 @@ msgstr ""
 msgid "Move down"
 msgstr ""
 
-#: src/navcal/draw.py:55 src/navcal/draw.py:75
+#: src/navcal/draw.py:80 src/navcal/draw.py:100
 msgid "PM"
 msgstr ""
 
-#: src/navcal/draw.py:55 src/navcal/draw.py:75
+#: src/navcal/draw.py:80 src/navcal/draw.py:100
 msgid "AM"
 msgstr ""
 
-#: src/navcal/draw.py:61
+#: src/navcal/draw.py:86
 #, python-brace-format
 msgctxt "day and time"
 msgid "{day}, {time}"
 msgstr ""
 
-#: src/navcal/draw.py:68
+#: src/navcal/draw.py:93
 msgctxt "short PM"
 msgid "p"
 msgstr ""
 
-#: src/navcal/draw.py:68
+#: src/navcal/draw.py:93
 msgctxt "short AM"
 msgid "a"
 msgstr ""
 
-#: src/navcal/draw.py:383
+#: src/navcal/draw.py:408
 msgid "all day"
 msgstr ""
 
-#: src/navcal/draw.py:384
+#: src/navcal/draw.py:409
 #, python-brace-format
 msgid "{start} to {end}"
 msgstr ""
 
-#: src/navcal/draw.py:389
+#: src/navcal/draw.py:414
 msgid "repeats"
 msgstr ""
 
-#: src/navcal/draw.py:394 src/navcal/window.py:473
+#: src/navcal/draw.py:419 src/navcal/window.py:473
 msgid "no events"
 msgstr ""
 
-#: src/navcal/draw.py:394 src/navcal/window.py:125
+#: src/navcal/draw.py:419 src/navcal/window.py:125
 #, python-brace-format
 msgid "{n} event"
 msgid_plural "{n} events"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/navcal/draw.py:395 src/navcal/printing.py:186 src/navcal/reminders.py:37
+#: src/navcal/draw.py:420 src/navcal/printing.py:186 src/navcal/reminders.py:37
 #: src/navcal/reminders.py:45 src/navcal/reminders.py:52
 #: src/navcal/views/agenda.py:29 src/navcal/views/timegrid.py:120
 #: src/navcal/window.py:78 src/navcal/window.py:451 src/navcal/window.py:474
@@ -2707,4 +2711,53 @@ msgstr ""
 
 #: src/navcal/ui/window.ui:499
 msgid "Calendars and bottom bar"
+msgstr ""
+
+#: data/io.github.navcal.Navcal.desktop.in:2
+#: data/io.github.navcal.Navcal.metainfo.xml.in:8
+msgid "Navcal"
+msgstr ""
+
+#: data/io.github.navcal.Navcal.desktop.in:3
+#: data/io.github.navcal.Navcal.metainfo.xml.in:9
+msgid "Plan your days and get reminders"
+msgstr ""
+
+#: data/io.github.navcal.Navcal.desktop.in:5
+msgid "calendar;event;reminder;schedule;agenda;"
+msgstr ""
+
+#: data/io.github.navcal.Navcal.metainfo.xml.in:11
+msgid ""
+"Navcal is a calendar for GNOME that works with the calendars you already "
+"have — Google, Microsoft 365, Nextcloud, iCloud or any CalDAV server — and "
+"brings your events, tasks, weather and plans together in one place."
+msgstr ""
+
+#: data/io.github.navcal.Navcal.metainfo.xml.in:13
+msgid "Day, week, month, year and agenda views"
+msgstr ""
+
+#: data/io.github.navcal.Navcal.metainfo.xml.in:14
+msgid "Repeating events, several reminders per event, and snooze"
+msgstr ""
+
+#: data/io.github.navcal.Navcal.metainfo.xml.in:15
+msgid "Tasks next to your events"
+msgstr ""
+
+#: data/io.github.navcal.Navcal.metainfo.xml.in:16
+msgid "Quick add: type “Lunch with Sam tomorrow 1pm”"
+msgstr ""
+
+#: data/io.github.navcal.Navcal.metainfo.xml.in:17
+msgid "The forecast and opening hours for the places you go"
+msgstr ""
+
+#: data/io.github.navcal.Navcal.metainfo.xml.in:18
+msgid "Printing as a calendar, a checklist, or both"
+msgstr ""
+
+#: data/io.github.navcal.Navcal.metainfo.xml.in:45
+msgid "The first release."
 msgstr ""

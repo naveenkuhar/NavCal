@@ -12,6 +12,9 @@ xgettext --from-code=UTF-8 --package-name=Navcal --add-comments=Translators \
     --keyword=_ --keyword=N_ --keyword=ngettext:1,2 --keyword=pgettext:1c,2 \
     -L Python -o po/navcal.pot $PY
 xgettext --from-code=UTF-8 --join-existing -o po/navcal.pot $UI
+xgettext --from-code=UTF-8 --join-existing -o po/navcal.pot -L Desktop data/*.desktop.in
+xgettext --from-code=UTF-8 --join-existing -o po/navcal.pot --its=/usr/share/gettext/its/metainfo.its \
+    data/*.metainfo.xml.in
 for lang in $(cat po/LINGUAS); do
     if [ -f "po/$lang.po" ]; then
         msgmerge --quiet --update --backup=none "po/$lang.po" po/navcal.pot

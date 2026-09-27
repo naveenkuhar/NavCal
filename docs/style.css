@@ -136,11 +136,14 @@ pre {
 code { font-family: var(--mono); font-size: 0.92em; }
 p code { background: var(--code-bg); padding: 2px 6px; border-radius: 6px; }
 .note { font-size: 0.97rem; }
+.install h3 { margin-top: 32px; font-size: 1.2rem; }
+.actions.left { justify-content: flex-start; margin: 20px 0 8px; }
 
 /* -- footer -- */
 .footer { border-top: 1px solid var(--line); padding: 28px 0 calc(28px + env(safe-area-inset-bottom)); color: var(--muted); font-size: 0.95rem; }
 .footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-.footer p { margin: 0; display: flex; align-items: center; gap: 8px; }
+.footer p { margin: 0; }
+.footer .byline { display: flex; align-items: center; gap: 8px; }
 
 /* -- narrow screens -- */
 @media (max-width: 800px) {
