@@ -148,6 +148,10 @@ Navcal is tested with a calendar of about 8,500 events: ten years of history, 15
 - **The Agenda** only rebuilds the days whose events changed. A long agenda shows its first days at once and builds the rest between frames.
 - **Imports** go to the calendar service 200 events at a time.
 
+## Website
+
+The project's website is in `docs/`: one page with screenshots in light and dark, which follows the visitor's system style. To publish it with GitHub Pages, open the repository's **Settings → Pages**, choose **Deploy from a branch**, then the `main` branch and the `/docs` folder. Put the repository's address in `data-repo` at the top of `docs/index.html`; until then the Source Code button and the clone step stay hidden.
+
 ## Development
 
 ```sh

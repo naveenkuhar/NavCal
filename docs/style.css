@@ -1,0 +1,157 @@
+/* Navcal's website. Colors follow GNOME's Adwaita palette, light and dark. */
+
+:root {
+  --bg: #fafafb;
+  --card: #ffffff;
+  --fg: rgb(0 0 6 / 80%);
+  --muted: rgb(0 0 6 / 60%);
+  --line: rgb(0 0 6 / 8%);
+  --code-bg: rgb(0 0 6 / 5%);
+  --accent: #3584e4;
+  --accent-fg: #ffffff;
+  --accent-text: #1c71d8;
+  --button: rgb(0 0 6 / 8%);
+  --button-hover: rgb(0 0 6 / 12%);
+  --shadow: 0 1px 3px rgb(0 0 6 / 10%), 0 12px 32px rgb(0 0 6 / 12%);
+  --topbar: rgb(250 250 251 / 85%);
+  /* calendar colors, for the dots on the cards */
+  --blue: #3584e4; --green: #2ec27e; --yellow: #e5a50a; --orange: #e66100;
+  --red: #e01b24; --purple: #9141ac; --teal: #2190a4;
+  --radius: 12px;
+  --font: "Adwaita Sans", Cantarell, Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Adwaita Mono", "Source Code Pro", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #222226;
+    --card: #2e2e32;
+    --fg: #ffffff;
+    --muted: rgb(255 255 255 / 70%);
+    --line: rgb(255 255 255 / 10%);
+    --code-bg: rgb(0 0 6 / 30%);
+    --accent-text: #78aeed;
+    --button: rgb(255 255 255 / 10%);
+    --button-hover: rgb(255 255 255 / 15%);
+    --shadow: 0 1px 3px rgb(0 0 0 / 30%), 0 12px 32px rgb(0 0 0 / 35%);
+    --topbar: rgb(34 34 38 / 85%);
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 1.0625rem/1.6 var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; }
+a { color: var(--accent-text); }
+a:focus-visible, .button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+[hidden] { display: none !important; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: max(20px, env(safe-area-inset-left)); }
+.narrow { max-width: 760px; }
+
+.skip { position: absolute; left: -999px; top: 8px; background: var(--card); padding: 8px 12px; border-radius: 8px; z-index: 10; }
+.skip:focus { left: 8px; }
+
+/* -- top bar -- */
+.topbar {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--topbar);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--line);
+  padding-top: env(safe-area-inset-top);
+}
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--fg); text-decoration: none; }
+.nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; justify-content: flex-end; }
+.nav li a { display: block; padding: 6px 12px; border-radius: 8px; color: var(--fg); text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+.nav li a:hover { background: var(--button); }
+
+/* -- hero -- */
+.hero { text-align: center; padding-top: 72px; }
+.app-icon { display: block; margin: 0 auto 12px; filter: drop-shadow(0 6px 16px rgb(0 0 6 / 18%)); }
+h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); line-height: 1.1; margin: 0; letter-spacing: -0.02em; }
+.tagline { font-size: clamp(1.3rem, 3vw, 1.6rem); font-weight: 700; margin: 12px 0 8px; }
+.lead { color: var(--muted); margin: 0 auto; max-width: 640px; }
+.actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 28px 0 48px; }
+
+.button {
+  display: inline-block; padding: 10px 22px; border-radius: 9999px;
+  background: var(--button); color: var(--fg); font-weight: 700; text-decoration: none;
+}
+.button:hover { background: var(--button-hover); }
+.button.primary { background: var(--accent); color: var(--accent-fg); }
+.button.primary:hover { filter: brightness(1.08); }
+
+.shot img { display: block; border-radius: var(--radius); box-shadow: var(--shadow); }
+.feature .shot { justify-self: center; }
+.hero-shot img { margin: 0 auto; }
+
+/* -- features -- */
+section { padding: 72px 0; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.01em; }
+h3 { font-size: 1.05rem; margin: 0 0 4px; }
+
+.feature { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: center; }
+.feature + .feature { margin-top: 96px; }
+.feature.flip .text { order: 2; }
+.feature p { color: var(--muted); margin: 0; }
+.shot.phone { justify-self: center; }
+.shot.phone img { width: 300px; }
+
+/* -- more -- */
+.more { background: var(--card); border-block: 1px solid var(--line); }
+.more h2 { text-align: center; margin-bottom: 36px; }
+.cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.cards li { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.cards h3::before {
+  content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--dot); margin-right: 8px; vertical-align: 0.05em;
+}
+.cards p { margin: 0; color: var(--muted); font-size: 0.97rem; }
+
+/* -- privacy, install -- */
+.privacy, .install { text-align: left; }
+.privacy p, .install > .wrap > p { color: var(--muted); }
+.steps { padding-left: 1.4em; }
+.steps li { margin-bottom: 18px; }
+.steps p { margin: 0 0 8px; }
+pre {
+  margin: 0; padding: 14px 16px; overflow-x: auto;
+  background: var(--code-bg); border: 1px solid var(--line); border-radius: 10px;
+  font: 0.92rem/1.5 var(--mono);
+}
+code { font-family: var(--mono); font-size: 0.92em; }
+p code { background: var(--code-bg); padding: 2px 6px; border-radius: 6px; }
+.note { font-size: 0.97rem; }
+
+/* -- footer -- */
+.footer { border-top: 1px solid var(--line); padding: 28px 0 calc(28px + env(safe-area-inset-bottom)); color: var(--muted); font-size: 0.95rem; }
+.footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer p { margin: 0; display: flex; align-items: center; gap: 8px; }
+
+/* -- narrow screens -- */
+@media (max-width: 800px) {
+  .feature { grid-template-columns: 1fr; gap: 24px; }
+  .feature.flip .text { order: 0; }
+  .feature + .feature { margin-top: 64px; }
+  section { padding: 56px 0; }
+  .hero { padding-top: 48px; }
+}
+@media (max-width: 480px) {
+  .nav li:nth-child(2) { display: none; } /* Privacy: the smallest screens skip it */
+  .nav li a { padding: 6px 8px; }
+  .app-icon { width: 96px; height: 96px; }
+}

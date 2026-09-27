@@ -1,0 +1,183 @@
+<!doctype html>
+<!-- The repository's address goes in data-repo below (like "https://github.com/you/navcal").
+     While it's empty, the Source Code button and the clone step stay hidden. -->
+<html lang="en" data-repo="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Navcal — a calendar for GNOME</title>
+  <meta name="description" content="Navcal is a calendar app for GNOME that works with the calendars you already have, with tasks, weather, reminders and printing built in.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fafafb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#222226" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Navcal — a calendar for GNOME">
+  <meta property="og:description" content="Your calendars, tasks and plans in one fast, simple GNOME app.">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <nav class="wrap nav" aria-label="Main">
+      <a class="brand" href="#top"><img src="icon.svg" alt="" width="28" height="28"> Navcal</a>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#install">Install</a></li>
+        <li hidden data-repo-only><a data-repo-link href="#">Source</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap narrow">
+        <img class="app-icon" src="icon.svg" alt="" width="128" height="128">
+        <h1>Navcal</h1>
+        <p class="tagline">A calendar for GNOME that plans around your day.</p>
+        <p class="lead">Navcal works with the calendars you already have — Google, Microsoft 365, Nextcloud, iCloud — and brings your events, tasks, weather and plans together in one clean, fast app.</p>
+        <div class="actions">
+          <a class="button primary" href="#install">Install Navcal</a>
+          <a class="button" hidden data-repo-only data-repo-link href="#">Source Code</a>
+        </div>
+      </div>
+      <div class="wrap">
+        <picture class="shot hero-shot">
+          <!-- phones get the phone-sized screenshot -->
+          <source srcset="images/mobile-dark.webp" width="360" height="740"
+                  media="(max-width: 600px) and (prefers-color-scheme: dark)">
+          <source srcset="images/mobile-light.webp" width="360" height="740" media="(max-width: 600px)">
+          <source srcset="images/week-dark.webp" media="(prefers-color-scheme: dark)">
+          <img src="images/week-light.webp" width="1280" height="800"
+               alt="Navcal's week view: events for the week in colored blocks, the weather under each date, a small month calendar, upcoming events and tasks in the sidebar, and a bar at the bottom with the calendars, the next event and the weather now.">
+        </picture>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="wrap">
+        <article class="feature">
+          <div class="text">
+            <h2>All your calendars, in sync</h2>
+            <p>Navcal uses GNOME’s calendar service, so the accounts you add in Settings — Google, Microsoft 365, Exchange, Nextcloud, iCloud or any CalDAV server — simply show up. Show or hide calendars from the bottom bar, pick their colors, subscribe to calendar links and add your country’s holidays.</p>
+          </div>
+          <picture class="shot">
+            <source srcset="images/month-dark.webp" media="(prefers-color-scheme: dark)">
+            <img src="images/month-light.webp" width="1280" height="800" loading="lazy"
+                 alt="The month view for October, with events in each day, a trip spanning a week, and the forecast in the corner of the coming days.">
+          </picture>
+        </article>
+
+        <article class="feature flip">
+          <div class="text">
+            <h2>Knows where you’re going</h2>
+            <p>Type a place and pick it from the suggestions. Navcal shows the forecast for when you get there and, for cafés, shops and museums, whether they’ll be open. If a place closes before your event ends, you’ll see a warning right on the event.</p>
+          </div>
+          <picture class="shot">
+            <source srcset="images/editor-dark.webp" media="(prefers-color-scheme: dark)">
+            <img src="images/editor-light.webp" width="620" height="690" loading="lazy"
+                 alt="Editing an event at the Art Gallery of Ontario: under the location, the forecast for the evening, and a warning that the gallery closes at 9 PM, before the event ends, with its opening hours.">
+          </picture>
+        </article>
+
+        <article class="feature">
+          <div class="text">
+            <h2>Print it your way</h2>
+            <p>Print a day, a week or a month as a calendar, as a checklist to tick off, or both side by side — and see exactly how it will look before you print. Or save it as an image to share.</p>
+          </div>
+          <picture class="shot">
+            <source srcset="images/print-dark.webp" media="(prefers-color-scheme: dark)">
+            <img src="images/print-light.webp" width="720" height="720" loading="lazy"
+                 alt="The print dialog: a preview of a week planner next to a checklist of the week’s events, with choices for what to show, where the calendar goes, the period and the orientation.">
+          </picture>
+        </article>
+
+        <article class="feature flip">
+          <div class="text">
+            <h2>At home on any screen</h2>
+            <p>From a large monitor down to a phone, the layout adapts: the sidebar slides away, the view switcher moves to the bottom, and everything stays easy to use by touch or with the keyboard. Light or dark, it follows your system’s style and accent color.</p>
+          </div>
+          <picture class="shot phone">
+            <source srcset="images/mobile-dark.webp" media="(prefers-color-scheme: dark)">
+            <img src="images/mobile-light.webp" width="360" height="740" loading="lazy"
+                 alt="Navcal on a phone-sized screen: a day with its events and the forecast, and the views at the bottom.">
+          </picture>
+        </article>
+      </div>
+    </section>
+
+    <section class="more" aria-labelledby="more-title">
+      <div class="wrap">
+        <h2 id="more-title">And much more</h2>
+        <ul class="cards">
+          <li style="--dot: var(--blue)"><h3>Repeating events</h3><p>Every weekday, the second Tuesday, the last Friday. Change one, this and the following, or all.</p></li>
+          <li style="--dot: var(--orange)"><h3>Reminders</h3><p>Several per event, with a snooze button. Missed ones are waiting when you come back.</p></li>
+          <li style="--dot: var(--green)"><h3>Quick add</h3><p>Type “Lunch with Sam tomorrow 1pm at Café Luna” and it’s on your calendar.</p></li>
+          <li style="--dot: var(--purple)"><h3>Tasks</h3><p>Your to-do lists next to your events, from the same lists your other apps use.</p></li>
+          <li style="--dot: var(--red)"><h3>Travel time</h3><p>Blocks out the trip before an event and tells you when it’s time to leave.</p></li>
+          <li style="--dot: var(--teal)"><h3>Weather</h3><p>The forecast under each day, with the high and the low, in °C or °F.</p></li>
+          <li style="--dot: var(--yellow)"><h3>World clocks</h3><p>The time in other cities, and a second time zone next to the hours.</p></li>
+          <li style="--dot: var(--blue)"><h3>Drag and drop</h3><p>Move events around, hold Ctrl to duplicate with a live preview, pinch to zoom the hours.</p></li>
+          <li style="--dot: var(--orange)"><h3>Undo that remembers</h3><p>Undo and redo your last fifty changes, even after restarting.</p></li>
+          <li style="--dot: var(--green)"><h3>Your bottom bar</h3><p>Choose what it shows: calendars, the next event, the weather, clocks and shortcuts.</p></li>
+          <li style="--dot: var(--purple)"><h3>Keyboard and screen readers</h3><p>Everything works from the keyboard, and the calendar describes itself to screen readers.</p></li>
+          <li style="--dot: var(--red)"><h3>Fast with big calendars</h3><p>Years of history and thousands of events: moving around takes a few milliseconds.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="privacy" class="privacy">
+      <div class="wrap narrow">
+        <h2>Your calendar stays yours</h2>
+        <p>Your events live in GNOME’s calendar service on your computer, or with the accounts you chose — not on anyone else’s servers. Address suggestions and opening hours come from OpenStreetMap and forecasts from Open-Meteo; one switch in Preferences turns those lookups off. There are no accounts to create, no ads and no tracking.</p>
+      </div>
+    </section>
+
+    <section id="install" class="install">
+      <div class="wrap narrow">
+        <h2>Install Navcal</h2>
+        <p>Navcal runs on Linux with GNOME. On Fedora Workstation, everything it needs is already there; other distributions need the same parts: GTK 4, libadwaita, PyGObject and Evolution Data Server. You’ll also need <a href="https://docs.astral.sh/uv/">uv</a>.</p>
+        <ol class="steps">
+          <li>
+            <p>Make sure the system parts are installed:</p>
+            <pre><code>sudo dnf install python3-gobject gtk4 libadwaita evolution-data-server</code></pre>
+          </li>
+          <li hidden data-repo-only>
+            <p>Get the code:</p>
+            <pre><code>git clone <span data-repo-url></span>.git navcal
+cd navcal</code></pre>
+          </li>
+          <li>
+            <p>Set it up (in the source folder):</p>
+            <pre><code>uv venv --python /usr/bin/python3 --system-site-packages .venv
+uv sync</code></pre>
+          </li>
+          <li>
+            <p>Start it:</p>
+            <pre><code>uv run navcal</code></pre>
+          </li>
+        </ol>
+        <p class="note">On first start, Navcal adds itself to your apps. To find your events from the Activities search too, run <code>tools/install-search-provider.sh</code> once, then log out and back in.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p><img src="icon.svg" alt="" width="20" height="20"> Navcal, by Nave Kuhar</p>
+      <p hidden data-repo-only><a data-repo-link href="#">Source code</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Show the links to the repository once its address is set (see data-repo at the top).
+    const repo = document.documentElement.dataset.repo.replace(/\/+$/, "").replace(/\.git$/, "");
+    if (repo) {
+      for (const el of document.querySelectorAll("[data-repo-only]")) el.hidden = false;
+      for (const a of document.querySelectorAll("[data-repo-link]")) a.href = repo;
+      for (const el of document.querySelectorAll("[data-repo-url]")) el.textContent = repo;
+    }
+  </script>
+</body>
+</html>
